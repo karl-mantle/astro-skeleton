@@ -1,0 +1,46 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+interface Props extends HTMLAttributes<"a"> {
+  disabled?: boolean;
+  label: string;
+  icon: string;
+  iconSize?: number;
+  openNewTab?: boolean;
+}
+
+const {
+  disabled,
+  label,
+  icon,
+  iconSize = 21,
+  openNewTab,
+  href,
+  class: className,
+  ...rest
+}: Partial<Props> = Astro.props;
+
+const newTabAttributes = openNewTab ? { target: "_blank", rel: "noreferrer noopener" } : {};
+---
+
+<a
+  class:list={[
+    "hover:bg-primary-200 focus-visible:bg-focus-visible hover:text-primary-950 w-fit border-b-2 border-transparent p-2 transition duration-300 focus-visible:border-black focus-visible:text-black",
+    disabled && "text-primary-200 cursor-not-allowed",
+    className,
+  ]}
+  href={disabled ? undefined : href}
+  aria-disabled={disabled ? "true" : undefined}
+  {...newTabAttributes}
+  {...rest}
+>
+  <span class="sr-only">{label}</span>
+
+  <Icon
+    class="self-center transition-all duration-300"
+    name={icon}
+    height={iconSize}
+    width={iconSize}
+  />
+</a>
