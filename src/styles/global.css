@@ -1,0 +1,67 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+@plugin "@tailwindcss/typography";
+@config "tailwind.config.js";
+
+@theme {
+  /* fonts */
+  --font-sans:
+    "Noto Sans", ui-sans-serif, system-ui, sans-serif, "Noto Color Emoji", "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-serif: "Noto Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-mono:
+    "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  --color-focus-visible: var(--color-yellow-300);
+  /* primary */
+  --color-primary-50: var(--color-neutral-50);
+  --color-primary-100: var(--color-neutral-100);
+  --color-primary-200: var(--color-neutral-200);
+  --color-primary-300: var(--color-neutral-300);
+  --color-primary-400: var(--color-neutral-400);
+  --color-primary-500: var(--color-neutral-500);
+  --color-primary-600: var(--color-neutral-600);
+  --color-primary-700: var(--color-neutral-700);
+  --color-primary-800: var(--color-neutral-800);
+  --color-primary-900: var(--color-neutral-900);
+  --color-primary-950: var(--color-neutral-950);
+  /* secondary */
+  --color-secondary-50: var(--color-blue-50);
+  --color-secondary-100: var(--color-blue-100);
+  --color-secondary-200: var(--color-blue-200);
+  --color-secondary-300: var(--color-blue-300);
+  --color-secondary-400: var(--color-blue-400);
+  --color-secondary-500: var(--color-blue-500);
+  --color-secondary-600: var(--color-blue-600);
+  --color-secondary-700: var(--color-blue-700);
+  --color-secondary-800: var(--color-blue-800);
+  --color-secondary-900: var(--color-blue-900);
+  --color-secondary-950: var(--color-blue-950);
+  /* example custom colour */
+  --color-custom-50: oklch(0.9734 0.0248 81.13);
+  --color-custom-100: oklch(0.9486 0.0547 85.07);
+  --color-custom-200: oklch(0.9135 0.102 87.79);
+  --color-custom-300: oklch(0.8784 0.149 88.6);
+  --color-custom-400: oklch(0.855 0.1694 88.9);
+  --color-custom-500: oklch(0.7809 0.1596 87.99);
+  --color-custom-600: oklch(0.673 0.1376 91.64);
+  --color-custom-700: oklch(0.5532 0.1127 93.24);
+  --color-custom-800: oklch(0.4718 0.0937 94.88);
+  --color-custom-900: oklch(0.4247 0.0818 97.11);
+  --color-custom-950: oklch(0.2199 0.046 101.82);
+}
+
+@layer base {
+  h1 {
+    @apply text-2xl leading-snug font-semibold md:text-5xl;
+  }
+  h2 {
+    @apply text-xl leading-snug font-semibold md:text-3xl;
+  }
+  h3 {
+    @apply text-lg leading-snug font-medium md:text-xl;
+  }
+  h4 {
+    @apply leading-snug font-medium;
+  }
+}
