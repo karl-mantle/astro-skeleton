@@ -1,0 +1,198 @@
+---
+import { Icon } from "astro-icon/components";
+import { headerNavigation } from "~/site.config";
+
+type MenuItem = {
+  id: string;
+  parentId: string | null;
+  url: string;
+  label: string;
+  children: MenuItem[];
+};
+
+function createMenuTree(menuItems: MenuItem[], parentId: string | null = null): MenuItem[] {
+  return menuItems
+    .filter((item) => item.parentId === parentId)
+    .map((item) => ({
+      ...item,
+      children: createMenuTree(menuItems, item.id),
+    }));
+}
+
+const menuTree = createMenuTree(headerNavigation as MenuItem[]);
+---
+
+<nav
+  id="site-navigation"
+  class="bg-primary-50 absolute top-18 left-0 z-50 hidden h-[calc(100vh-74px)] w-full overflow-scroll text-lg font-medium md:static md:top-auto md:flex md:h-auto md:w-auto md:flex-row md:overflow-visible md:bg-transparent md:text-base"
+  aria-label="Main navigation"
+  data-site-nav
+>
+  <ul class="md:flex md:flex-row md:items-center md:gap-2" role="menubar">
+    {
+      menuTree.map((item: MenuItem, i) => (
+        <li class="relative flex flex-col" role="none" data-menu-item>
+          <div class="border-primary-200 flex flex-row items-center justify-between border-b-2 p-4 transition duration-300 md:gap-2 md:border-none md:py-0">
+            {/* menu items */}
+            {item.url ? (
+              <a
+                class="focus-visible:bg-focus-visible flex flex-grow items-center justify-between border-b-2 border-transparent transition duration-300 focus-visible:border-black focus-visible:text-black"
+                href={item.url}
+                aria-label={`open link to ${item.label}`}
+                role="menuitem"
+              >
+                <span>{item.label}</span>
+                {item.children.length === 0 && (
+                  <Icon
+                    name="material-symbols:arrow-right-alt"
+                    height={26}
+                    width={26}
+                    class="w-8 md:hidden"
+                  />
+                )}
+              </a>
+            ) : (
+              <span>{item.label}</span>
+            )}
+            {/* submenu toggle */}
+            {item.children.length > 0 && (
+              <button
+                class="focus-visible:bg-focus-visible flex cursor-pointer items-center justify-center border-b-2 border-transparent transition duration-300 focus-visible:border-black focus-visible:text-black md:p-1"
+                aria-label={`Open ${item.label} submenu`}
+                aria-expanded="false"
+                data-submenu-toggle
+              >
+                <Icon
+                  name="material-symbols:keyboard-arrow-down"
+                  height={32}
+                  width={32}
+                  class="w-8 transition duration-300 md:w-4"
+                />
+              </button>
+            )}
+          </div>
+
+          {/* submenu */}
+          {item.children.length > 0 && (
+            <ul
+              class="md:bg-primary-50 bg-primary-100 flex hidden w-full flex-col md:absolute md:top-full md:left-0 md:shadow-sm"
+              data-submenu
+              aria-label={`${item.label} submenu`}
+              role="menu"
+            >
+              {/* submenu items */}
+              {item.children.map((child: MenuItem) => (
+                <li
+                  class="border-primary-200 flex flex-row items-center justify-between border-b-2 p-4"
+                  role="none"
+                >
+                  <a
+                    class="flex flex-grow items-center justify-between"
+                    href={child.url}
+                    aria-label={`open link to ${child.label}`}
+                    role="menuitem"
+                  >
+                    <span>{child.label}</span>
+                    <Icon
+                      name="material-symbols:arrow-right-alt"
+                      height={26}
+                      width={26}
+                      class="w-8 md:w-4"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
+
+<script>
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-nocheck
+  function initNavigation() {
+    const nav = document.querySelector("[data-site-nav]");
+    const toggleButton = document.querySelector("[data-menu-toggle]");
+    const iconOpen = toggleButton?.querySelector("[data-menu-icon-open]");
+    const iconClose = toggleButton?.querySelector("[data-menu-icon-close]");
+
+    let siteNavigationOpen = false;
+    let lastScrollY = window.scrollY;
+
+    const lockBodyScroll = (lock) => {
+      document.body.classList.toggle("h-full", lock);
+      document.body.classList.toggle("overflow-hidden", lock);
+    };
+
+    const updateNavUI = () => {
+      if (!nav || !toggleButton) return;
+      nav.classList.toggle("hidden", !siteNavigationOpen);
+      toggleButton.setAttribute("aria-expanded", String(siteNavigationOpen));
+      iconOpen?.classList.toggle("hidden", siteNavigationOpen);
+      iconClose?.classList.toggle("hidden", !siteNavigationOpen);
+      lockBodyScroll(siteNavigationOpen);
+    };
+
+    const closeAllSubmenus = () => {
+      document.querySelectorAll("[data-submenu]").forEach((menu) => {
+        menu.classList.add("hidden");
+        const toggle = menu.closest("[data-menu-item]")?.querySelector("[data-submenu-toggle]");
+        toggle?.setAttribute("aria-expanded", "false");
+      });
+    };
+
+    /* mobile toggle */
+    toggleButton?.addEventListener("click", () => {
+      siteNavigationOpen = !siteNavigationOpen;
+      updateNavUI();
+      if (!siteNavigationOpen) closeAllSubmenus();
+    });
+
+    /* close on escape key */
+    window.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        siteNavigationOpen = false;
+        updateNavUI();
+        closeAllSubmenus();
+      }
+    });
+
+    /* submenu toggle */
+    document.querySelectorAll("[data-submenu-toggle]").forEach((btn) => {
+      const submenu = btn.closest("[data-menu-item]")?.querySelector("[data-submenu]");
+      if (!submenu) return;
+
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isOpen = !submenu.classList.contains("hidden");
+        closeAllSubmenus();
+        if (!isOpen) {
+          submenu.classList.remove("hidden");
+          btn.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+
+    /* close on outside click */
+    document.addEventListener("click", (e) => {
+      if (!e.target.closest("[data-menu-item]")) {
+        closeAllSubmenus();
+      }
+    });
+
+    /* auto close on scroll */
+    window.addEventListener("scroll", () => {
+      const openSubmenus = document.querySelectorAll("[data-submenu]:not(.hidden)");
+      if (openSubmenus.length > 0 && window.scrollY > lastScrollY && window.scrollY > 50) {
+        closeAllSubmenus();
+      }
+      lastScrollY = window.scrollY;
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initNavigation);
+  document.addEventListener("astro:page-load", initNavigation);
+</script>

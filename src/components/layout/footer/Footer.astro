@@ -1,0 +1,19 @@
+---
+import TextBtn from "~/components/ui/buttons/TextBtn.astro";
+import SocialLinks from "~/components/layout/footer/SocialLinks.astro";
+---
+
+<footer class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 p-4 md:flex-row">
+  <nav class="flex text-sm" aria-label="footer navigation">
+    <ul class="inline-flex gap-4">
+      <li>
+        <TextBtn label="Contact" href={`${Astro.site}contact`} />
+      </li>
+      <li>
+        <TextBtn label="Sitemap" href={`${Astro.site}sitemap-0.xml`} />
+      </li>
+    </ul>
+  </nav>
+
+  <SocialLinks />
+</footer>

@@ -1,0 +1,20 @@
+---
+import { socialLinks } from "~/site.config";
+import IconBtn from "~/components/ui/buttons/IconBtn.astro";
+---
+
+<div class="flex items-center gap-2">
+  {
+    socialLinks
+      .filter((link) => link.show)
+      .map((link) => (
+        <IconBtn
+          icon={link.icon}
+          iconSize={21}
+          href={link.href}
+          label={link.label}
+          openNewTab={true}
+        />
+      ))
+  }
+</div>

@@ -1,0 +1,32 @@
+---
+import { Image } from "astro:assets";
+import HeaderNavigation from "~/components/layout/header//HeaderNavigation.astro";
+import Navigation from "~/components/layout/header/buttons/Navigation.astro";
+import Search from "~/components/layout/header/buttons/Search.astro";
+import Theme from "~/components/layout/header/buttons/Theme.astro";
+import SiteLogo from "~/assets/svg/logo-1-1.svg";
+---
+
+<header class="z-50 mb-4 md:mb-8">
+  <div class="mx-auto flex max-w-5xl justify-between p-4">
+    <a
+      class="group/logo focus-visible:bg-focus-visible flex flex-row items-center gap-4 border-b-2 border-transparent px-2 text-xl font-medium transition duration-300 focus-visible:border-black"
+      href={Astro.site}
+      aria-label="return to home page"
+    >
+      <Image class="aspect-square w-8 object-contain" src={SiteLogo} alt="" format="svg" />
+      <span
+        class="hidden border-b-2 border-transparent transition duration-300 group-hover/logo:border-neutral-900 group-focus-visible/logo:text-black md:block"
+        >astro-skeleton</span
+      >
+    </a>
+
+    <HeaderNavigation />
+
+    <ul class="flex gap-2">
+      <Search />
+      <Theme />
+      <Navigation />
+    </ul>
+  </div>
+</header>
