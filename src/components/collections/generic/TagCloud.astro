@@ -1,0 +1,46 @@
+---
+import type { DataEntryMap } from "astro:content";
+import type { HTMLAttributes } from "astro/types";
+import { collectionSettings } from "~/site.config";
+import { getTagsCount } from "~/lib/collections/generic";
+import slugify from "slugify";
+import TextBtn from "~/components/ui/buttons/TextBtn.astro";
+
+interface Props extends HTMLAttributes<"ul"> {
+  contentCollection: keyof DataEntryMap;
+}
+
+const { contentCollection, class: className, ...rest } = Astro.props;
+
+const threshold = 2;
+const tags = await getTagsCount(contentCollection);
+const filteredTags = tags.filter((tag) => (tag.count ?? 0) >= threshold);
+
+function getTagSize(count?: number): string {
+  if (count) {
+    const size = Math.min(0.5 + count * 0.15, 2);
+    return `${size}rem`;
+  } else {
+    return "1rem";
+  }
+}
+---
+
+<ul
+  class:list={["flex flex-wrap gap-1 px-1", className]}
+  aria-label={`list of ${contentCollection} tags`}
+  {...rest}
+>
+  {
+    filteredTags.map((tag) => (
+      <li>
+        <TextBtn
+          style={`font-size: ${getTagSize(tag.count)}`}
+          href={`${Astro.site}${collectionSettings.permalink_posts_tag}/${slugify(tag.name, { lower: true })}`}
+          label={`#${tag.name.toLowerCase()}`}
+          aria-label={`view posts tagged with ${tag.name}`}
+        />
+      </li>
+    ))
+  }
+</ul>
