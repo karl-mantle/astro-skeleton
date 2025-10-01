@@ -1,0 +1,19 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<div
+  id="toc-btn-wrapper"
+  class="pointer-events-none fixed bottom-5 left-5 z-45 hidden w-16 opacity-0 transition duration-300 md:bottom-2 md:left-2"
+>
+  <button
+    id="toc-toggle-btn"
+    class="bg-primary-200 hover:bg-primary-300 hover:text-primary-950 focus-visible:bg-focus-visible flex w-full cursor-pointer items-center p-4 transition duration-300 focus-visible:border-black focus-visible:text-black"
+    type="button"
+    title="show table of contents"
+    aria-label="show table of contents"
+    aria-pressed="false"
+  >
+    <Icon name="material-symbols:menu" height={32} width={32} />
+  </button>
+</div>
