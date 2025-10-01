@@ -1,0 +1,73 @@
+---
+import type { GetStaticPathsOptions, GetStaticPathsResult, Page } from "astro";
+import type { CollectionEntry } from "astro:content";
+import { collectionSettings } from "~/site.config";
+import { getPostsTerms, getPostsByTag, getPostsByCategory } from "~/lib/collections/posts";
+import Webpage from "~/components/layout/base/Webpage.astro";
+import Archive from "~/components/collections/posts/Archive.astro";
+import Header from "~/components/collections/posts/Header.astro";
+
+type Terms = {
+  count?: number;
+  name: string;
+  slug: string;
+  type?: string;
+};
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const terms: Terms[] = await getPostsTerms();
+  let paths: GetStaticPathsResult = [];
+
+  for (const term of terms) {
+    const { name, slug, type } = term;
+
+    let entries;
+    switch (type) {
+      case "category":
+        entries = await getPostsByCategory(name);
+        break;
+      case "tag":
+        entries = await getPostsByTag(name);
+        break;
+      default:
+        entries = await getPostsByCategory(name);
+    }
+
+    const paginatedTerms = paginate(entries, {
+      params: { posts: collectionSettings.permalink_posts, terms: `${type}/${slug}` },
+      pageSize: collectionSettings.posts_per_page || 9,
+    });
+
+    paginatedTerms.forEach((path) => {
+      path.props = { ...path.props, term };
+    });
+
+    paths = paths.concat(paginatedTerms);
+  }
+
+  return paths;
+}
+
+const { page, term } = Astro.props as { page: Page<CollectionEntry<"posts">>; term: Terms };
+
+const entryCount = page.end + 1;
+---
+
+<Webpage
+  title={term.type === "category"
+    ? `“${term.name}” category archive`
+    : `“${term.name}” tag archive`}
+  description={term.type === "category"
+    ? `View all entries on this blog in the category “${term.name}”.`
+    : `View all entries on this blog tagged with “${term.name}”.`}
+>
+  <section class="flex flex-col gap-4 md:gap-8">
+    <Header
+      description={`Now displaying ${entryCount} of ${page.total} posts.`}
+      heading={term.type === "category"
+        ? `All posts categorised as “${term.name}”`
+        : `All posts tagged with “${term.name}”`}
+    />
+    <Archive page={page} />
+  </section>
+</Webpage>

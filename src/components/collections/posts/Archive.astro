@@ -1,0 +1,32 @@
+---
+import type { Page } from "astro";
+import type { HTMLAttributes } from "astro/types";
+import type { CollectionEntry } from "astro:content";
+import { collectionSettings } from "~/site.config";
+import Card from "~/components/collections/posts/Card.astro";
+import SimplePagination from "~/components/ui/pagination/Simple.astro";
+
+interface Props extends HTMLAttributes<"div"> {
+  page: Page<CollectionEntry<"posts">>;
+}
+
+const { page }: Props = Astro.props;
+---
+
+<div class="flex flex-col gap-4 md:gap-8">
+  <ol class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8">
+    {
+      page.data.map((post) => (
+        <Card
+          date={post.data.pubDate}
+          description={post.data.description}
+          heading={post.data.title}
+          image={post.data.image}
+          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${post.data.slug}`}
+        />
+      ))
+    }
+  </ol>
+
+  <SimplePagination page={page} />
+</div>

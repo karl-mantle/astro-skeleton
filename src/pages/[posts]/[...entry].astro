@@ -1,0 +1,78 @@
+---
+import { type CollectionEntry, getEntry, render } from "astro:content";
+import { getPosts } from "~/lib/collections/posts";
+import { collectionSettings } from "~/site.config";
+import Article from "~/components/layout/base/Article.astro";
+import Hero from "~/components/collections/posts/Hero.astro";
+import RelatedPosts from "~/components/collections/posts/RelatedPosts.astro";
+import ShareLinks from "~/components/ui/ShareLinks.astro";
+import TableOfContents from "~/components/ui/toc/TableOfContents.astro";
+import DetailsBox from "~/components/collections/posts/DetailsBox.astro";
+import PrevNext from "~/components/collections/posts/PrevNext.astro";
+
+type Props = {
+  entry: CollectionEntry<"posts">;
+  prevEntry: CollectionEntry<"posts">;
+  nextEntry: CollectionEntry<"posts">;
+};
+
+export async function getStaticPaths() {
+  const entries = await getPosts();
+  const entryCount = entries.length;
+  return entries.map((entry, index) => ({
+    params: { posts: collectionSettings.permalink_posts_entry, entry: entry.data.slug },
+    props: {
+      entry,
+      prevEntry: index + 1 < entryCount ? entries[index + 1] : null,
+      nextEntry: index > 0 ? entries[index - 1] : null,
+    },
+  }));
+}
+
+const { entry, prevEntry, nextEntry } = Astro.props;
+const { Content, headings } = await render(entry);
+const profile = await getEntry("profiles", entry.data.author.id);
+---
+
+<Article post={entry} profile={profile} tableOfContents={headings.length > 0}>
+  <div class="mb-4 max-w-3xl md:mb-12">
+    <TableOfContents headings={headings} />
+
+    <article class="mb-4 grid grid-cols-1 gap-4">
+      <Hero
+        category={entry.data.category}
+        date={entry.data.pubDate}
+        description={entry.data.description}
+        heading={entry.data.title}
+        image={entry.data.image}
+      />
+
+      {/* Post body */}
+      <section class="prose prose-primary md:prose-lg mb-4 max-w-[75ch] font-serif md:mb-8">
+        <Content />
+      </section>
+
+      {/* Share links */}
+      <footer class="not-prose">
+        <div class="flex justify-between">
+          <ShareLinks
+            description="Share this post:"
+            display={["email", "facebook", "linkedin", "whatsapp"]}
+            title={entry.data.title}
+            url={Astro.url.toString()}
+          />
+          <PrevNext nextEntry={nextEntry} prevEntry={prevEntry} />
+        </div>
+      </footer>
+    </article>
+
+    {/* Post meta */}
+    <DetailsBox entry={entry} />
+
+    {/* Related Posts */}
+    <section class="flex flex-col gap-4">
+      <h2>Related posts</h2>
+      <RelatedPosts category={entry.data.category} max={3} variant="small" />
+    </section>
+  </div>
+</Article>

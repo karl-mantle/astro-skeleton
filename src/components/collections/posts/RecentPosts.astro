@@ -1,0 +1,89 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { collectionSettings } from "~/site.config";
+import { getPosts } from "~/lib/collections/posts";
+import Card from "~/components/collections/posts/Card.astro";
+import CardSmall from "~/components/collections/posts/CardSmall.astro";
+// import CardWide from "~/components/collections/posts/CardSmall.astro";
+import ListItem from "~/components/collections/posts/ListItem.astro";
+import PostPreview from "~/components/collections/posts/PostPreview.astro";
+
+interface Props extends HTMLAttributes<"ol"> {
+  columns?: number;
+  max?: number;
+  variant: "default" | "list" | "small" | "preview" | "wide";
+}
+
+const { columns = 3, max = 3, variant = "default" }: Props = Astro.props;
+
+const entries = await getPosts(max);
+---
+
+<ol
+  class:list={[
+    "grid grid-cols-1 gap-4",
+    columns === 2 && "md:grid-cols-2",
+    columns === 3 && "md:grid-cols-3",
+    columns === 4 && "md:grid-cols-4",
+  ]}
+>
+  {
+    variant === "default" &&
+      entries.map((entry) => (
+        <Card
+          date={entry.data.pubDate}
+          description={entry.data.description}
+          heading={entry.data.title}
+          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          image={entry.data.image}
+        />
+      ))
+  }
+  {
+    variant === "small" &&
+      entries.map((entry) => (
+        <CardSmall
+          description={entry.data.description}
+          heading={entry.data.title}
+          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          image={entry.data.image}
+        />
+      ))
+  }
+  <!--   {
+    variant === "wide" &&
+      entries.map((post) => (
+        <CardWide
+          description={entry.data.description}
+          heading={entry.data.title}
+          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          image={entry.data.image}
+        />
+      ))
+  } -->
+  {
+    variant === "list" &&
+      entries.map((entry) => (
+        <ListItem
+          category={entry.data.category}
+          date={entry.data.pubDate}
+          description={entry.data.description}
+          heading={entry.data.title}
+          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+        />
+      ))
+  }
+  {
+    variant === "preview" &&
+      entries.map((entry) => (
+        <PostPreview
+          category={entry.data.category}
+          content={entry.rendered}
+          date={entry.data.updatedDate ?? entry.data.pubDate}
+          heading={entry.data.title}
+          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          image={entry.data.image}
+        />
+      ))
+  }
+</ol>
