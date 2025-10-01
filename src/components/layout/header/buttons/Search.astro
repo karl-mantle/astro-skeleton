@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+
+const iconSize = 24;
+---
+
+<li>
+  <button
+    id="search-toggle-btn"
+    class="hover:bg-primary-200 focus-visible:bg-focus-visible cursor-pointer border-b-2 border-transparent p-2 transition duration-300 focus-visible:border-black focus-visible:text-black"
+    type="button"
+    aria-controls="search-modal"
+    aria-expanded="false"
+    aria-label="open search"
+  >
+    <Icon name="material-symbols:search" height={iconSize} width={iconSize} />
+  </button>
+</li>

@@ -6,6 +6,7 @@ import SkipToMain from "~/components/ui/a11y/SkipToMain.astro";
 import Header from "~/components/layout/header/Header.astro";
 import ScrollToTop from "~/components/ui/a11y/ScrollToTop.astro";
 import Footer from "~/components/layout/footer/Footer.astro";
+import SearchPageModal from "~/components/ui/SearchPageModal.astro";
 
 const { description, loadingOptions, post, title } = Astro.props;
 
@@ -31,5 +32,6 @@ const schema = createSchema(url, post);
     </main>
     <ScrollToTop />
     <Footer />
+    <SearchPageModal />
   </body>
 </html>
