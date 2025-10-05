@@ -5,7 +5,7 @@ import { headerNavigation } from "~/site.config";
 type MenuItem = {
   id: string;
   parentId: string | null;
-  url: string;
+  url: string | null;
   label: string;
   children: MenuItem[];
 };
@@ -23,14 +23,13 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
 ---
 
 <nav
-  id="site-navigation"
+  id="site-nav"
   class="bg-primary-50 absolute top-18 left-0 z-50 hidden h-[calc(100vh-74px)] w-full overflow-scroll text-lg font-medium md:static md:top-auto md:flex md:h-auto md:w-auto md:flex-row md:overflow-visible md:bg-transparent md:text-base"
   aria-label="Main navigation"
-  data-site-nav
 >
   <ul class="md:flex md:flex-row md:items-center md:gap-2" role="menubar">
     {
-      menuTree.map((item: MenuItem, i) => (
+      menuTree.map((item: MenuItem) => (
         <li class="relative flex flex-col" role="none" data-menu-item>
           <div class="border-primary-200 flex flex-row items-center justify-between border-b-2 p-4 transition duration-300 md:gap-2 md:border-none md:py-0">
             {/* menu items */}
@@ -111,18 +110,16 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
 </nav>
 
 <script>
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-nocheck
   function initNavigation() {
-    const nav = document.querySelector("[data-site-nav]");
-    const toggleButton = document.querySelector("[data-menu-toggle]");
-    const iconOpen = toggleButton?.querySelector("[data-menu-icon-open]");
-    const iconClose = toggleButton?.querySelector("[data-menu-icon-close]");
+    const nav = document.getElementById("site-nav");
+    const toggleButton = document.getElementById("site-nav-toggle-btn");
+    const iconOpen = document.getElementById("site-nav-open-icon");
+    const iconClose = document.getElementById("site-nav-close-icon");
 
     let siteNavigationOpen = false;
     let lastScrollY = window.scrollY;
 
-    const lockBodyScroll = (lock) => {
+    const lockBodyScroll = (lock: boolean) => {
       document.body.classList.toggle("h-full", lock);
       document.body.classList.toggle("overflow-hidden", lock);
     };
@@ -177,8 +174,12 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
     });
 
     /* close on outside click */
-    document.addEventListener("click", (e) => {
-      if (!e.target.closest("[data-menu-item]")) {
+    document.addEventListener("click", (e: MouseEvent) => {
+      const target = e.target as HTMLElement | null;
+      if (!target) return;
+
+      const menuItem = target.closest<HTMLElement>("[data-menu-item]");
+      if (!menuItem) {
         closeAllSubmenus();
       }
     });
@@ -193,6 +194,5 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
     });
   }
 
-  document.addEventListener("DOMContentLoaded", initNavigation);
   document.addEventListener("astro:page-load", initNavigation);
 </script>

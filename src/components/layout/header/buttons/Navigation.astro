@@ -6,20 +6,20 @@ const iconSize = 24;
 
 <li class="md:hidden">
   <button
-    type="button"
+    id="site-nav-toggle-btn"
     class="hover:bg-primary-200 focus-visible:bg-focus-visible cursor-pointer border-b-2 border-transparent p-2 transition duration-300 focus-visible:border-black focus-visible:text-black"
-    aria-label="toggle mobile site navigation"
-    aria-controls="site-navigation"
+    type="button"
+    aria-label="toggle site navigation"
+    aria-controls="site-nav"
     aria-expanded="false"
-    data-menu-toggle
   >
-    <Icon name="material-symbols:menu" height={iconSize} width={iconSize} data-menu-icon-open />
+    <Icon id="site-nav-open-icon" name="material-symbols:menu" height={iconSize} width={iconSize} />
     <Icon
+      id="site-nav-close-icon"
       class="hidden"
       name="material-symbols:close"
       height={iconSize}
       width={iconSize}
-      data-menu-icon-close
     />
   </button>
 </li>
