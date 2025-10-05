@@ -7,7 +7,7 @@ import Header from "~/components/layout/header/Header.astro";
 import TocButton from "~/components/ui/toc/Button.astro";
 import ScrollToTop from "~/components/ui/a11y/ScrollToTop.astro";
 import Footer from "~/components/layout/footer/Footer.astro";
-import SearchPageModal from "~/components/ui/SearchPageModal.astro";
+import SearchModal from "~/components/ui/SearchModal.astro";
 
 const { loadingOptions, post, profile, tableOfContents } = Astro.props;
 
@@ -34,6 +34,6 @@ const schema = createSchema(url, post, profile);
     </main>
     <ScrollToTop />
     <Footer />
-    <SearchPageModal />
+    <SearchModal />
   </body>
 </html>
