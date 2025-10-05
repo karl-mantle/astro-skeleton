@@ -1,19 +1,20 @@
 ---
-import Webpage from "~/components/layout/base/Webpage.astro";
+import { getEntry } from "astro:content";
+import HTML from "~/components/layout/base/HTML.astro";
+
+const entry = await getEntry("pages", "search");
+
+if (!entry) {
+  throw new Error("Search entry not found in 'pages' collection");
+}
 ---
 
-<Webpage
-  title="Search"
-  description="Search the site to find pages, posts, and other content. Use keywords to locate relevant results."
-  loadingOptions={{
-    loadPagefind: true,
-  }}
->
+<HTML entry={entry} type="searchResultsPage">
   <section class="relative mb-4 grid max-w-3xl grid-cols-1 place-content-start gap-4 md:mb-12">
     <h1>Search this site</h1>
     <div id="search" class="w-full"></div>
   </section>
-</Webpage>
+</HTML>
 
 <script>
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -41,7 +42,7 @@ import Webpage from "~/components/layout/base/Webpage.astro";
       pagefind.triggerSearch(searchString);
     }
   }
-  document.addEventListener("DOMContentLoaded", initSearch);
+
   document.addEventListener("astro:page-load", initSearch);
 </script>
 

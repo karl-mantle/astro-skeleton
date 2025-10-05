@@ -1,0 +1,21 @@
+---
+title: "Page not found"
+description: "Error 404: The page you're looking for doesn't exist or has been moved."
+slug: "404"
+---
+
+# 404
+
+Oops! That page doesn't exist. It might've been moved, renamed, or just never existed at all.
+
+import { siteSettings } from "~/site.config";
+import PrimaryBtn from "~/components/ui/buttons/PrimaryBtn.astro";
+
+<PrimaryBtn
+  class="mt-4"
+  label="Return home"
+  href={siteSettings.url}
+  icon="material-symbols:arrow-left-alt"
+  iconReverse={true}
+  iconSize={18}
+/>

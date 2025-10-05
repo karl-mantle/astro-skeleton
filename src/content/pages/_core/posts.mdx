@@ -1,0 +1,17 @@
+---
+title: "All posts"
+description: "View all posts on this website."
+slug: "posts"
+---
+
+import Archive from "~/components/collections/posts/Archive.astro";
+
+<div class="typography">
+
+# Viewing all posts
+
+Now displaying {props.page.start + 1} to {props.page.end + 1} posts out of {props.page.total} posts.
+
+</div>
+
+<Archive page={props.page} />

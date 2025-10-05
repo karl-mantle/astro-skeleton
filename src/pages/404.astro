@@ -2,10 +2,10 @@
 import { getEntry, render } from "astro:content";
 import HTML from "~/components/layout/base/HTML.astro";
 
-const entry = await getEntry("pages", "index");
+const entry = await getEntry("pages", "404");
 
 if (!entry) {
-  throw new Error("Index entry not found in 'pages' collection");
+  throw new Error("404 entry not found in 'pages' collection");
 }
 
 const { Content } = await render(entry);

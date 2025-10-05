@@ -1,34 +1,25 @@
 import type { CollectionEntry } from "astro:content";
 
-export function createSchema(
-  url: URL,
-  post: CollectionEntry<"posts">,
-  profile: CollectionEntry<"profiles">,
-) {
+export async function createArticle(url: URL, entry: CollectionEntry<"posts">) {
   const schema = {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: post.data.title,
-    description: post.data.description,
-    datePublished: post.data.pubDate.toISOString(),
-    dateModified: post.data.updatedDate?.toISOString() ?? undefined,
-    url: url,
-    thumbnailUrl: post.data.image?.src.src,
+    headline: entry.data.title,
+    description: entry.data.description,
+    datePublished: entry.data.pubDate.toISOString(),
+    dateModified: entry.data.updatedDate?.toISOString() ?? undefined,
+    url: url.toString(),
+    thumbnailUrl: entry.data.image?.src.src,
     image: {
       "@type": "ImageObject",
-      url: post.data.image?.src.src,
-      width: post.data.image?.src.width,
-      height: post.data.image?.src.height,
-      caption: post.data.image?.alt,
-    },
-    author: {
-      "@type": "Person",
-      name: profile.data?.title ?? undefined,
-      description: profile.data?.description ?? undefined,
+      url: entry.data.image?.src.src,
+      width: entry.data.image?.src.width,
+      height: entry.data.image?.src.height,
+      caption: entry.data.image?.alt,
     },
   };
 
   return schema;
 }
 
-export default { createSchema };
+export default { createArticle };

@@ -1,24 +1,24 @@
 ---
+import type { DataEntryMap } from "astro:content";
 import { getImage } from "astro:assets";
+import { ClientRouter } from "astro:transitions";
 import { siteSettings } from "~/site.config";
+import defaultOpengraphImage from "public/opengraph.webp";
 import faviconSrc from "public/favicon.png";
 import "~/styles/global.css";
 
 interface Props {
-  description: string;
-  image?: string;
-  loadingOptions?: {
-    loadLeaflet: boolean;
-    loadPagefind: boolean;
-    loadTurnstile: boolean;
-  };
-  title: string;
+  description?: string;
+  entry: DataEntryMap[keyof DataEntryMap][string];
+  title?: string;
 }
 
-const { description, image = "/opengraph.webp", loadingOptions, title } = Astro.props;
+const { description, entry, title } = Astro.props;
 
-const metaTitle = `${title} ${siteSettings.title_separator} ${siteSettings.title}`;
+const metaTitle = `${title ?? entry.data.title} ${siteSettings.title_separator} ${siteSettings.title}`;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const imageMeta = entry.data.image?.src ?? defaultOpengraphImage;
+const opengraphImage = await getImage({ src: imageMeta });
 
 const favicon = await getImage({ src: faviconSrc, format: "png" });
 const appleTouchIcon = await getImage({
@@ -34,21 +34,21 @@ const appleTouchIcon = await getImage({
   <title data-pagefind-meta="title">{metaTitle}</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="title" content={metaTitle} />
-  <meta name="description" content={description} />
+  <meta name="description" content={description ?? entry.data.description} />
   <meta name="generator" content={Astro.generator} />
   <link rel="canonical" href={canonicalURL} />
 
   <meta property="og:type" content="website" />
   <meta property="og:url" content={Astro.url} />
   <meta property="og:title" content={metaTitle} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={new URL(image, Astro.url)} />
+  <meta property="og:description" content={description ?? entry.data.description} />
+  <meta property="og:image" content={new URL(opengraphImage.src, Astro.url).toString()} />
 
   <meta property="twitter:card" content="summary_large_image" />
   <meta property="twitter:url" content={Astro.url} />
   <meta property="twitter:title" content={metaTitle} />
-  <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={new URL(image, Astro.url)} />
+  <meta property="twitter:description" content={description ?? entry.data.description} />
+  <meta property="twitter:image" content={new URL(opengraphImage.src, Astro.url).toString()} />
 
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" href="/favicon.ico" />
@@ -64,6 +64,10 @@ const appleTouchIcon = await getImage({
     href={new URL("rss.xml", Astro.site)}
   />
 
+  {/* slot for schema */}
+  <slot />
+
+  {/* google fonts - default noto */}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
@@ -71,8 +75,9 @@ const appleTouchIcon = await getImage({
     rel="stylesheet"
   />
 
+  {/* optional scripts */}
   {
-    loadingOptions?.loadLeaflet && (
+    entry.data.loadingOptions?.leaflet === true && (
       <>
         <link
           rel="stylesheet"
@@ -90,13 +95,12 @@ const appleTouchIcon = await getImage({
     )
   }
 
-  {loadingOptions?.loadPagefind && <script type="module" src="/pagefind/pagefind-ui.js" />}
-
   {
-    loadingOptions?.loadTurnstile && (
+    entry.data.loadingOptions?.turnstile === true && (
       <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
     )
   }
 
-  <slot />
+  {/* view transitions */}
+  <ClientRouter />
 </head>

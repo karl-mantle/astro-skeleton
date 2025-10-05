@@ -1,11 +1,13 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro";
-import { type CollectionEntry } from "astro:content";
+import { type CollectionEntry, getEntry, render } from "astro:content";
 import { collectionSettings } from "~/site.config";
 import { getPosts } from "~/lib/collections/posts";
-import Webpage from "~/components/layout/base/Webpage.astro";
-import Archive from "~/components/collections/posts/Archive.astro";
-import Header from "~/components/collections/posts/Header.astro";
+import HTML from "~/components/layout/base/HTML.astro";
+
+interface Props {
+  page: Page<CollectionEntry<"posts">>;
+}
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getPosts();
@@ -15,15 +17,17 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   });
 }
 
-const { page } = Astro.props as { page: Page<CollectionEntry<"posts">> };
+const { page } = Astro.props as Props;
+
+const entry = await getEntry("pages", "posts");
+
+if (!entry) {
+  throw new Error("Index entry not found in 'pages' collection");
+}
+
+const { Content } = await render(entry);
 ---
 
-<Webpage title="All posts" description="View all posts on this website.">
-  <section class="flex flex-col gap-4 md:gap-8">
-    <Header
-      description={`Now displaying ${page.start + 1} to ${page.end + 1} posts out of ${page.total} posts.`}
-      heading="Viewing all posts"
-    />
-    <Archive page={page} />
-  </section>
-</Webpage>
+<HTML entry={entry} type="collectionPage">
+  <Content page={page} />
+</HTML>

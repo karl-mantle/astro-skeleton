@@ -1,7 +1,8 @@
 ---
-import { ClientRouter } from "astro:transitions";
-import { createSchema } from "~/lib/schema/article";
-import Head from "~/components/layout/metadata/Head.astro";
+import type { MarkdownHeading } from "astro";
+import type { DataEntryMap } from "astro:content";
+import { createSchema } from "~/lib/schema";
+import Head from "~/components/layout/base/Head.astro";
 import SkipToMain from "~/components/ui/a11y/SkipToMain.astro";
 import Header from "~/components/layout/header/Header.astro";
 import TocButton from "~/components/ui/toc/Button.astro";
@@ -9,18 +10,26 @@ import ScrollToTop from "~/components/ui/a11y/ScrollToTop.astro";
 import Footer from "~/components/layout/footer/Footer.astro";
 import SearchModal from "~/components/ui/SearchModal.astro";
 
-const { loadingOptions, post, profile, tableOfContents } = Astro.props;
+interface Props {
+  description?: string;
+  entry: DataEntryMap[keyof DataEntryMap][string];
+  tableOfContents?: MarkdownHeading[];
+  title?: string;
+  type: string;
+}
+
+const { description, entry, tableOfContents, title, type } = Astro.props;
 
 const url = new URL(Astro.url.pathname, Astro.site);
 
-const schema = createSchema(url, post, profile);
+const schema = createSchema(type, url, entry);
 ---
 
 <!doctype html>
 <html lang="en-GB">
-  <Head description={post.data.description} loadingOptions={loadingOptions} title={post.data.title}>
+  <Head description={description} entry={entry} title={title}>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
-    <ClientRouter />
+    {type === "searchResultsPage" && <script type="module" src="/pagefind/pagefind-ui.js" />}
   </Head>
 
   <body
@@ -28,7 +37,11 @@ const schema = createSchema(url, post, profile);
   >
     <SkipToMain />
     <Header />
-    <main id="main" class="mx-auto max-w-3xl px-4" data-pagefind-body>
+    <main
+      id="main"
+      class:list={["mx-auto px-4", type === "article" ? "max-w-3xl" : "max-w-5xl"]}
+      data-pagefind-body
+    >
       {tableOfContents && <TocButton />}
       <slot />
     </main>

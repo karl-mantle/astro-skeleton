@@ -1,9 +1,9 @@
 import type { DataEntryMap } from "astro:content";
 
-export function createWebpage(url: URL, entry: DataEntryMap[keyof DataEntryMap][string]) {
+export function createSearchResultPage(url: URL, entry: DataEntryMap[keyof DataEntryMap][string]) {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "WebPage",
+    "@type": "SearchResultsPage",
     name: entry.data.title,
     url: url,
   };
@@ -11,4 +11,4 @@ export function createWebpage(url: URL, entry: DataEntryMap[keyof DataEntryMap][
   return schema;
 }
 
-export default { createWebpage };
+export default { createSearchResultPage };

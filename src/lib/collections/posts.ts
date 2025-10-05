@@ -27,7 +27,7 @@ export const getPostsByTag = async (tag: string, max?: number) => {
 
 export const getPostsCategories = async (): Promise<Terms[]> => {
   const posts = await getPosts();
-  const categories = new Set(posts.map((post) => post.data.category));
+  const categories = new Set(posts.map((entry) => entry.data.category));
 
   const categoriesArray = Array.from(categories).map((category) => ({
     name: category,
@@ -40,7 +40,7 @@ export const getPostsCategories = async (): Promise<Terms[]> => {
 
 export const getPostsTags = async (): Promise<Terms[]> => {
   const posts = await getPosts();
-  const tags = new Set(posts.flatMap((post) => post.data.tags));
+  const tags = new Set(posts.flatMap((entry) => entry.data.tags));
 
   const tagsArray = Array.from(tags).map((tag) => ({
     name: tag,

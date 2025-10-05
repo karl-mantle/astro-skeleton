@@ -2,6 +2,30 @@ import { glob } from "astro/loaders";
 import { defineCollection, reference, z } from "astro:content";
 import slugify from "slugify";
 
+const loadingOptions = z.object({
+  leaflet: z.boolean().optional().default(false),
+  turnstile: z.boolean().optional().default(false),
+});
+
+const pages = defineCollection({
+  loader: glob({ base: "src/content/pages", pattern: "**/*.mdx" }),
+  schema: ({ image }) =>
+    z.object({
+      category: z.string().default("Uncategorised"),
+      description: z.string().min(15).max(160),
+      draft: z.boolean().default(false),
+      slug: z.string(),
+      image: z
+        .object({
+          src: image(),
+          alt: z.string().nullable().default(null),
+        })
+        .optional(),
+      loadingOptions: loadingOptions.optional(),
+      title: z.string().min(5).max(120),
+    }),
+});
+
 const posts = defineCollection({
   loader: glob({ base: "src/content/posts", pattern: "**/*.{md,mdx}" }),
   schema: ({ image }) =>
@@ -9,7 +33,7 @@ const posts = defineCollection({
       .object({
         author: reference("profiles").default("default"),
         category: z.string().default("Uncategorised"),
-        description: z.string(),
+        description: z.string().min(15).max(160),
         draft: z.boolean().default(false),
         slug: z.string().optional(),
         image: z
@@ -24,9 +48,10 @@ const posts = defineCollection({
             url: z.string().url().optional(),
           })
           .optional(),
+        loadingOptions: loadingOptions.optional(),
         pubDate: z.coerce.date(),
         tags: z.array(z.string()).default([]),
-        title: z.string(),
+        title: z.string().min(5).max(120),
         updatedDate: z.coerce.date().optional(),
       })
       .refine((data) => {
@@ -42,7 +67,7 @@ const profiles = defineCollection({
   schema: ({ image }) =>
     z.object({
       category: z.string().default("Uncategorised"),
-      description: z.string(),
+      description: z.string().min(15).max(160),
       draft: z.boolean().default(false),
       image: z
         .object({
@@ -50,12 +75,13 @@ const profiles = defineCollection({
           alt: z.string().nullable().default(null),
         })
         .optional(),
+      loadingOptions: loadingOptions.optional(),
       pubDate: z.coerce.date(),
       slug: z.string().optional(),
       tags: z.array(z.string()).default([]),
-      title: z.string(),
+      title: z.string().min(5).max(120),
       updatedDate: z.coerce.date().optional(),
     }),
 });
 
-export const collections = { posts, profiles };
+export const collections = { pages, posts, profiles };
