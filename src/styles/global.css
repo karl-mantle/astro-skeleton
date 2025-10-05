@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/forms";
 @plugin "@tailwindcss/typography";
 @config "tailwind.config.js";
+@custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
   /* fonts */
@@ -63,5 +64,11 @@
   }
   h4 {
     @apply leading-snug font-medium;
+  }
+}
+
+@layer utilities {
+  .typography {
+    @apply prose prose-primary md:prose-lg dark:prose-invert max-w-[75ch];
   }
 }

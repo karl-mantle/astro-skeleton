@@ -10,13 +10,13 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
 <header class="z-50 mb-4 md:mb-8">
   <div class="mx-auto flex max-w-5xl justify-between p-4">
     <a
-      class="group/logo focus-visible:bg-focus-visible flex flex-row items-center gap-4 border-b-2 border-transparent px-2 text-xl font-medium transition duration-300 focus-visible:border-black"
+      class="group/logo focus-visible:bg-focus-visible flex flex-row items-center gap-4 border-b-2 border-transparent px-2 text-xl font-medium focus-visible:border-black focus-visible:text-black"
       href={Astro.site}
       aria-label="return to home page"
     >
       <Image class="aspect-square w-8 object-contain" src={SiteLogo} alt="" format="svg" />
       <span
-        class="hidden border-b-2 border-transparent transition duration-300 group-hover/logo:border-neutral-900 group-focus-visible/logo:text-black md:block"
+        class="group-hover/logo:border-primary-900 hidden border-b-2 border-transparent transition-colors duration-300 group-focus-visible/logo:text-black md:block dark:group-hover/logo:border-white"
         >astro-skeleton</span
       >
     </a>

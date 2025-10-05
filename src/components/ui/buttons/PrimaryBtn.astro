@@ -30,7 +30,7 @@ const newTabAttributes = openNewTab ? { target: "_blank", rel: "noreferrer noope
 
 <a
   class:list={[
-    "group/btn bg-primary-900 hover:text-primary-950 focus-visible:bg-focus-visible text-primary-50 hover:border-primary-900 flex w-full items-center justify-center border-2 border-transparent p-2 px-4 font-medium transition duration-300 hover:bg-transparent focus-visible:border-b-2 focus-visible:border-black focus-visible:text-black md:w-fit",
+    "not-prose group/btn bg-primary-900 dark:bg-primary-50 hover:text-primary-950 focus-visible:bg-focus-visible text-primary-50 dark:text-primary-950 hover:border-primary-900 dark:hover:border-primary-50 flex w-full items-center justify-center border-2 border-transparent p-2 px-4 font-medium transition-colors duration-300 hover:bg-transparent focus-visible:border-b-2 focus-visible:border-black focus-visible:text-black md:w-fit dark:hover:text-white",
     label && icon ? "gap-2" : "",
     iconReverse ? "flex-row-reverse" : "",
     disabled && "text-primary-200 cursor-not-allowed",
@@ -48,7 +48,7 @@ const newTabAttributes = openNewTab ? { target: "_blank", rel: "noreferrer noope
       <Icon
         class:list={[
           "self-center",
-          iconAnimate ? "transition duration-300 group-hover/btn:-rotate-45" : "",
+          iconAnimate ? "transition-transform duration-300 group-hover/btn:-rotate-45" : "",
         ]}
         name={icon}
         height={iconSize}

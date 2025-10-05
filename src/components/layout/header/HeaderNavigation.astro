@@ -24,18 +24,18 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
 
 <nav
   id="site-nav"
-  class="bg-primary-50 absolute top-18 left-0 z-50 hidden h-[calc(100vh-74px)] w-full overflow-scroll text-lg font-medium md:static md:top-auto md:flex md:h-auto md:w-auto md:flex-row md:overflow-visible md:bg-transparent md:text-base"
+  class="bg-primary-50 dark:bg-primary-900 absolute top-18 left-0 z-50 hidden h-[calc(100vh-74px)] w-full overflow-scroll text-lg font-medium md:static md:top-auto md:flex md:h-auto md:w-auto md:flex-row md:overflow-visible md:bg-transparent md:text-base dark:md:bg-transparent"
   aria-label="Main navigation"
 >
   <ul class="md:flex md:flex-row md:items-center md:gap-2" role="menubar">
     {
       menuTree.map((item: MenuItem) => (
         <li class="relative flex flex-col" role="none" data-menu-item>
-          <div class="border-primary-200 flex flex-row items-center justify-between border-b-2 p-4 transition duration-300 md:gap-2 md:border-none md:py-0">
+          <div class="border-primary-200 dark:border-primary-800 flex flex-row items-center justify-between border-b-2 p-4 md:gap-2 md:border-none md:py-0">
             {/* menu items */}
             {item.url ? (
               <a
-                class="focus-visible:bg-focus-visible flex flex-grow items-center justify-between border-b-2 border-transparent transition duration-300 focus-visible:border-black focus-visible:text-black"
+                class="focus-visible:bg-focus-visible flex flex-grow items-center justify-between border-b-2 border-transparent focus-visible:border-black focus-visible:text-black"
                 href={item.url}
                 aria-label={`open link to ${item.label}`}
                 role="menuitem"
@@ -56,7 +56,7 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
             {/* submenu toggle */}
             {item.children.length > 0 && (
               <button
-                class="focus-visible:bg-focus-visible flex cursor-pointer items-center justify-center border-b-2 border-transparent transition duration-300 focus-visible:border-black focus-visible:text-black md:p-1"
+                class="focus-visible:bg-focus-visible flex cursor-pointer items-center justify-center border-b-2 border-transparent focus-visible:border-black focus-visible:text-black md:p-1"
                 aria-label={`Open ${item.label} submenu`}
                 aria-expanded="false"
                 data-submenu-toggle
@@ -65,7 +65,7 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
                   name="material-symbols:keyboard-arrow-down"
                   height={32}
                   width={32}
-                  class="w-8 transition duration-300 md:w-4"
+                  class="w-8 transition-transform duration-300 md:w-4"
                 />
               </button>
             )}
@@ -74,7 +74,7 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
           {/* submenu */}
           {item.children.length > 0 && (
             <ul
-              class="md:bg-primary-50 bg-primary-100 flex hidden w-full flex-col md:absolute md:top-full md:left-0 md:shadow-sm"
+              class="bg-primary-100 md:bg-primary-50 dark:bg-primary-800 dark:md:bg-primary-900 flex hidden w-full flex-col md:absolute md:top-full md:left-0 md:shadow-sm"
               data-submenu
               aria-label={`${item.label} submenu`}
               role="menu"
@@ -82,7 +82,7 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
               {/* submenu items */}
               {item.children.map((child: MenuItem) => (
                 <li
-                  class="border-primary-200 flex flex-row items-center justify-between border-b-2 p-4"
+                  class="border-primary-200 dark:border-primary-800 flex flex-row items-center justify-between border-b-2 p-4"
                   role="none"
                 >
                   <a

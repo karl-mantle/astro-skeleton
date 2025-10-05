@@ -26,8 +26,8 @@ const newTabAttributes = openNewTab ? { target: "_blank", rel: "noreferrer noope
 
 <a
   class:list={[
-    "hover:bg-primary-200 focus-visible:bg-focus-visible hover:text-primary-950 w-fit border-b-2 border-transparent p-2 transition duration-300 focus-visible:border-black focus-visible:text-black",
-    disabled && "text-primary-200 cursor-not-allowed",
+    "not-prose hover:bg-primary-200 dark:hover:bg-primary-800 focus-visible:bg-focus-visible hover:text-primary-950 w-fit border-b-2 border-transparent p-2 transition-colors duration-300 focus-visible:border-black focus-visible:text-black dark:hover:text-white",
+    disabled && "text-primary-200 dark:text-primary-800 cursor-not-allowed",
     className,
   ]}
   href={disabled ? undefined : href}

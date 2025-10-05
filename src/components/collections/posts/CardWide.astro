@@ -43,7 +43,7 @@ const { date, description, heading, href, image }: Props = Astro.props;
       image && (
         <Image
           alt={image.alt}
-          class="aspect-video object-cover opacity-75 transition duration-300 group-hover/card:opacity-100 group-focus/card:opacity-100 lg:h-fit lg:max-w-48"
+          class="aspect-video object-cover opacity-75 transition-opacity duration-300 group-hover/card:opacity-100 group-focus/card:opacity-100 lg:h-fit lg:max-w-48"
           format="webp"
           width={450}
           src={image.src}

@@ -20,13 +20,16 @@ const { date, description, heading, href, image }: Props = Astro.props;
 ---
 
 <li>
-  <a class="group/card bg-primary-200 flex h-full flex-col-reverse text-base" href={href}>
+  <a
+    class="group/card bg-primary-200 dark:bg-primary-800 flex h-full flex-col-reverse text-base"
+    href={href}
+  >
     <article class="flex flex-grow flex-col gap-2 p-4">
       <h2 class="text-lg md:text-xl">{heading}</h2>
       <Date date={date} />
       <p>{description}</p>
       <span
-        class="group-hover/card:border-primary-950 group-focus-visible/card:bg-focus-visible mt-auto mr-auto ml-0 flex w-fit items-center gap-2 border-b-2 border-transparent p-2 pl-0 transition duration-300 group-focus-visible/card:border-black group-focus-visible/card:pl-2 group-focus-visible/card:text-black group-focus-visible/card:outline-2"
+        class="group-hover/card:border-primary-950 group-focus-visible/card:bg-focus-visible group-hover/card:text-primary-950 mt-auto mr-auto ml-0 flex w-fit items-center gap-2 border-b-2 border-transparent p-2 pl-0 transition-colors duration-300 group-focus-visible/card:border-black group-focus-visible/card:pl-2 group-focus-visible/card:text-black group-focus-visible/card:outline-2 dark:group-hover/card:border-white dark:group-hover/card:text-white"
         aria-hidden="true"
       >
         <span>Read more</span>
@@ -43,7 +46,7 @@ const { date, description, heading, href, image }: Props = Astro.props;
       image && (
         <Image
           alt={image.alt}
-          class="aspect-video object-cover opacity-75 transition duration-300 group-hover/card:opacity-100 group-focus-visible/card:opacity-100"
+          class="aspect-video object-cover opacity-75 transition-opacity duration-300 group-hover/card:opacity-100 group-focus-visible/card:opacity-100"
           format="webp"
           width={420}
           src={image.src}
