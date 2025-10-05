@@ -32,7 +32,7 @@ const formattedDate = `${day}${ordinal(day)} ${month} ${year}`;
 ---
 
 <time
-  class:list={["flex items-center self-center", !hideIcon ? "gap-1" : "", className]}
+  class:list={["flex items-center", !hideIcon ? "gap-1" : "", className]}
   datetime={date.toISOString()}
   lang="en-GB"
 >

@@ -4,7 +4,7 @@ import { collectionSettings } from "~/site.config";
 import { getPostsByCategory } from "~/lib/collections/posts";
 import Card from "~/components/collections/posts/Card.astro";
 import CardSmall from "~/components/collections/posts/CardSmall.astro";
-// import PostsCardWide from "~/components/collections/posts/CardSmall.astro";
+import CardWide from "~/components/collections/posts/CardWide.astro";
 import ListItem from "~/components/collections/posts/ListItem.astro";
 import PostPreview from "~/components/collections/posts/PostPreview.astro";
 
@@ -51,17 +51,18 @@ const entries = await getPostsByCategory(category, max);
         />
       ))
   }
-  <!--   {
+  {
     variant === "wide" &&
-      entries.map((post) => (
-        <PostsCardWide
+      entries.map((entry) => (
+        <CardWide
+          date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
           href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
           image={entry.data.image}
         />
       ))
-  } -->
+  }
   {
     variant === "list" &&
       entries.map((entry) => (
