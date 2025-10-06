@@ -1,9 +1,10 @@
 ---
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
 import SocialLinks from "~/components/layout/footer/SocialLinks.astro";
+import { siteSettings } from "~/site.config";
 ---
 
-<footer class="mx-auto flex max-w-5xl flex-col items-center justify-between gap-2 p-4 md:flex-row">
+<footer class="mx-auto grid max-w-5xl grid-cols-1 items-center gap-2 p-4 md:grid-cols-3">
   <nav class="flex text-sm" aria-label="footer navigation">
     <ul class="inline-flex gap-4">
       <li>
@@ -15,5 +16,7 @@ import SocialLinks from "~/components/layout/footer/SocialLinks.astro";
     </ul>
   </nav>
 
-  <SocialLinks />
+  <div class="place-self-center text-center text-sm">{siteSettings.footer_text}</div>
+
+  <SocialLinks class="place-self-end" />
 </footer>

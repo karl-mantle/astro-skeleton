@@ -1,0 +1,51 @@
+---
+import TextBtn from "~/components/ui/buttons/TextBtn.astro";
+import { headerNavigation } from "~/site.config";
+
+type MenuItem = {
+  id: string;
+  parentId: string | null;
+  url: string | null;
+  label: string;
+  children: MenuItem[];
+};
+
+function createMenuTree(menuItems: MenuItem[], parentId: string | null = null): MenuItem[] {
+  return menuItems
+    .filter((item) => item.parentId === parentId)
+    .map((item) => ({
+      ...item,
+      children: createMenuTree(menuItems, item.id),
+    }));
+}
+
+const menuTree = createMenuTree(headerNavigation as MenuItem[]);
+---
+
+<nav id="footer-nav" class="text-base" aria-label="Footer navigation">
+  <ul class="flex flex-col gap-4 md:flex-row md:flex-wrap md:gap-16" role="menubar">
+    {
+      menuTree.map((item: MenuItem) => (
+        <li class="flex flex-col" role="none">
+          <div class="flex flex-col">
+            {item.url ? (
+              <TextBtn class="!font-semibold" label={item.label} href={item.url} role="menuitem" />
+            ) : (
+              <TextBtn class="!font-semibold" label={item.label} />
+            )}
+          </div>
+
+          {item.children.length > 0 && (
+            <ul class="flex flex-col" aria-label={`${item.label} submenu`} role="menu">
+              {item.children.map((child: MenuItem) => (
+                <li class="flex flex-col" role="none">
+                  <TextBtn label={child.label} href={child.url} role="menuitem" />
+                </li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))
+    }
+  </ul>
+</nav>
