@@ -11,6 +11,7 @@ export default defineConfig({
   site: "https://karl-mantle.github.io/astro-skeleton/",
   //"http://127.0.0.1:4321/",
   //"https://karl-mantle.github.io/astro-skeleton/",
+  base: "/astro-skeleton/",
   integrations: [
     icon({
       iconDir: "src/assets/icons",
