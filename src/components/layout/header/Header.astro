@@ -12,7 +12,7 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
     <a
       class="group/logo focus-visible:bg-focus-visible flex flex-row items-center gap-4 border-b-2 border-transparent px-2 text-xl font-medium focus-visible:border-black focus-visible:text-black"
       href={Astro.site}
-      aria-label="return to home page"
+      aria-label="Return to home page"
     >
       <Image class="aspect-square w-8 object-contain" src={SiteLogo} alt="" format="svg" />
       <span
@@ -23,7 +23,7 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
 
     <HeaderNavigation />
 
-    <ul class="flex gap-2">
+    <ul class="flex gap-2" aria-label="Site controls">
       <Search />
       <Theme />
       <Navigation />

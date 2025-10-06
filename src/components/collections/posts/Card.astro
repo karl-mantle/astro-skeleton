@@ -24,13 +24,12 @@ const { date, description, heading, href, image }: Props = Astro.props;
     class="group/card bg-primary-200 dark:bg-primary-800 flex h-full flex-col-reverse text-base"
     href={href}
   >
-    <article class="flex flex-grow flex-col gap-2 p-4">
+    <div class="flex flex-grow flex-col gap-2 p-4">
       <h2 class="text-lg md:text-xl">{heading}</h2>
       <Date date={date} />
       <p>{description}</p>
       <span
         class="group-hover/card:border-primary-950 group-focus-visible/card:bg-focus-visible group-hover/card:text-primary-950 mt-auto mr-auto ml-0 flex w-fit items-center gap-2 border-b-2 border-transparent p-2 pl-0 transition-colors duration-300 group-focus-visible/card:border-black group-focus-visible/card:pl-2 group-focus-visible/card:text-black group-focus-visible/card:outline-2 dark:group-hover/card:border-white dark:group-hover/card:text-white"
-        aria-hidden="true"
       >
         <span>Read more</span>
         <Icon
@@ -40,7 +39,7 @@ const { date, description, heading, href, image }: Props = Astro.props;
           class="transition-transform duration-300 ease-in-out group-hover/card:-rotate-45 group-focus/card:-rotate-45"
         />
       </span>
-    </article>
+    </div>
 
     {
       image && (

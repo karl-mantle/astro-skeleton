@@ -37,11 +37,14 @@ const newTabAttributes = openNewTab ? { target: "_blank", rel: "noreferrer noope
     className,
   ]}
   href={disabled ? undefined : href}
+  tabindex={disabled ? "-1" : undefined}
   aria-disabled={disabled ? "true" : undefined}
   {...newTabAttributes}
   {...rest}
 >
   <span>{label}</span>
+
+  {openNewTab && <span class="sr-only">(opens in a new tab)</span>}
 
   {
     icon && (

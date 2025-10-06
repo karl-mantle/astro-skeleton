@@ -37,6 +37,7 @@ const { category, date, description, heading, href }: Props = Astro.props;
       icon="material-symbols:arrow-right-alt"
       iconAnimate={true}
       label="Continue reading"
+      aria-label={`Continue reading: ${heading}`}
     />
   </article>
 </li>

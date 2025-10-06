@@ -11,7 +11,7 @@ interface Props extends HTMLAttributes<"ul"> {
 const { tags }: Props = Astro.props;
 ---
 
-<ul class="flex flex-wrap gap-3 px-1 text-sm" aria-label="list of tags">
+<ul class="flex flex-wrap gap-3 px-1 text-sm" aria-label="Tags for this post">
   {
     tags.map((tag) => (
       <li>

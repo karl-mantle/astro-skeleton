@@ -12,12 +12,12 @@ interface Props extends HTMLAttributes<"nav"> {
 const { nextEntry, prevEntry }: Props = Astro.props;
 ---
 
-<nav class="hidden justify-between gap-4 px-4 md:flex">
+<nav class="hidden justify-between gap-4 px-4 md:flex" aria-label="Post navigation">
   {
     prevEntry && (
       <IconBtn
         href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${prevEntry.data.slug}`}
-        label="previous post"
+        label={`Previous post: ${prevEntry.data.title}`}
         icon="material-symbols:keyboard-arrow-left"
         iconSize={24}
         class="rounded-4xl"
@@ -28,7 +28,7 @@ const { nextEntry, prevEntry }: Props = Astro.props;
     nextEntry && (
       <IconBtn
         href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${nextEntry.data.slug}`}
-        label="next post"
+        label={`Next post: ${nextEntry.data.title}`}
         icon="material-symbols:keyboard-arrow-right"
         iconSize={24}
         class="rounded-4xl"

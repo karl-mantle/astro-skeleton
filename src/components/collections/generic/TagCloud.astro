@@ -13,9 +13,11 @@ interface Props extends HTMLAttributes<"ul"> {
 const { contentCollection, class: className, ...rest } = Astro.props;
 
 let tags;
+let tagsPermalink: string;
 switch (contentCollection) {
   case "posts":
     tags = await getPostsTagsCount();
+    tagsPermalink = collectionSettings.permalink_posts_tag;
     break;
   default:
     tags = await getPostsTagsCount();
@@ -36,7 +38,7 @@ function getTagSize(count?: number): string {
 
 <ul
   class:list={["flex flex-wrap gap-1 px-1", className]}
-  aria-label={`list of ${contentCollection} tags`}
+  aria-label={`List of ${contentCollection} tags`}
   {...rest}
 >
   {
@@ -44,9 +46,9 @@ function getTagSize(count?: number): string {
       <li>
         <TextBtn
           style={`font-size: ${getTagSize(tag.count)}`}
-          href={`${Astro.site}${collectionSettings.permalink_posts_tag}/${slugify(tag.label, { lower: true })}`}
+          href={`${Astro.site}${tagsPermalink}/${slugify(tag.label, { lower: true })}`}
           label={`#${tag.label.toLowerCase()}`}
-          aria-label={`view posts tagged with ${tag.label}`}
+          aria-label={`View ${contentCollection} tagged with ${tag.label}`}
         />
       </li>
     ))

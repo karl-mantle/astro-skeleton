@@ -17,4 +17,14 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 import RecentPosts from "~/components/collections/posts/RecentPosts.astro";
 
-<RecentPosts columns={1} max={3} variant="preview" />
+<section class="flex flex-col gap-4">
+<RecentPosts columns={1} max={3} variant="wide" />
+
+<RecentPosts columns={3} max={3} variant="small" />
+</section>
+
+<section class="typography mb-4 md:mb-12">
+
+## That's all folks
+
+</section>
