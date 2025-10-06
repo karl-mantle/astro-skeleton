@@ -8,11 +8,13 @@ import Archive from "~/components/collections/posts/Archive.astro";
 
 <div class="typography">
 
-{props.term.type === "category" ? (
+{props.term.type === "category" &&
 
-<h1>All posts categorised as “{props.term.name}”</h1>) : (
-<h1>All posts tagged with “{props.term.name}”</h1>
-)}
+<h1>All posts categorised as “{props.term.name}”</h1>}
+
+{props.term.type === "tag" &&
+
+<h1>All posts tagged with “{props.term.name}”</h1>}
 
 Now displaying {props.entryCount} of {props.page.total} posts.
 

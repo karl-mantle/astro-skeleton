@@ -7,9 +7,9 @@ import HTML from "~/components/layout/base/HTML.astro";
 
 type Terms = {
   count?: number;
-  name: string;
+  label: string;
   slug: string;
-  type?: string;
+  type: string;
 };
 
 interface Props {
@@ -22,18 +22,18 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   let paths: GetStaticPathsResult = [];
 
   for (const term of terms) {
-    const { name, slug, type } = term;
+    const { label, slug, type } = term;
 
     let entries;
     switch (type) {
       case "category":
-        entries = await getPostsByCategory(name);
+        entries = await getPostsByCategory(label);
         break;
       case "tag":
-        entries = await getPostsByTag(name);
+        entries = await getPostsByTag(label);
         break;
       default:
-        entries = await getPostsByCategory(name);
+        entries = await getPostsByCategory(label);
     }
 
     const paginatedTerms = paginate(entries, {
@@ -66,12 +66,12 @@ const { Content } = await render(entry);
 
 <HTML
   description={term.type === "category"
-    ? `View all posts in the category “${term.name}”.`
-    : `View all posts tagged with “${term.name}”.`}
+    ? `View all posts in the category “${term.label}”.`
+    : `View all posts tagged with “${term.label}”.`}
   entry={entry}
   title={term.type === "category"
-    ? `“${term.name}” category archive`
-    : `“${term.name}” tag archive`}
+    ? `“${term.label}” category archive`
+    : `“${term.label}” tag archive`}
   type="collectionPage"
 >
   <Content entryCount={entryCount} page={page} term={term} />

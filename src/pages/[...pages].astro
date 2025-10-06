@@ -10,8 +10,9 @@ type Props = {
 export async function getStaticPaths() {
   const entries = await getPages();
 
-  /* filter out core pages e.g. index, 404, search */
-  const filtered = entries.filter((entry) => !entry.id.startsWith("pages/_core/"));
+  /* filter out _core pages */
+  const excludedSlugs = new Set(["index", "404", "search", "posts", "posts-terms"]);
+  const filtered = entries.filter((entry) => !excludedSlugs.has(entry.data.slug));
 
   return filtered.map((entry) => ({
     params: { pages: entry.data.slug },

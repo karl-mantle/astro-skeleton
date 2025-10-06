@@ -3,7 +3,7 @@ import slugify from "slugify";
 
 type Terms = {
   count?: number;
-  name: string;
+  label: string;
   slug: string;
   type?: string;
 };
@@ -23,10 +23,10 @@ export const getPagesCategories = async (): Promise<Terms[]> => {
   const categories = new Set(pages.map((entry) => entry.data.category));
 
   const categoriesArray = Array.from(categories).map((category) => ({
-    name: category,
+    label: category,
     slug: slugify(category, { lower: true }),
     type: "category",
   }));
 
-  return categoriesArray.sort((a, b) => a.name.localeCompare(b.name));
+  return categoriesArray.sort((a, b) => a.label.localeCompare(b.label));
 };

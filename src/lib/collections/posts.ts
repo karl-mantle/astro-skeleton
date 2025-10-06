@@ -3,9 +3,9 @@ import slugify from "slugify";
 
 type Terms = {
   count?: number;
-  name: string;
+  label: string;
   slug: string;
-  type?: string;
+  type: string;
 };
 
 export const getPosts = async (max?: number) => {
@@ -30,12 +30,12 @@ export const getPostsCategories = async (): Promise<Terms[]> => {
   const categories = new Set(posts.map((entry) => entry.data.category));
 
   const categoriesArray = Array.from(categories).map((category) => ({
-    name: category,
+    label: category,
     slug: slugify(category, { lower: true }),
     type: "category",
   }));
 
-  return categoriesArray.sort((a, b) => a.name.localeCompare(b.name));
+  return categoriesArray.sort((a, b) => a.label.localeCompare(b.label));
 };
 
 export const getPostsTags = async (): Promise<Terms[]> => {
@@ -43,12 +43,12 @@ export const getPostsTags = async (): Promise<Terms[]> => {
   const tags = new Set(posts.flatMap((entry) => entry.data.tags));
 
   const tagsArray = Array.from(tags).map((tag) => ({
-    name: tag,
+    label: tag,
     slug: slugify(tag, { lower: true }),
     type: "tag",
   }));
 
-  return tagsArray.sort((a, b) => a.name.localeCompare(b.name));
+  return tagsArray.sort((a, b) => a.label.localeCompare(b.label));
 };
 
 export const getPostsTerms = async (): Promise<Terms[]> => {
@@ -56,29 +56,30 @@ export const getPostsTerms = async (): Promise<Terms[]> => {
   const postsTags = await getPostsTags();
   const postsTermsArray = postsCategories.concat(postsTags);
 
-  return postsTermsArray.sort((a, b) => a.name.localeCompare(b.name));
+  return postsTermsArray.sort((a, b) => a.label.localeCompare(b.label));
 };
 
 export const getPostsTagsCount = async (): Promise<Terms[]> => {
   const posts = await getPosts();
-  const postsTagList: { name: string; count: number }[] = [];
+  const postsTagList: { label: string; count: number }[] = [];
 
   posts.forEach((post) => {
     post.data.tags.forEach((tag: string) => {
-      const existing = postsTagList.find((t) => t.name === tag);
+      const existing = postsTagList.find((t) => t.label === tag);
       if (existing) {
         existing.count += 1;
       } else {
-        postsTagList.push({ name: tag, count: 1 });
+        postsTagList.push({ label: tag, count: 1 });
       }
     });
   });
 
   const postsTagsArray = postsTagList.map((tag) => ({
-    name: tag.name,
-    slug: slugify(tag.name, { lower: true }),
     count: tag.count,
+    label: tag.label,
+    slug: slugify(tag.label, { lower: true }),
+    type: "tag",
   }));
 
-  return postsTagsArray.sort((a, b) => a.name.localeCompare(b.name));
+  return postsTagsArray.sort((a, b) => a.label.localeCompare(b.label));
 };

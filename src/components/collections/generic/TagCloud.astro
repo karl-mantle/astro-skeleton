@@ -2,7 +2,7 @@
 import type { DataEntryMap } from "astro:content";
 import type { HTMLAttributes } from "astro/types";
 import { collectionSettings } from "~/site.config";
-import { getTagsCount } from "~/lib/collections/generic";
+import { getPostsTagsCount } from "~/lib/collections/posts";
 import slugify from "slugify";
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
 
@@ -12,8 +12,16 @@ interface Props extends HTMLAttributes<"ul"> {
 
 const { contentCollection, class: className, ...rest } = Astro.props;
 
+let tags;
+switch (contentCollection) {
+  case "posts":
+    tags = await getPostsTagsCount();
+    break;
+  default:
+    tags = await getPostsTagsCount();
+    break;
+}
 const threshold = 2;
-const tags = await getTagsCount(contentCollection);
 const filteredTags = tags.filter((tag) => (tag.count ?? 0) >= threshold);
 
 function getTagSize(count?: number): string {
@@ -36,9 +44,9 @@ function getTagSize(count?: number): string {
       <li>
         <TextBtn
           style={`font-size: ${getTagSize(tag.count)}`}
-          href={`${Astro.site}${collectionSettings.permalink_posts_tag}/${slugify(tag.name, { lower: true })}`}
-          label={`#${tag.name.toLowerCase()}`}
-          aria-label={`view posts tagged with ${tag.name}`}
+          href={`${Astro.site}${collectionSettings.permalink_posts_tag}/${slugify(tag.label, { lower: true })}`}
+          label={`#${tag.label.toLowerCase()}`}
+          aria-label={`view posts tagged with ${tag.label}`}
         />
       </li>
     ))
