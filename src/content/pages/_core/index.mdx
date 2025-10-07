@@ -2,6 +2,8 @@
 title: "Homepage"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 slug: "index"
+loadingOptions:
+    leaflet: true
 ---
 
 <section class="typography mb-4">
@@ -16,8 +18,30 @@ laboris nisi ut aliquip ex ea commodo consequat.
 </section>
 
 import RecentPosts from "~/components/collections/posts/RecentPosts.astro";
+import LeafletMap from "~/components/mdx/integrations/LeafletMap.astro";
 
 <section class="flex flex-col gap-4">
+
+<LeafletMap mapOptions={{
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  caption: 'Lorem ipsum dolor sit amet consectetur adipiscing elit',
+  id: 'map-test',
+  latitude: 51.509865,
+  longitude: -0.118092,
+  tileLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  zoom: 5
+}} />
+
+<LeafletMap mapOptions={{
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+  caption: 'Lorem ipsum dolor sit amet consectetur adipiscing elit',
+  id: 'map-test-2',
+  latitude: 21.509865,
+  longitude: -5.118092,
+  tileLayer: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+  zoom: 4
+}} />
+
 <RecentPosts columns={1} max={3} variant="wide" />
 
 <RecentPosts columns={3} max={3} variant="small" />
@@ -28,3 +52,5 @@ import RecentPosts from "~/components/collections/posts/RecentPosts.astro";
 ## That's all folks
 
 </section>
+
+

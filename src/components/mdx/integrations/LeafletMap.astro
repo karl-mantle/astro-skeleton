@@ -1,0 +1,62 @@
+---
+import type { HTMLAttributes } from "astro/types";
+
+interface Props extends HTMLAttributes<"figure"> {
+  mapOptions: {
+    attribution: string;
+    caption?: string;
+    id: string;
+    latitude: number;
+    longitude: number;
+    tileLayer: string;
+    zoom: number;
+  };
+}
+
+const { mapOptions, class: className, ...rest }: Props = Astro.props;
+---
+
+<figure
+  class:list={["flex flex-col justify-center gap-4", className]}
+  {...rest}
+  role="group"
+  aria-labelledby={`${mapOptions.id}-caption`}
+>
+  <div
+    id={mapOptions.id}
+    role="region"
+    aria-label="Interactive map"
+    data-latitude={mapOptions.latitude}
+    data-longitude={mapOptions.longitude}
+    data-zoom={mapOptions.zoom}
+    data-tile-layer={mapOptions.tileLayer}
+    data-attribution={mapOptions.attribution}
+    class="h-[420px] w-full md:h-[600px]"
+  >
+  </div>
+  {
+    mapOptions.caption && (
+      <figcaption id={`${mapOptions.id}-caption`} class="text-center text-sm">
+        {mapOptions.caption}
+      </figcaption>
+    )
+  }
+</figure>
+
+<script is:inline>
+  function initLeafletMaps() {
+    const mapEls = document.querySelectorAll("[data-latitude][data-longitude][data-zoom]");
+    mapEls.forEach((el) => {
+      const latitude = parseFloat(el.dataset.latitude);
+      const longitude = parseFloat(el.dataset.longitude);
+      const zoom = parseInt(el.dataset.zoom, 10);
+      const tileLayer = el.dataset.tileLayer;
+      const attribution = el.dataset.attribution;
+
+      const map = L.map(el.id).setView([latitude, longitude], zoom);
+      L.tileLayer(tileLayer, { attribution }).addTo(map);
+    });
+  }
+
+  document.addEventListener("astro:page-load", initLeafletMaps);
+</script>
