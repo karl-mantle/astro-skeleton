@@ -24,6 +24,7 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
 >
   <div
     id={mapOptions.id}
+    class="relative isolate aspect-square w-full md:aspect-video"
     role="region"
     aria-label="Interactive map"
     data-latitude={mapOptions.latitude}
@@ -31,7 +32,6 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
     data-zoom={mapOptions.zoom}
     data-tile-layer={mapOptions.tileLayer}
     data-attribution={mapOptions.attribution}
-    class="h-[420px] w-full md:h-[600px]"
   >
   </div>
   {

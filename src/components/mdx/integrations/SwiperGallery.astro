@@ -64,10 +64,8 @@ const { images, class: className, ...rest }: Props = Astro.props;
       },
     });
   }
-  document.addEventListener("DOMContentLoaded", initSwiper);
-  document.addEventListener("astro:page-load", () => {
-    setTimeout(initSwiper, 50);
-  });
+
+  document.addEventListener("astro:page-load", initSwiper);
 </script>
 
 <style is:global>
