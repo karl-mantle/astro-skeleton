@@ -29,7 +29,11 @@ const schema = createSchema(type, url, entry);
 <html lang="en-GB">
   <Head description={description} entry={entry} title={title}>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
-    {type === "searchResultsPage" && <script type="module" src="/pagefind/pagefind-ui.js" />}
+    {
+      type === "searchResultsPage" && (
+        <script type="module" src={`${Astro.site}pagefind/pagefind-ui.js`} />
+      )
+    }
   </Head>
 
   <body
