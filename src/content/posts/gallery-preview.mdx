@@ -27,13 +27,13 @@ Here is how to import and use the gallery MDX component:
 
 When viewing this page in the browser, you should see the gallery above the code block.
 
-import SwiperGallery from "~/components/mdx/integrations/SwiperGallery.astro";
+import ImageGallery from "~/components/mdx/integrations/swiper/ImageGallery.astro";
 import Image1 from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.jpg";
 import Image2 from "~/content/posts/images/eugene-golovesov-k-ZgCSdH8Hk-unsplash.jpg";
 import Image3 from "~/content/posts/images/fons-heijnsbroek-U8EuOr-hG_0-unsplash.jpg";
 import Image4 from "~/content/posts/images/geronimo-giqueaux-H26GZk6nro8-unsplash.jpg";
 
-<SwiperGallery
+<ImageGallery
   images={[
     { src: Image1, alt: "Example 1" },
     { src: Image2, alt: "Example 2" },
@@ -43,13 +43,13 @@ import Image4 from "~/content/posts/images/geronimo-giqueaux-H26GZk6nro8-unsplas
 />
 
 ```
-import SwiperGallery from "~/components/mdx/integrations/SwiperGallery.astro";
+import ImageGallery from "~/components/mdx/integrations/swiper/ImageGallery.astro";
 import Image1 from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.jpg";
 import Image2 from "~/content/posts/images/eugene-golovesov-k-ZgCSdH8Hk-unsplash.jpg";
 import Image3 from "~/content/posts/images/fons-heijnsbroek-U8EuOr-hG_0-unsplash.jpg";
 import Image4 from "~/content/posts/images/geronimo-giqueaux-H26GZk6nro8-unsplash.jpg";
 
-<SwiperGallery
+<ImageGallery
   images={[
     { src: Image1, alt: "Example 1" },
     { src: Image2, alt: "Example 2" },

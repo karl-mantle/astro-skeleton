@@ -41,17 +41,21 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
       </figcaption>
     )
   }
+  <slot />
 </figure>
 
-<script is:inline>
+<script>
+  import L from "leaflet";
+  import "leaflet/dist/leaflet.css";
+
   function initLeafletMaps() {
     const mapEls = document.querySelectorAll("[data-latitude][data-longitude][data-zoom]");
     mapEls.forEach((el) => {
-      const latitude = parseFloat(el.dataset.latitude);
-      const longitude = parseFloat(el.dataset.longitude);
-      const zoom = parseInt(el.dataset.zoom, 10);
-      const tileLayer = el.dataset.tileLayer;
-      const attribution = el.dataset.attribution;
+      const latitude = parseFloat(el.getAttribute("data-latitude")!);
+      const longitude = parseFloat(el.getAttribute("data-longitude")!);
+      const zoom = parseInt(el.getAttribute("data-zoom")!);
+      const tileLayer = el.getAttribute("data-tile-layer")!;
+      const attribution = el.getAttribute("data-attribution")!;
 
       const map = L.map(el.id).setView([latitude, longitude], zoom);
       L.tileLayer(tileLayer, { attribution }).addTo(map);
