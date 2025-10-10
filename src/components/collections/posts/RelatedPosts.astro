@@ -35,7 +35,7 @@ const entries = await getPostsByCategory(category, max);
           date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
+          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))
@@ -46,7 +46,7 @@ const entries = await getPostsByCategory(category, max);
         <CardSmall
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
+          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))
@@ -58,7 +58,7 @@ const entries = await getPostsByCategory(category, max);
           date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
+          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))
@@ -71,7 +71,7 @@ const entries = await getPostsByCategory(category, max);
           date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
+          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
         />
       ))
   }
@@ -83,7 +83,7 @@ const entries = await getPostsByCategory(category, max);
           content={entry.rendered}
           date={entry.data.updatedDate ?? entry.data.pubDate}
           heading={entry.data.title}
-          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
+          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))

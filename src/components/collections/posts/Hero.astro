@@ -43,7 +43,7 @@ const { category, date, heading, image }: Props = Astro.props;
     <Date class="self-center" date={date} />
     <span>|</span>
     <TextBtn
-      href={`${collectionSettings.permalink_posts_category}${slugify(category, { lower: true })}`}
+      href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_category}${slugify(category, { lower: true })}`}
       label={category}
     />
   </div>

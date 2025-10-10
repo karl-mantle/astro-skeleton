@@ -16,7 +16,7 @@ const { tags }: Props = Astro.props;
     tags.map((tag) => (
       <li>
         <TextBtn
-          href={`${collectionSettings.permalink_posts_tag}${slugify(tag, { lower: true })}`}
+          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_tag}${slugify(tag, { lower: true })}`}
           label={`#${tag.toLowerCase()}`}
         />
       </li>

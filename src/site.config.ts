@@ -11,16 +11,17 @@ export const siteSettings = {
 };
 
 export const collectionSettings = {
+  baseUrl: "/astro-skeleton/",
   posts_per_page: 9,
-  permalink_posts: "/astro-skeleton/collections/posts",
-  permalink_posts_entry: "/astro-skeleton/collections/posts/entry/",
-  permalink_posts_category: "/astro-skeleton/collections/posts/category/",
-  permalink_posts_tag: "/astro-skeleton/collections/posts/tag/",
+  permalink_posts: "collections/posts",
+  permalink_posts_entry: "collections/posts/entry/",
+  permalink_posts_category: "collections/posts/category/",
+  permalink_posts_tag: "collections/posts/tag/",
   profiles_per_page: 6,
-  permalink_profiles: "/astro-skeleton/collections/profiles",
-  permalink_profiles_entry: "/astro-skeleton/collections/profiles/entry/",
-  permalink_profiles_category: "/astro-skeleton/collections/profiles/category/",
-  permalink_profiles_tag: "/astro-skeleton/collections/profiles/tag/",
+  permalink_profiles: "collections/profiles",
+  permalink_profiles_entry: "collections/profiles/entry/",
+  permalink_profiles_category: "collections/profiles/category/",
+  permalink_profiles_tag: "collections/profiles/tag/",
 };
 
 export const socialLinks = [

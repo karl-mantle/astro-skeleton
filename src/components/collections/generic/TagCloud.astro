@@ -46,7 +46,7 @@ function getTagSize(count?: number): string {
       <li>
         <TextBtn
           style={`font-size: ${getTagSize(tag.count)}`}
-          href={`${tagsPermalink}${slugify(tag.label, { lower: true })}`}
+          href={`${collectionSettings.baseUrl}${tagsPermalink}${slugify(tag.label, { lower: true })}`}
           label={`#${tag.label.toLowerCase()}`}
           aria-label={`View ${contentCollection} tagged with ${tag.label}`}
         />

@@ -25,7 +25,7 @@ const { page, class: className }: Props = Astro.props;
           description={post.data.description}
           heading={post.data.title}
           image={post.data.image}
-          href={`${collectionSettings.permalink_posts_entry}${post.data.slug}`}
+          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_entry}${post.data.slug}`}
         />
       ))
     }
