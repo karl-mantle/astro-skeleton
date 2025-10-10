@@ -26,7 +26,8 @@ if (!entry) {
 
     const pagefind = new PagefindUI({
       element: "#search",
-      baseUrl,
+      baseUrl: "/astro-skeleton/",
+      bundlePath: "/astro-skeleton/pagefind/",
       debounceTimeoutMs: 500,
       showEmptyFilters: false,
       excerptLength: 15,
