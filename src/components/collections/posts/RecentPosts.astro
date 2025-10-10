@@ -34,7 +34,7 @@ const entries = await getPosts(max);
           date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))
@@ -45,7 +45,7 @@ const entries = await getPosts(max);
         <CardSmall
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))
@@ -57,7 +57,7 @@ const entries = await getPosts(max);
           date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))
@@ -70,7 +70,7 @@ const entries = await getPosts(max);
           date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
-          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
         />
       ))
   }
@@ -82,7 +82,7 @@ const entries = await getPosts(max);
           content={entry.rendered}
           date={entry.data.updatedDate ?? entry.data.pubDate}
           heading={entry.data.title}
-          href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${entry.data.slug}`}
+          href={`${collectionSettings.permalink_posts_entry}${entry.data.slug}`}
           image={entry.data.image}
         />
       ))

@@ -8,9 +8,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://karl-mantle.github.io/astro-skeleton/",
-  //"http://127.0.0.1:4321/",
-  //"https://karl-mantle.github.io/astro-skeleton/",
+  // site: "http://127.0.0.1:4321/",
+  site: "https://karl-mantle.github.io/",
   base: "/astro-skeleton/",
   integrations: [
     icon({

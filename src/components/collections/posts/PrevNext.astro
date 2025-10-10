@@ -16,7 +16,7 @@ const { nextEntry, prevEntry }: Props = Astro.props;
   {
     prevEntry && (
       <IconBtn
-        href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${prevEntry.data.slug}`}
+        href={`${collectionSettings.permalink_posts_entry}${prevEntry.data.slug}`}
         label={`Previous post: ${prevEntry.data.title}`}
         icon="material-symbols:keyboard-arrow-left"
         iconSize={24}
@@ -27,7 +27,7 @@ const { nextEntry, prevEntry }: Props = Astro.props;
   {
     nextEntry && (
       <IconBtn
-        href={`${Astro.site}${collectionSettings.permalink_posts_entry}/${nextEntry.data.slug}`}
+        href={`${collectionSettings.permalink_posts_entry}${nextEntry.data.slug}`}
         label={`Next post: ${nextEntry.data.title}`}
         icon="material-symbols:keyboard-arrow-right"
         iconSize={24}

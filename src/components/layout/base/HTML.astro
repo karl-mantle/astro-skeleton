@@ -31,7 +31,7 @@ const schema = createSchema(type, url, entry);
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
     {
       type === "searchResultsPage" && (
-        <script type="module" src={`${Astro.site}pagefind/pagefind-ui.js`} />
+        <script type="module" src="/astro-skeleton/pagefind/pagefind-ui.js" />
       )
     }
   </Head>

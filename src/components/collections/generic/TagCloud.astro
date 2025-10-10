@@ -46,7 +46,7 @@ function getTagSize(count?: number): string {
       <li>
         <TextBtn
           style={`font-size: ${getTagSize(tag.count)}`}
-          href={`${Astro.site}${tagsPermalink}/${slugify(tag.label, { lower: true })}`}
+          href={`${tagsPermalink}${slugify(tag.label, { lower: true })}`}
           label={`#${tag.label.toLowerCase()}`}
           aria-label={`View ${contentCollection} tagged with ${tag.label}`}
         />
