@@ -55,6 +55,7 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
 <script>
   import L from "leaflet";
   import "leaflet/dist/leaflet.css";
+  import { setupLeafletIcons } from "~/components/mdx/integrations/leaflet/icons";
 
   function initLeafletMaps() {
     const mapEls = document.querySelectorAll("[data-latitude][data-longitude][data-zoom]");
@@ -71,6 +72,7 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
       const map = L.map(el.id).setView([latitude, longitude], zoom);
       L.tileLayer(tileLayer, { attribution }).addTo(map);
 
+      setupLeafletIcons();
       const markersJSON = el.getAttribute("data-markers")!;
       const markers = JSON.parse(markersJSON) as {
         latitude: number;
