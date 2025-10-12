@@ -5,8 +5,8 @@ import shadow from "leaflet/dist/images/marker-shadow.png";
 
 export function setupLeafletIcons(base = "/astro-skeleton/") {
   L.Icon.Default.mergeOptions({
-    iconRetinaUrl: `${base}${iconRetina}`,
-    iconUrl: `${base}${icon}`,
-    shadowUrl: `${base}${shadow}`,
+    iconRetinaUrl: `${base}${iconRetina.src}`,
+    iconUrl: `${base}${icon.src}`,
+    shadowUrl: `${base}${shadow.src}`,
   });
 }
