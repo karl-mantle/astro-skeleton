@@ -1,7 +1,7 @@
 ---
 import type { DataEntryMap } from "astro:content";
 import type { HTMLAttributes } from "astro/types";
-import { collectionSettings } from "~/site.config";
+import { collectionsConfig } from "~/site.config";
 import { getPostsTagsCount } from "~/lib/collections/posts";
 import slugify from "slugify";
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
@@ -17,7 +17,7 @@ let tagsPermalink: string;
 switch (contentCollection) {
   case "posts":
     tags = await getPostsTagsCount();
-    tagsPermalink = collectionSettings.permalink_posts_tag;
+    tagsPermalink = collectionsConfig.permalink_posts_tag;
     break;
   default:
     tags = await getPostsTagsCount();
@@ -46,7 +46,7 @@ function getTagSize(count?: number): string {
       <li>
         <TextBtn
           style={`font-size: ${getTagSize(tag.count)}`}
-          href={`${collectionSettings.baseUrl}${tagsPermalink}${slugify(tag.label, { lower: true })}`}
+          href={`${import.meta.env.BASE_URL}${tagsPermalink}${slugify(tag.label, { lower: true })}`}
           label={`#${tag.label.toLowerCase()}`}
           aria-label={`View ${contentCollection} tagged with ${tag.label}`}
         />

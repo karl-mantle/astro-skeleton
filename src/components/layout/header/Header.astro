@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import { generalConfig } from "~/site.config";
 import HeaderNavigation from "~/components/layout/header//HeaderNavigation.astro";
 import Navigation from "~/components/layout/header/buttons/Navigation.astro";
 import Search from "~/components/layout/header/buttons/Search.astro";
@@ -11,13 +12,13 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
   <div class="mx-auto flex max-w-5xl justify-between p-4">
     <a
       class="group/logo focus-visible:bg-focus-visible flex flex-row items-center gap-4 border-b-2 border-transparent px-2 text-xl font-medium focus-visible:border-black focus-visible:text-black"
-      href={Astro.site}
+      href={import.meta.env.BASE_URL}
       aria-label="Return to home page"
     >
       <Image class="aspect-square w-8 object-contain" src={SiteLogo} alt="" format="svg" />
       <span
         class="group-hover/logo:border-primary-900 hidden border-b-2 border-transparent transition-colors duration-300 group-focus-visible/logo:text-black md:block dark:group-hover/logo:border-white"
-        >astro-skeleton</span
+        >{generalConfig.short_name}</span
       >
     </a>
 

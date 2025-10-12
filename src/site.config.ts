@@ -1,17 +1,17 @@
-export const siteSettings = {
-  title: "astro-skeleton",
+export const generalConfig = {
+  name: "astro-skeleton",
+  short_name: "astro-skeleton",
   title_separator: "-",
-  short_title: "astro-skeleton",
-  language: "en-GB",
-  date_format: "j F Y",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquam.",
-  footer_text: "Lorem ipsum dolor sit amet, consectetur adipiscing.",
-  url: "https://karl-mantle.github.io", // "http://127.0.0.1:4321", "https://karl-mantle.github.io/astro-skeleton",
+  footer_description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquam.",
+  footer_copyright: "2025 (c) - Lorem ipsum dolor sit amet, consectetur adipiscing.",
+  language: "en-GB",
+  date_format: "j F Y",
 };
 
-export const collectionSettings = {
-  baseUrl: "/astro-skeleton/",
+export const collectionsConfig = {
   posts_per_page: 9,
   permalink_posts: "collections/posts",
   permalink_posts_entry: "collections/posts/entry/",

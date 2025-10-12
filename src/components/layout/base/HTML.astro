@@ -1,6 +1,7 @@
 ---
 import type { MarkdownHeading } from "astro";
 import type { DataEntryMap } from "astro:content";
+import { generalConfig } from "~/site.config";
 import { createSchema } from "~/lib/schema";
 import Head from "~/components/layout/base/Head.astro";
 import SkipToMain from "~/components/ui/a11y/SkipToMain.astro";
@@ -26,7 +27,7 @@ const schema = createSchema(type, url, entry);
 ---
 
 <!doctype html>
-<html lang="en-GB">
+<html lang={generalConfig.language}>
   <Head description={description} entry={entry} title={title}>
     <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />
     {

@@ -1,6 +1,6 @@
 ---
 import type { HTMLAttributes } from "astro/types";
-import { collectionSettings } from "~/site.config";
+import { collectionsConfig } from "~/site.config";
 import slugify from "slugify";
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
 
@@ -16,7 +16,7 @@ const { tags }: Props = Astro.props;
     tags.map((tag) => (
       <li>
         <TextBtn
-          href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_tag}${slugify(tag, { lower: true })}`}
+          href={`${import.meta.env.BASE_URL}${collectionsConfig.permalink_posts_tag}${slugify(tag, { lower: true })}`}
           label={`#${tag.toLowerCase()}`}
         />
       </li>

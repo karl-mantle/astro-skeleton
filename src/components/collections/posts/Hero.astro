@@ -2,7 +2,7 @@
 import type { ImageMetadata } from "astro";
 import type { HTMLAttributes } from "astro/types";
 import { Picture } from "astro:assets";
-import { collectionSettings } from "~/site.config";
+import { collectionsConfig } from "~/site.config";
 import slugify from "slugify";
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
 import Date from "~/components/ui/Date.astro";
@@ -43,7 +43,7 @@ const { category, date, heading, image }: Props = Astro.props;
     <Date class="self-center" date={date} />
     <span>|</span>
     <TextBtn
-      href={`${collectionSettings.baseUrl}${collectionSettings.permalink_posts_category}${slugify(category, { lower: true })}`}
+      href={`${import.meta.env.BASE_URL}${collectionsConfig.permalink_posts_category}${slugify(category, { lower: true })}`}
       label={category}
     />
   </div>

@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, render } from "astro:content";
 import { getPosts } from "~/lib/collections/posts";
-import { collectionSettings } from "~/site.config";
+import { collectionsConfig } from "~/site.config";
 import HTML from "~/components/layout/base/HTML.astro";
 import Hero from "~/components/collections/posts/Hero.astro";
 import RelatedPosts from "~/components/collections/posts/RelatedPosts.astro";
@@ -20,7 +20,7 @@ export async function getStaticPaths() {
   const entries = await getPosts();
   const entryCount = entries.length;
   return entries.map((entry, index) => ({
-    params: { posts: collectionSettings.permalink_posts_entry, entry: entry.data.slug },
+    params: { posts: collectionsConfig.permalink_posts_entry, entry: entry.data.slug },
     props: {
       entry,
       prevEntry: index + 1 < entryCount ? entries[index + 1] : null,

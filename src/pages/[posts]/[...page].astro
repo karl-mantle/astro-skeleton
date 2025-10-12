@@ -1,7 +1,7 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro";
 import { type CollectionEntry, getEntry, render } from "astro:content";
-import { collectionSettings } from "~/site.config";
+import { collectionsConfig } from "~/site.config";
 import { getPosts } from "~/lib/collections/posts";
 import HTML from "~/components/layout/base/HTML.astro";
 
@@ -12,8 +12,8 @@ interface Props {
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const posts = await getPosts();
   return paginate(posts, {
-    params: { posts: collectionSettings.permalink_posts },
-    pageSize: collectionSettings.posts_per_page || 9,
+    params: { posts: collectionsConfig.permalink_posts },
+    pageSize: collectionsConfig.posts_per_page || 9,
   });
 }
 

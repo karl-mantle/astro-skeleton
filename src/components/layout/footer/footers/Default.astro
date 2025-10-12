@@ -1,5 +1,5 @@
 ---
-import { siteSettings } from "~/site.config";
+import { generalConfig } from "~/site.config";
 import { Image } from "astro:assets";
 import FooterNavigation from "~/components/layout/footer/FooterNavigation.astro";
 import SocialLinks from "~/components/layout/footer/SocialLinks.astro";
@@ -23,8 +23,8 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
         />
       </a>
       <div class="flex flex-col gap-4 md:gap-2">
-        <div class="text-xl font-semibold">{siteSettings.title}</div>
-        <div class="max-w-[30ch] text-sm">{siteSettings.description}</div>
+        <div class="text-xl font-semibold">{generalConfig.short_name}</div>
+        <div class="max-w-[30ch] text-sm">{generalConfig.footer_description}</div>
       </div>
     </div>
 
@@ -35,7 +35,7 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
     class="mx-auto flex max-w-5xl flex-col items-center gap-2 border-t-2 border-white p-4 md:flex-row md:justify-between dark:border-black"
   >
     <div class="text-sm">
-      {siteSettings.footer_text}
+      {generalConfig.footer_copyright}
     </div>
 
     <SocialLinks />

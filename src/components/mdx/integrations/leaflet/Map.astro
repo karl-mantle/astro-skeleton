@@ -82,18 +82,12 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
       const map = L.map(el.id).setView([latitude, longitude], zoom);
       L.tileLayer(tileLayer, { attribution }).addTo(map);
 
-      {
-        /* set icons */
-      }
       L.Icon.Default.mergeOptions({
         iconUrl: `${icon.src}`,
         iconRetinaUrl: `${iconRetina.src}`,
         shadowUrl: `${shadow.src}`,
       });
 
-      {
-        /* add markers */
-      }
       const markersJSON = el.getAttribute("data-markers")!;
       const markers = JSON.parse(markersJSON) as {
         latitude: number;
