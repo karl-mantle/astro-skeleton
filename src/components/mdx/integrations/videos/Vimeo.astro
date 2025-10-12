@@ -1,0 +1,90 @@
+---
+import type { ImageMetadata } from "astro";
+import type { HTMLAttributes } from "astro/types";
+import { Image } from "astro:assets";
+
+interface Props extends HTMLAttributes<"div"> {
+  image?: ImageMetadata;
+  label?: string;
+  title?: string;
+  url: string;
+}
+
+const { image, label = "Play", title, url, ...rest }: Props = Astro.props;
+
+const extractVideoId = (url: string): string | undefined => {
+  if (!url) return undefined;
+  if (/^\d{6,20}$/.test(url)) return url;
+  const match = url.match(/vimeo\.com\/(\d{6,20})/);
+  return match?.[1];
+};
+
+const videoId = extractVideoId(url);
+
+let thumbnailUrl: string | undefined;
+if (!image && videoId) {
+  try {
+    const res = await fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${videoId}`);
+    const data = await res.json();
+    thumbnailUrl = data.thumbnail_url;
+  } catch (err) {
+    console.error("Failed to fetch Vimeo thumbnail:", err);
+  }
+}
+---
+
+<lite-vimeo videoid={videoId} title={title} data-title={title} {...rest}>
+  <div class="absolute inset-0">
+    {
+      image ? (
+        <Image
+          class="h-full w-full object-cover"
+          src={image}
+          alt=""
+          height={800}
+          width={450}
+          format="webp"
+          loading="lazy"
+        />
+      ) : (
+        <Image
+          class="h-full w-full object-cover"
+          src={`${thumbnailUrl}`}
+          alt=""
+          height={800}
+          width={450}
+          format="jpg"
+          loading="lazy"
+        />
+      )
+    }
+  </div>
+
+  <a href={url} class="ltv-playbtn">
+    <span class="sr-only">{label}</span>
+  </a>
+</lite-vimeo>
+
+<script src="lite-vimeo-embed"></script>
+
+<style is:global>
+  @reference "~/styles/global.css";
+
+  lite-vimeo > iframe {
+    all: unset !important;
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    inset: 0 !important;
+    border: 0 !important;
+  }
+
+  lite-vimeo {
+    background: none !important;
+    background-image: none !important;
+  }
+
+  lite-vimeo::before {
+    z-index: 5;
+  }
+</style>

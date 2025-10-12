@@ -56,13 +56,15 @@ export default defineConfig({
         images: true,
         files: true,
         html: true,
-        assetsPrefix: "/astro-skeleton",
+        // assetsPrefix: "/astro-skeleton",
+        // ! assets are automatically prefixed with config.base but the generated files by astro-favicons don't take this into account.
+        // only an issue for non-root domains e.g. github pages
       },
       version: "1.0.0",
     }),
     icon({
       iconDir: "src/assets/icons",
-      // TODO: add used icons here https://www.astroicon.dev/reference/configuration
+      // add used icons here https://www.astroicon.dev/reference/configuration
     }),
     mdx(),
     robotsTxt({
