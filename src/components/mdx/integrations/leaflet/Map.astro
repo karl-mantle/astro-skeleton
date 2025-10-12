@@ -55,7 +55,17 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
 <script>
   import L from "leaflet";
   import "leaflet/dist/leaflet.css";
-  import { setupLeafletIcons } from "~/components/mdx/integrations/leaflet/icons";
+  import icon from "leaflet/dist/images/marker-icon.png";
+  import iconRetina from "leaflet/dist/images/marker-icon-2x.png";
+  import shadow from "leaflet/dist/images/marker-shadow.png";
+
+  export function setupLeafletIcons(base = "/astro-skeleton/") {
+    L.Icon.Default.mergeOptions({
+      iconRetinaUrl: `${base}${iconRetina.src}`,
+      iconUrl: `${base}${icon.src}`,
+      shadowUrl: `${base}${shadow.src}`,
+    });
+  }
 
   function initLeafletMaps() {
     const mapEls = document.querySelectorAll("[data-latitude][data-longitude][data-zoom]");
@@ -72,7 +82,18 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
       const map = L.map(el.id).setView([latitude, longitude], zoom);
       L.tileLayer(tileLayer, { attribution }).addTo(map);
 
-      setupLeafletIcons();
+      {
+        /* set icons */
+      }
+      L.Icon.Default.mergeOptions({
+        iconUrl: `${icon.src}`,
+        iconRetinaUrl: `${iconRetina.src}`,
+        shadowUrl: `${shadow.src}`,
+      });
+
+      {
+        /* add markers */
+      }
       const markersJSON = el.getAttribute("data-markers")!;
       const markers = JSON.parse(markersJSON) as {
         latitude: number;
