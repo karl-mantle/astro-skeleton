@@ -17,6 +17,8 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 import RecentPosts from "~/components/collections/posts/RecentPosts.astro";
 import LeafletMap from "~/components/mdx/integrations/leaflet/Map.astro";
+import YouTube from "~/components/mdx/integrations/videos/YouTube.astro";
+import Vimeo from "~/components/mdx/integrations/videos/Vimeo.astro"
 
 <section class="flex flex-col gap-4">
 
@@ -32,8 +34,8 @@ import LeafletMap from "~/components/mdx/integrations/leaflet/Map.astro";
     zoom: 5,
     markers: [
       { latitude: 51.5, longitude: -0.09, popup: "Hello world" },
-      { latitude: 51.51, longitude: -0.1, popup: "Another marker" }
-    ]
+      { latitude: 51.51, longitude: -0.1, popup: "Another marker" },
+    ],
   }}
 />
 
@@ -48,6 +50,30 @@ import LeafletMap from "~/components/mdx/integrations/leaflet/Map.astro";
     tileLayer: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     zoom: 4,
   }}
+/>
+
+import Image1 from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.jpg";
+
+<YouTube
+  url="https://www.youtube.com/watch?v=CHSnz0bCaUk"
+  title="Alaska in 8K 60p HDR (Dolby Vision)"
+  image={Image1}
+/>
+
+<YouTube
+  url="https://www.youtube.com/watch?v=CHSnz0bCaUk"
+  title="Alaska in 8K 60p HDR (Dolby Vision)"
+/>
+
+<Vimeo
+  url="https://vimeo.com/170585872"
+  title="Example title to display"
+  image={Image1}
+/>
+
+<Vimeo
+  url="https://vimeo.com/108018156"
+  title="Example title to display no image"
 />
 
 <RecentPosts columns={1} max={3} variant="wide" />
