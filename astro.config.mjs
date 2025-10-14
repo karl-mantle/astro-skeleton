@@ -4,6 +4,7 @@ import { generalConfig } from "./src/site.config";
 import favicons from "astro-favicons";
 import icon from "astro-icon";
 import mdx from "@astrojs/mdx";
+import partytown from "@astrojs/partytown";
 import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
@@ -67,6 +68,7 @@ export default defineConfig({
       // add used icons here https://www.astroicon.dev/reference/configuration
     }),
     mdx(),
+    partytown(),
     robotsTxt({
       policy: [
         {

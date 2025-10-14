@@ -11,6 +11,22 @@ export const generalConfig = {
   date_format: "j F Y",
 };
 
+export const measurementConfig = {
+  partytown: false,
+  baidu_verification: "",
+  bing_verificaton: "",
+  facebook_verification: "",
+  google_ga4_id: "",
+  google_gtm_id: "",
+  google_verification: "",
+  fathom_id: "",
+  metrical_id: "",
+  pinterest_verification: "",
+  umami_id: "",
+  umami_source: "",
+  yandex_verification: "",
+};
+
 export const collectionsConfig = {
   posts_per_page: 9,
   permalink_posts: "collections/posts",

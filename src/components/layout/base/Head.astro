@@ -1,10 +1,10 @@
 ---
+import "~/styles/global.css";
 import type { DataEntryMap } from "astro:content";
 import { getImage } from "astro:assets";
 import { ClientRouter } from "astro:transitions";
 import { generalConfig } from "~/site.config";
 import defaultOpengraphImage from "public/opengraph.webp";
-import "~/styles/global.css";
 
 interface Props {
   description?: string;
@@ -48,8 +48,8 @@ const opengraphImage = await getImage({ src: imageMeta });
     href={new URL("rss.xml", Astro.site)}
   />
 
-  {/* slot for schema & pagefind */}
-  <slot />
+  {/* view transitions */}
+  <ClientRouter />
 
   {/* google fonts - default noto */}
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -59,12 +59,12 @@ const opengraphImage = await getImage({ src: imageMeta });
     rel="stylesheet"
   />
 
+  {/* slot for extras */}
+  <slot />
+
   {
     entry.data.loadingOptions?.turnstile === true && (
       <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
     )
   }
-
-  {/* view transitions */}
-  <ClientRouter />
 </head>
