@@ -23,7 +23,7 @@
     "astro-icon": "1.1.5",
     "astro-robots-txt": "1.0.0",
     "leaflet": "^1.9.4",
-    "lite-vimeo-embed": "0.3.0",
+    "lite-vimeo-embed": "github:karl-mantle/lite-vimeo-embed",
     "lite-youtube-embed": "0.3.3",
     "pagefind": "1.4.0",
     "slugify": "^1.6.6",

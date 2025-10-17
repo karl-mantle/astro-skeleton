@@ -15,17 +15,18 @@ interface Props extends HTMLAttributes<"ol"> {
   variant: "default" | "list" | "small" | "preview" | "wide";
 }
 
-const { category, columns = 3, max = 3, variant = "small" }: Props = Astro.props;
+const { category, columns = 3, max = 3, variant = "small", class: className }: Props = Astro.props;
 
 const entries = await getPostsByCategory(category, max);
 ---
 
 <ol
   class:list={[
-    "grid grid-cols-1 gap-4",
+    "mx-auto grid w-full max-w-5xl grid-cols-1 gap-4 px-4",
     columns === 2 && "md:grid-cols-2",
     columns === 3 && "md:grid-cols-3",
     columns === 4 && "md:grid-cols-4",
+    className,
   ]}
 >
   {

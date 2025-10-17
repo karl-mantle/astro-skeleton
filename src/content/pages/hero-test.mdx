@@ -1,0 +1,47 @@
+---
+title: "Hero test"
+description: "descriptiondescription"
+slug: "hero-test"
+---
+
+import DefaultHero from "~/components/mdx/heros/Default.astro";
+import Content from "~/components/mdx/content/Default.astro";
+import Image from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.jpg";
+
+<DefaultHero
+  heading="Netus et malesuada fames ac turpis egestas"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium.
+"
+  image={{ src: Image, alt: "" }}
+  video={{ player: "vimeo", src: "https://vimeo.com/907827754" }}
+  height="full"
+/>
+
+<Content>
+
+`astro-skeleton` comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
+
+## Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
+
+</Content>
+
+<DefaultHero
+  heading="Netus et malesuada fames ac turpis egestas"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium.
+"
+  image={{ src: Image, alt: "" }}
+  height="small"
+/>
+
+<DefaultHero
+  heading="Netus et malesuada fames ac turpis egestas"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium.
+"
+  image={{ src: Image, alt: "" }}
+  video={{ player: "vimeo", src: "https://vimeo.com/1112524834" }}
+  height="medium"
+/>

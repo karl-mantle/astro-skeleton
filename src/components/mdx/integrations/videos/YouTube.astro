@@ -33,37 +33,39 @@ const imagePaths = {
 }[imageQuality];
 ---
 
-<lite-youtube videoid={videoId} title={title} data-title={title} {...rest}>
-  <div class="absolute inset-0">
-    {
-      image ? (
-        <Image
-          class="h-full w-full object-cover"
-          src={image}
-          alt=""
-          height={800}
-          width={450}
-          format="webp"
-          loading="lazy"
-        />
-      ) : (
-        <Image
-          class="h-full w-full object-cover"
-          src={`https://i.ytimg.com/vi/${videoId}/${imagePaths}.jpg`}
-          alt=""
-          height={800}
-          width={450}
-          format="jpg"
-          loading="lazy"
-        />
-      )
-    }
-  </div>
+<div class="relative mx-auto w-full max-w-5xl px-4">
+  <lite-youtube videoid={videoId} title={title} data-title={title} {...rest}>
+    <div class="absolute inset-0">
+      {
+        image ? (
+          <Image
+            class="h-full w-full object-cover"
+            src={image}
+            alt=""
+            height={800}
+            width={450}
+            format="webp"
+            loading="lazy"
+          />
+        ) : (
+          <Image
+            class="h-full w-full object-cover"
+            src={`https://i.ytimg.com/vi/${videoId}/${imagePaths}.jpg`}
+            alt=""
+            height={800}
+            width={450}
+            format="jpg"
+            loading="lazy"
+          />
+        )
+      }
+    </div>
 
-  <a href={url} class="lty-playbtn">
-    <span class="sr-only">{label}</span>
-  </a>
-</lite-youtube>
+    <a href={url} class="lty-playbtn">
+      <span class="sr-only">{label}</span>
+    </a>
+  </lite-youtube>
+</div>
 
 <script src="lite-youtube-embed"></script>
 

@@ -6,11 +6,12 @@ import { Image } from "astro:assets";
 interface Props extends HTMLAttributes<"div"> {
   image?: ImageMetadata;
   label?: string;
+  params?: string;
   title?: string;
   url: string;
 }
 
-const { image, label = "Play", title, url, ...rest }: Props = Astro.props;
+const { image, label = "Play", params, title, url, class: className, ...rest }: Props = Astro.props;
 
 const extractVideoId = (url: string): string | undefined => {
   if (!url) return undefined;
@@ -33,37 +34,39 @@ if (!image && videoId) {
 }
 ---
 
-<lite-vimeo videoid={videoId} title={title} data-title={title} {...rest}>
-  <div class="absolute inset-0">
-    {
-      image ? (
-        <Image
-          class="h-full w-full object-cover"
-          src={image}
-          alt=""
-          height={800}
-          width={450}
-          format="webp"
-          loading="lazy"
-        />
-      ) : (
-        <Image
-          class="h-full w-full object-cover"
-          src={`${thumbnailUrl}`}
-          alt=""
-          height={800}
-          width={450}
-          format="jpg"
-          loading="lazy"
-        />
-      )
-    }
-  </div>
+<div class:list={["relative mx-auto w-full max-w-5xl px-4", className]}>
+  <lite-vimeo videoid={videoId} title={title} params={params} data-title={title} {...rest}>
+    <div class="absolute inset-0">
+      {
+        image ? (
+          <Image
+            class="h-full w-full object-cover"
+            src={image}
+            alt=""
+            height={800}
+            width={450}
+            format="webp"
+            loading="lazy"
+          />
+        ) : (
+          <Image
+            class="h-full w-full object-cover"
+            src={`${thumbnailUrl}`}
+            alt=""
+            height={800}
+            width={450}
+            format="jpg"
+            loading="lazy"
+          />
+        )
+      }
+    </div>
 
-  <a href={url} class="ltv-playbtn">
-    <span class="sr-only">{label}</span>
-  </a>
-</lite-vimeo>
+    <a href={url} class="ltv-playbtn">
+      <span class="sr-only">{label}</span>
+    </a>
+  </lite-vimeo>
+</div>
 
 <script src="lite-vimeo-embed"></script>
 

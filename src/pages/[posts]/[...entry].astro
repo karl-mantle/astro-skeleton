@@ -68,6 +68,6 @@ const { Content, headings } = await render(entry);
   {/* related posts */}
   <section class="mb-4 flex flex-col gap-4 md:mb-12">
     <h2>Related posts</h2>
-    <RelatedPosts category={entry.data.category} max={3} variant="small" />
+    <RelatedPosts category={entry.data.category} max={3} variant="small" class="!p-0" />
   </section>
 </HTML>

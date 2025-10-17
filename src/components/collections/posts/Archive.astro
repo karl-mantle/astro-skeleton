@@ -13,7 +13,7 @@ interface Props extends HTMLAttributes<"div"> {
 const { page, class: className }: Props = Astro.props;
 ---
 
-<div class:list={["flex flex-col gap-4 md:gap-8", className]}>
+<div class:list={["mx-auto flex max-w-5xl flex-col gap-4 px-4 md:gap-8", className]}>
   <ol
     class="grid gap-4 sm:grid-cols-2 md:grid-cols-3 md:gap-8"
     aria-label="Posts, most recent first"

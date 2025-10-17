@@ -5,8 +5,9 @@ slug: "posts-terms"
 ---
 
 import Archive from "~/components/collections/posts/Archive.astro";
+import Content from "~/components/mdx/content/Default.astro";
 
-<div class="typography">
+<Content>
 
 {props.term.type === "category" &&
 
@@ -18,6 +19,6 @@ import Archive from "~/components/collections/posts/Archive.astro";
 
 Now displaying {props.entryCount} of {props.page.total} posts.
 
-</div>
+</Content>
 
 <Archive class="mb-4 md:mb-12" page={props.page} />

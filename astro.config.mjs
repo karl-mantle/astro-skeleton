@@ -13,10 +13,10 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   // site: "http://127.0.0.1:4321/",
   site: "https://karl-mantle.github.io/",
-  base: "/astro-skeleton",
+  base: "/astro-skeleton/",
   integrations: [
     favicons({
-      // example defaults
+      // ! install original astro-favicons if using standard domain, if using base e.g. GitHub Pages use fork
       name: `${generalConfig.name}`,
       name_localized: {
         "zh-CN": "Astro 骨架模板",
@@ -58,8 +58,6 @@ export default defineConfig({
         files: true,
         html: true,
         assetsPrefix: "/astro-skeleton",
-        // ! assets are automatically prefixed with config.base but the generated files by astro-favicons don't take this into account.
-        // only an issue for non-root domains e.g. github pages
       },
       version: "1.0.0",
     }),

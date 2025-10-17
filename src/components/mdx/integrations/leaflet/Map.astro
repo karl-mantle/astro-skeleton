@@ -24,7 +24,7 @@ const { mapOptions, class: className, ...rest }: Props = Astro.props;
 ---
 
 <figure
-  class:list={["flex flex-col justify-center gap-4", className]}
+  class:list={["mx-auto flex w-full max-w-5xl flex-col justify-center gap-4 px-4", className]}
   {...rest}
   role="group"
   aria-labelledby={`${mapOptions.id}-caption`}

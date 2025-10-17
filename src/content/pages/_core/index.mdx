@@ -4,7 +4,13 @@ description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei
 slug: "index"
 ---
 
-<section class="typography mb-4">
+import Content from "~/components/mdx/content/Default.astro";
+import RecentPosts from "~/components/collections/posts/RecentPosts.astro";
+import LeafletMap from "~/components/mdx/integrations/leaflet/Map.astro";
+import YouTube from "~/components/mdx/integrations/videos/YouTube.astro";
+import Vimeo from "~/components/mdx/integrations/videos/Vimeo.astro";
+
+<Content>
 # astro-skeleton
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
@@ -13,12 +19,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 ## Latest posts
 
-</section>
-
-import RecentPosts from "~/components/collections/posts/RecentPosts.astro";
-import LeafletMap from "~/components/mdx/integrations/leaflet/Map.astro";
-import YouTube from "~/components/mdx/integrations/videos/YouTube.astro";
-import Vimeo from "~/components/mdx/integrations/videos/Vimeo.astro"
+</Content>
 
 <section class="flex flex-col gap-4">
 
@@ -65,24 +66,17 @@ import Image1 from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.
   title="Alaska in 8K 60p HDR (Dolby Vision)"
 />
 
-<Vimeo
-  url="https://vimeo.com/170585872"
-  title="Example title to display"
-  image={Image1}
-/>
+<Vimeo url="https://vimeo.com/170585872" title="Example title to display" image={Image1} />
 
-<Vimeo
-  url="https://vimeo.com/108018156"
-  title="Example title to display no image"
-/>
+<Vimeo url="https://vimeo.com/108018156" title="Example title to display no image" />
 
 <RecentPosts columns={1} max={3} variant="wide" />
 
 <RecentPosts columns={3} max={3} variant="small" />
 </section>
 
-<section class="typography mb-4 md:mb-12">
+<Content class="mb-4 md:mb-12">
 
 ## That's all folks
 
-</section>
+</Content>
