@@ -5,7 +5,7 @@ slug: "hero-test"
 ---
 
 import DefaultHero from "~/components/mdx/heros/Default.astro";
-import Content from "~/components/mdx/content/Default.astro";
+import DefaultContent from "~/components/mdx/content/Default.astro";
 import Image from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.jpg";
 
 <DefaultHero
@@ -17,7 +17,7 @@ import Image from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.j
   height="full"
 />
 
-<Content>
+<DefaultContent>
 
 `astro-skeleton` comes with the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file. If you prefer not to use MDX, you can disable support by removing the integration from your config file.
 
@@ -27,7 +27,7 @@ MDX is a special flavor of Markdown that supports embedded JavaScript & JSX synt
 
 If you have existing content authored in MDX, this integration will hopefully make migrating to Astro a breeze.
 
-</Content>
+</DefaultContent>
 
 <DefaultHero
   heading="Netus et malesuada fames ac turpis egestas"

@@ -5,14 +5,14 @@ slug: "posts"
 ---
 
 import Archive from "~/components/collections/posts/Archive.astro";
-import Content from "~/components/mdx/content/Default.astro";
+import DefaultContent from "~/components/mdx/content/Default.astro";
 
-<Content>
+<DefaultContent>
 
 # Viewing all posts
 
 Now displaying {props.page.start + 1} to {props.page.end + 1} posts out of {props.page.total} posts.
 
-</Content>
+</DefaultContent>
 
 <Archive class="mb-4 md:mb-12" page={props.page} />
