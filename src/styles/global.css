@@ -69,6 +69,6 @@
 
 @layer utilities {
   .typography {
-    @apply prose prose-primary md:prose-lg dark:prose-invert max-w-[75ch];
+    @apply prose prose-primary md:prose-lg dark:prose-invert max-w-[80ch];
   }
 }

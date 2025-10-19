@@ -22,7 +22,7 @@ interface Props extends HTMLAttributes<"header"> {
 }
 
 const heightMap: Record<Props["height"], string> = {
-  full: "2xl:aspect-video 2xl:h-[calc(100vh-74px)]", // ! 74px = header height
+  full: "2xl:h-[calc(100vh-74px)]", // ! 74px = header height
 };
 
 const {
@@ -75,7 +75,11 @@ const {
               data-bg-video
             />
           ) : (
-            <YouTube url={video.src} data-bg-video />
+            <YouTube
+              url={video.src}
+              params={`autoplay=1&mute=1&loop=1&controls=0&modestbranding=1&rel=0`}
+              data-bg-video
+            />
           )}
         </div>
 

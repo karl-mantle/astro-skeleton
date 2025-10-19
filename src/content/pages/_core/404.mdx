@@ -4,19 +4,19 @@ description: "Error 404: The page you're looking for doesn't exist or has been m
 slug: "404"
 ---
 
-import DefaultContent from "~/components/mdx/content/Default.astro";
+import Section from "~/components/mdx/content/Section.astro";
+import Markdown from "~/components/mdx/content/Markdown.astro";
+import PrimaryBtn from "~/components/ui/buttons/PrimaryBtn.astro";
 
-<DefaultContent class="mb-4 md:mb-12">
+<Section columns={1}>
+<Markdown class="min-h-128">
 
 # 404 - Page not found
 
 Oops! That page doesn't exist. It might've been moved, renamed, or just never existed at all.
 
-import { siteSettings } from "~/site.config";
-import PrimaryBtn from "~/components/ui/buttons/PrimaryBtn.astro";
-
 <PrimaryBtn
-  class="mt-4 mb-auto"
+  class="mt-4"
   label="Return home"
   href="/astro-skeleton/"
   icon="material-symbols:arrow-left-alt"
@@ -24,4 +24,5 @@ import PrimaryBtn from "~/components/ui/buttons/PrimaryBtn.astro";
   iconSize={18}
 />
 
-</DefaultContent>
+</Markdown>
+</Section>

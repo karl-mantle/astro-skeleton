@@ -1,0 +1,65 @@
+---
+title: "Vimeo component"
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+slug: "components/vimeo"
+---
+
+import Section from "~/components/mdx/content/Section.astro";
+import Markdown from "~/components/mdx/content/Markdown.astro";
+import Vimeo from "~/components/mdx/integrations/videos/Vimeo.astro";
+import PreviewImage from "~/content/posts/images/claudio-schwarz-pQ_SEJg8rII-unsplash.jpg";
+
+<Section columns={1}>
+
+<Markdown>
+
+# Vimeo component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+## Usage
+
+```mdx
+When viewing this page in the browser, you will see the component above the heading.
+
+import Vimeo from "~/components/mdx/integrations/videos/Vimeo.astro";
+import PreviewImage from "~/content/posts/images/preview-image.jpg";
+
+<Vimeo url="https://vimeo.com/170585872" title="Example title to display" image={PreviewImage} />
+
+## You can continue writing your markdown content
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+```
+
+## Examples
+
+</Markdown>
+
+<Vimeo url="https://vimeo.com/170585872" title="Example title to display" image={PreviewImage} />
+
+<Vimeo url="https://vimeo.com/108018156" title="Example title to display no image" />
+
+<Markdown>
+
+## More information
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Useful Links
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>

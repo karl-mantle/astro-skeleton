@@ -4,10 +4,12 @@ description: "Now displaying posts with the following term"
 slug: "posts-terms"
 ---
 
+import Section from "~/components/mdx/content/Section.astro";
+import Markdown from "~/components/mdx/content/Markdown.astro";
 import Archive from "~/components/collections/posts/Archive.astro";
-import DefaultContent from "~/components/mdx/content/Default.astro";
 
-<DefaultContent>
+<Section columns={1}>
+<Markdown>
 
 {props.term.type === "category" &&
 
@@ -19,6 +21,7 @@ import DefaultContent from "~/components/mdx/content/Default.astro";
 
 Now displaying {props.entryCount} of {props.page.total} posts.
 
-</DefaultContent>
+</Markdown>
 
-<Archive class="mb-4 md:mb-12" page={props.page} />
+<Archive page={props.page} />
+</Section>

@@ -4,15 +4,18 @@ description: "View all posts on this website."
 slug: "posts"
 ---
 
+import Section from "~/components/mdx/content/Section.astro";
+import Markdown from "~/components/mdx/content/Markdown.astro";
 import Archive from "~/components/collections/posts/Archive.astro";
-import DefaultContent from "~/components/mdx/content/Default.astro";
 
-<DefaultContent>
+<Section columns={1}>
+<Markdown>
 
 # Viewing all posts
 
 Now displaying {props.page.start + 1} to {props.page.end + 1} posts out of {props.page.total} posts.
 
-</DefaultContent>
+</Markdown>
 
-<Archive class="mb-4 md:mb-12" page={props.page} />
+<Archive page={props.page} />
+</Section>
