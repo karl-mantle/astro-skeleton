@@ -33,11 +33,12 @@ const { entry, prevEntry, nextEntry } = Astro.props;
 const { Content, headings } = await render(entry);
 ---
 
-<HTML entry={entry} tableOfContents={headings} type="article">
+<HTML collection="posts" entry={entry} tableOfContents={headings} type="article">
   <TableOfContents headings={headings} />
 
   <article class="mb-4 grid grid-cols-1 gap-4">
     <Hero
+      author={entry.data.author}
       category={entry.data.category}
       date={entry.data.pubDate}
       description={entry.data.description}

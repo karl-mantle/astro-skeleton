@@ -18,6 +18,7 @@ const { tags }: Props = Astro.props;
         <TextBtn
           href={`${import.meta.env.BASE_URL}${collectionsConfig.permalink_posts_tag}${slugify(tag, { lower: true })}`}
           label={`#${tag.toLowerCase()}`}
+          data-pagefind-filter={`tag:${tag.toLowerCase()}`}
         />
       </li>
     ))

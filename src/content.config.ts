@@ -31,7 +31,7 @@ const posts = defineCollection({
   schema: ({ image }) =>
     z
       .object({
-        author: reference("profiles").default("default"),
+        author: z.string().optional(),
         category: z.string().default("Uncategorised"),
         description: z.string().min(15).max(160),
         draft: z.boolean().default(false),
@@ -75,8 +75,8 @@ const profiles = defineCollection({
           alt: z.string().nullable().default(null),
         })
         .optional(),
-      loadingOptions: loadingOptions.optional(),
       pubDate: z.coerce.date(),
+      role: z.string(),
       slug: z.string().optional(),
       tags: z.array(z.string()).default([]),
       title: z.string().min(5).max(120),

@@ -1,0 +1,37 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+
+interface Props extends HTMLAttributes<"div"> {
+  author: string;
+}
+
+const { author = "default" } = Astro.props;
+
+const profile = await getEntry("profiles", author);
+---
+
+<div class="flex flex-row justify-between gap-4">
+  {
+    profile?.data.image && (
+      <div class="h-16 w-16">
+        <Image
+          src={profile.data.image.src}
+          alt={`Profile picture for ${profile.data.title}`}
+          class="rounded-full object-cover"
+          format="webp"
+          loading="eager"
+          height={64}
+          width={64}
+        />
+      </div>
+    )
+  }
+  <div class="flex flex-col gap-1 text-sm">
+    <span class="font-medium" data-pagefind-filter={`author:${profile?.data.title}`}
+      >{profile?.data.title}</span
+    >
+    <span>{profile?.data.role}</span>
+  </div>
+</div>

@@ -3,6 +3,7 @@ title: "Another post"
 description: "Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem. Varius sit amet mattis vulputate enim."
 slug: "another-post-custom-slug"
 pubDate: "2025-07-26T12:02:33.000Z"
+author: "lorem-ipsum"
 image:
   src: "./images/geronimo-giqueaux-H26GZk6nro8-unsplash.jpg"
   alt: "brown shade illustration"

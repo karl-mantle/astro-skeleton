@@ -15,6 +15,7 @@ import SearchModal from "~/components/ui/SearchModal.astro";
 import BodyEnd from "~/components/measurement/BodyEnd.astro";
 
 interface Props {
+  collection?: keyof DataEntryMap;
   description?: string;
   entry: DataEntryMap[keyof DataEntryMap][string];
   tableOfContents?: MarkdownHeading[];
@@ -22,11 +23,13 @@ interface Props {
   type: string;
 }
 
-const { description, entry, tableOfContents, title, type } = Astro.props;
+const { collection, description, entry, tableOfContents, title, type } = Astro.props;
 
 const url = new URL(Astro.url.pathname, Astro.site);
 
 const schema = createSchema(type, url, entry);
+
+const pagefindAttr = collection ? { "data-pagefind-filter": `collection:${collection}` } : {};
 ---
 
 <!doctype html>
@@ -43,6 +46,7 @@ const schema = createSchema(type, url, entry);
 
   <body
     class="text-primary-900 dark:text-primary-50 bg-primary-50 dark:bg-primary-950 text-base lg:text-lg"
+    {...pagefindAttr}
   >
     <BodyStart />
     <SkipToMain />
