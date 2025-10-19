@@ -1,6 +1,6 @@
 ---
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
-import { headerNavigation } from "~/site.config";
+import { footerNavigation } from "~/site.config";
 
 type MenuItem = {
   id: string;
@@ -19,7 +19,7 @@ function createMenuTree(menuItems: MenuItem[], parentId: string | null = null): 
     }));
 }
 
-const menuTree = createMenuTree(headerNavigation as MenuItem[]);
+const menuTree = createMenuTree(footerNavigation as MenuItem[]);
 ---
 
 <nav id="footer-nav" class="text-base" aria-label="Footer navigation">

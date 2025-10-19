@@ -75,10 +75,109 @@ export const headerNavigation = [
     label: "Posts",
   },
   {
+    id: "components",
+    parentId: null,
+    url: "/astro-skeleton/components",
+    label: "Components",
+  },
+  {
+    id: "banners",
+    parentId: "components",
+    url: "/astro-skeleton/components/banners",
+    label: "Banners",
+  },
+  {
+    id: "hero-banners",
+    parentId: "components",
+    url: "/astro-skeleton/components/hero-banners",
+    label: "Hero Banners",
+  },
+  {
+    id: "cards",
+    parentId: "components",
+    url: "/astro-skeleton/components/cards",
+    label: "Cards",
+  },
+  {
+    id: "maps",
+    parentId: "components",
+    url: "/astro-skeleton/components/maps",
+    label: "Maps",
+  },
+  {
+    id: "gallery",
+    parentId: "components",
+    url: "/astro-skeleton/components/gallery",
+    label: "Gallery",
+  },
+  {
+    id: "vimeo",
+    parentId: "components",
+    url: "/astro-skeleton/components/vimeo",
+    label: "Vimeo",
+  },
+  {
+    id: "youtube",
+    parentId: "components",
+    url: "/astro-skeleton/components/youtube",
+    label: "YouTube",
+  },
+  {
+    id: "sample-pages",
+    parentId: null,
+    url: null,
+    label: "Sample Pages",
+  },
+  {
+    id: "landing-page",
+    parentId: "sample-pages",
+    url: "/astro-skeleton/sample-pages/contact-us",
+    label: "Landing page",
+  },
+  {
+    id: "about-us",
+    parentId: "sample-pages",
+    url: "/astro-skeleton/sample-pages/about-us",
+    label: "About us",
+  },
+  {
+    id: "contact-us",
+    parentId: "sample-pages",
+    url: "/astro-skeleton/sample-pages/contact-us",
+    label: "Contact us",
+  },
+  {
+    id: "faqs",
+    parentId: "sample-pages",
+    url: "/astro-skeleton/sample-pages/faqs",
+    label: "Frequently asked questions",
+  },
+];
+
+export const footerNavigation = [
+  {
+    id: "collections",
+    parentId: null,
+    url: "/astro-skeleton/collections",
+    label: "Collections",
+  },
+  {
+    id: "posts",
+    parentId: "collections",
+    url: "/astro-skeleton/collections/posts",
+    label: "Posts",
+  },
+  {
     id: "profiles",
     parentId: "collections",
     url: "/astro-skeleton/collections/profiles",
     label: "Profiles",
+  },
+  {
+    id: "locations",
+    parentId: "collections",
+    url: "/astro-skeleton/collections/locations",
+    label: "Locations",
   },
   {
     id: "components",
@@ -103,5 +202,11 @@ export const headerNavigation = [
     parentId: "sample-pages",
     url: "/astro-skeleton/sample-pages/contact-us",
     label: "Contact us",
+  },
+  {
+    id: "faqs",
+    parentId: "sample-pages",
+    url: "/astro-skeleton/sample-pages/faqs",
+    label: "FAQs",
   },
 ];

@@ -206,12 +206,12 @@ if (!entry) {
 
   .pagefind-ui__filter-block {
     /* details */
-    @apply bg-primary-200 cursor-pointer p-2 md:relative md:px-4;
+    @apply bg-primary-200 dark:bg-primary-900 cursor-pointer p-2 md:relative md:px-4;
   }
 
   .pagefind-ui__filter-block[open] {
     /* details - open state */
-    @apply bg-primary-300;
+    @apply bg-primary-300 dark:bg-primary-800;
   }
 
   .pagefind-ui__filter-name {
@@ -219,13 +219,14 @@ if (!entry) {
     @apply flex list-none items-center gap-2 font-medium;
 
     &::-webkit-details-marker {
+      /* safari lol */
       display: none;
     }
   }
 
   .pagefind-ui__filter-group {
     /* fieldset -> filter choices */
-    @apply bg-primary-300 flex w-full flex-col gap-2 p-4 md:absolute md:top-full md:left-0;
+    @apply bg-primary-300 dark:bg-primary-800 flex w-full flex-col gap-2 p-4 md:absolute md:top-full md:left-0;
   }
 
   .pagefind-ui__filter-group-label {

@@ -74,13 +74,13 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
           {item.children.length > 0 && (
             <ul
               id={`links-${item.id}`}
-              class="bg-primary-100 md:bg-primary-50 dark:bg-primary-800 dark:md:bg-primary-900 flex hidden w-full flex-col md:absolute md:top-full md:left-0 md:shadow-sm"
+              class="bg-primary-100 md:bg-primary-50 dark:bg-primary-800 dark:md:bg-primary-900 flex hidden w-full flex-col md:absolute md:top-full md:left-0 md:mt-2 md:shadow-sm"
               data-submenu
               aria-label={`${item.label} links`}
             >
               {/* sub menu links */}
               {item.children.map((child: MenuItem) => (
-                <li class="border-primary-200 dark:border-primary-800 flex flex-row items-center justify-between border-b-2 p-4">
+                <li class="border-primary-200 dark:border-primary-800 flex flex-row items-center justify-between border-b-2 p-4 transition duration-300 hover:backdrop-brightness-95 dark:hover:backdrop-brightness-5">
                   <a
                     class="focus-visible:bg-focus-visible flex flex-grow items-center justify-between focus-visible:text-black"
                     href={child.url}
@@ -88,9 +88,9 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
                     <span>{child.label}</span>
                     <Icon
                       name="material-symbols:arrow-right-alt"
-                      height={26}
-                      width={26}
-                      class="w-8 md:w-4"
+                      height={32}
+                      width={32}
+                      class="w-8 md:w-4 md:min-w-4"
                     />
                   </a>
                 </li>
