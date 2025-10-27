@@ -4,12 +4,12 @@ import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
 
 interface Props extends HTMLAttributes<"div"> {
-  author: string;
+  id: string;
 }
 
-const { author = "default" } = Astro.props;
+const { id = "default" } = Astro.props;
 
-const profile = await getEntry("profiles", author);
+const profile = await getEntry("profiles", id);
 ---
 
 <div class="flex flex-row justify-between gap-4">

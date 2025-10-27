@@ -146,11 +146,11 @@ if (!entry) {
   }
 
   .pagefind-ui__search-input {
-    @apply border-primary-800 dark:border-primary-200 focus:text-primary-950 focus:bg-primary-200 dark:focus:bg-primary-800 ring-secondary-500 placeholder:text-primary-900 dark:placeholder:text-primary-50 hover:placeholder:text-primary-950 w-full border bg-transparent p-4 dark:hover:placeholder:text-white dark:focus:text-white;
+    @apply border-base-800 dark:border-base-200 focus:text-base-950 focus:bg-base-200 dark:focus:bg-base-800 ring-base-500 placeholder:text-base-900 dark:placeholder:text-base-50 hover:placeholder:text-base-950 w-full border bg-transparent p-4 dark:hover:placeholder:text-white dark:focus:text-white;
   }
 
   .pagefind-ui__search-clear {
-    @apply hover:border-primary-950 focus-visible:bg-focus-visible hover:text-primary-950 absolute top-5 right-5 w-fit cursor-pointer border-b-2 border-transparent text-sm focus-visible:border-black focus-visible:p-1 focus-visible:text-black md:right-58 dark:hover:border-white dark:hover:text-white;
+    @apply hover:border-base-950 focus-visible:bg-focus-color hover:text-base-950 absolute top-5 right-5 w-fit cursor-pointer border-b-2 border-transparent text-sm focus-visible:border-black focus-visible:p-1 focus-visible:text-black md:right-58 dark:hover:border-white dark:hover:text-white;
   }
 
   .pagefind-ui__message {
@@ -162,21 +162,21 @@ if (!entry) {
   }
 
   .pagefind-ui__button {
-    @apply border-primary-900 dark:border-primary-50 focus-visible:bg-focus-visible dark:hover:text-primary-950 hover:bg-primary-950 hover:border-primary-950 flex cursor-pointer items-center justify-center border-2 bg-transparent p-2 px-4 transition duration-300 hover:text-white focus-visible:border-black focus-visible:text-black dark:hover:border-white dark:hover:bg-white;
+    @apply border-base-900 dark:border-base-50 focus-visible:bg-focus-color dark:hover:text-base-950 hover:bg-base-950 hover:border-base-950 flex cursor-pointer items-center justify-center border-2 bg-transparent p-2 px-4 transition duration-300 hover:text-white focus-visible:border-black focus-visible:text-black dark:hover:border-white dark:hover:bg-white;
   }
 
   /* results */
 
   .pagefind-ui__result {
-    @apply border-primary-200 dark:border-primary-800 my-4 border-b;
+    @apply border-base-200 dark:border-base-800 my-4 border-b;
   }
 
   .pagefind-ui__result mark {
-    @apply bg-focus-visible;
+    @apply bg-focus-color;
   }
 
   .pagefind-ui__result-link {
-    @apply hover:text-primary-950 focus-visible:bg-focus-visible font-semibold underline-offset-4 hover:underline focus:decoration-2 focus-visible:p-1 focus-visible:text-black dark:hover:text-white;
+    @apply hover:text-base-950 focus-visible:bg-focus-color font-semibold underline-offset-4 hover:underline focus:decoration-2 focus-visible:p-1 focus-visible:text-black dark:hover:text-white;
   }
 
   .pagefind-ui__result-title {
@@ -191,7 +191,7 @@ if (!entry) {
 
   .pagefind-ui__filter-button {
     /* injected button -> not part of pagefind */
-    @apply border-primary-900 dark:border-primary-50 focus-visible:bg-focus-visible dark:hover:text-primary-950 hover:bg-primary-950 hover:border-primary-950 flex w-full cursor-pointer items-center justify-center gap-2 border-2 bg-transparent p-2 px-4 transition duration-300 hover:text-white focus-visible:border-black focus-visible:text-black md:w-48 dark:hover:border-white dark:hover:bg-white;
+    @apply border-base-900 dark:border-base-50 focus-visible:bg-focus-color dark:hover:text-base-950 hover:bg-base-950 hover:border-base-950 flex w-full cursor-pointer items-center justify-center gap-2 border-2 bg-transparent p-2 px-4 transition duration-300 hover:text-white focus-visible:border-black focus-visible:text-black md:w-48 dark:hover:border-white dark:hover:bg-white;
   }
 
   .pagefind-ui__filter-panel {
@@ -206,12 +206,12 @@ if (!entry) {
 
   .pagefind-ui__filter-block {
     /* details */
-    @apply bg-primary-200 dark:bg-primary-900 cursor-pointer p-2 md:relative md:px-4;
+    @apply bg-base-200 dark:bg-base-900 cursor-pointer p-2 md:relative md:px-4;
   }
 
   .pagefind-ui__filter-block[open] {
     /* details - open state */
-    @apply bg-primary-300 dark:bg-primary-800;
+    @apply bg-base-300 dark:bg-base-800;
   }
 
   .pagefind-ui__filter-name {
@@ -226,7 +226,7 @@ if (!entry) {
 
   .pagefind-ui__filter-group {
     /* fieldset -> filter choices */
-    @apply bg-primary-300 dark:bg-primary-800 flex w-full flex-col gap-2 p-4 md:absolute md:top-full md:left-0;
+    @apply bg-base-300 dark:bg-base-800 flex w-full flex-col gap-2 p-4 md:absolute md:top-full md:left-0;
   }
 
   .pagefind-ui__filter-group-label {

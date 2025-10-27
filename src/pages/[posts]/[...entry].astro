@@ -8,7 +8,7 @@ import RelatedPosts from "~/components/collections/posts/RelatedPosts.astro";
 import ShareLinks from "~/components/ui/ShareLinks.astro";
 import TableOfContents from "~/components/ui/toc/TableOfContents.astro";
 import DetailsBox from "~/components/collections/posts/DetailsBox.astro";
-import PrevNext from "~/components/collections/posts/PrevNext.astro";
+import PostNavigation from "~/components/collections/posts/PostNavigation.astro";
 
 type Props = {
   entry: CollectionEntry<"posts">;
@@ -38,7 +38,7 @@ const { Content, headings } = await render(entry);
 
   <article class="mb-4 grid grid-cols-1 gap-4">
     <Hero
-      author={entry.data.author}
+      authorId={entry.data.author ?? "default"}
       category={entry.data.category}
       date={entry.data.pubDate}
       description={entry.data.description}
@@ -59,7 +59,7 @@ const { Content, headings } = await render(entry);
         title={entry.data.title}
         url={Astro.url.toString()}
       />
-      <PrevNext nextEntry={nextEntry} prevEntry={prevEntry} />
+      <PostNavigation nextEntry={nextEntry} prevEntry={prevEntry} />
     </footer>
   </article>
 

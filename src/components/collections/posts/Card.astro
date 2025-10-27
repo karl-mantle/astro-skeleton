@@ -21,7 +21,7 @@ const { date, description, heading, href, image }: Props = Astro.props;
 
 <li>
   <a
-    class="group/card bg-primary-200 dark:bg-primary-800 flex h-full flex-col-reverse text-base"
+    class="group/card bg-base-200 dark:bg-base-800 flex h-full flex-col-reverse text-base"
     href={href}
   >
     <div class="flex flex-grow flex-col gap-2 p-4">
@@ -29,7 +29,7 @@ const { date, description, heading, href, image }: Props = Astro.props;
       <Date date={date} />
       <p>{description}</p>
       <span
-        class="group-hover/card:border-primary-950 group-focus-visible/card:bg-focus-visible group-hover/card:text-primary-950 mt-auto mr-auto ml-0 flex w-fit items-center gap-2 border-b-2 border-transparent p-2 pl-0 transition-colors duration-300 group-focus-visible/card:border-black group-focus-visible/card:pl-2 group-focus-visible/card:text-black group-focus-visible/card:outline-2 dark:group-hover/card:border-white dark:group-hover/card:text-white"
+        class="group-hover/card:border-base-950 group-focus-visible/card:bg-focus-color group-hover/card:text-base-950 mt-auto mr-auto ml-0 flex w-fit items-center gap-2 border-b-2 border-transparent p-2 pl-0 transition-colors duration-300 group-focus-visible/card:border-black group-focus-visible/card:pl-2 group-focus-visible/card:text-black group-focus-visible/card:outline-2 dark:group-hover/card:border-white dark:group-hover/card:text-white"
       >
         <span>Read more</span>
         <Icon

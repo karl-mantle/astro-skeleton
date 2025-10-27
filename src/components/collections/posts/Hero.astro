@@ -4,12 +4,12 @@ import type { HTMLAttributes } from "astro/types";
 import { Picture } from "astro:assets";
 import { collectionsConfig } from "~/site.config";
 import slugify from "slugify";
-import AuthorBadge from "~/components/collections/profiles/AuthorBadge.astro";
 import Date from "~/components/ui/Date.astro";
+import ProfileBadge from "~/components/collections/profiles/ProfileBadge.astro";
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
 
 interface Props extends HTMLAttributes<"header"> {
-  author: string;
+  authorId: string;
   category: string;
   date: Date;
   description: string;
@@ -20,7 +20,7 @@ interface Props extends HTMLAttributes<"header"> {
   };
 }
 
-const { author, category, date, heading, image }: Props = Astro.props;
+const { authorId, category, date, heading, image }: Props = Astro.props;
 ---
 
 <header class="flex flex-col gap-4 md:gap-8">
@@ -42,7 +42,7 @@ const { author, category, date, heading, image }: Props = Astro.props;
   <h1 class="font-serif">{heading}</h1>
 
   <div class="flex flex-col justify-between gap-2 md:flex-row">
-    <AuthorBadge author={author} />
+    <ProfileBadge id={authorId} />
 
     <div class="flex h-fit items-baseline gap-1 text-sm font-medium">
       <Date class="self-center" date={date} />

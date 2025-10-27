@@ -30,10 +30,10 @@ const newTabAttributes = openNewTab ? { target: "_blank", rel: "noreferrer noope
 
 <a
   class:list={[
-    "not-prose group/btn bg-primary-900 dark:bg-primary-50 hover:text-primary-950 focus-visible:bg-focus-visible text-primary-50 dark:text-primary-950 hover:border-primary-900 dark:hover:border-primary-50 flex w-full items-center justify-center border-2 border-transparent p-2 px-4 font-medium transition-colors duration-300 hover:bg-transparent focus-visible:border-b-2 focus-visible:border-black focus-visible:text-black md:w-fit dark:hover:text-white",
+    "not-prose group/btn bg-base-900 dark:bg-base-50 hover:text-base-950 focus-visible:bg-focus-color text-base-50 dark:text-base-950 hover:border-base-900 dark:hover:border-base-50 flex w-full items-center justify-center border-2 border-transparent p-2 px-4 font-medium transition-colors duration-300 hover:bg-transparent focus-visible:border-b-2 focus-visible:border-black focus-visible:text-black md:w-fit dark:hover:text-white",
     label && icon ? "gap-2" : "",
     iconReverse ? "flex-row-reverse" : "",
-    disabled && "text-primary-200 cursor-not-allowed",
+    disabled && "text-base-200 cursor-not-allowed",
     className,
   ]}
   href={disabled ? undefined : href}

@@ -3,8 +3,8 @@ import type { HTMLAttributes } from "astro/types";
 import { collectionsConfig } from "~/site.config";
 import { getPosts } from "~/lib/collections/posts";
 import Card from "~/components/collections/posts/Card.astro";
-import CardSmall from "~/components/collections/posts/CardSmall.astro";
-import CardWide from "~/components/collections/posts/CardWide.astro";
+import CardImage from "~/components/collections/posts/CardImage.astro";
+import CardRow from "~/components/collections/posts/CardRow.astro";
 import ListItem from "~/components/collections/posts/ListItem.astro";
 import PostPreview from "~/components/collections/posts/PostPreview.astro";
 
@@ -42,7 +42,7 @@ const entries = await getPosts(max);
   {
     variant === "small" &&
       entries.map((entry) => (
-        <CardSmall
+        <CardImage
           description={entry.data.description}
           heading={entry.data.title}
           href={`${import.meta.env.BASE_URL}${collectionsConfig.permalink_posts_entry}${entry.data.slug}`}
@@ -53,7 +53,7 @@ const entries = await getPosts(max);
   {
     variant === "wide" &&
       entries.map((entry) => (
-        <CardWide
+        <CardRow
           date={entry.data.pubDate}
           description={entry.data.description}
           heading={entry.data.title}
