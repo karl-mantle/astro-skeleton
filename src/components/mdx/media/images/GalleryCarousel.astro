@@ -5,9 +5,9 @@ import { Picture } from "astro:assets";
 import "swiper/css";
 import "swiper/css/bundle";
 
-interface Props extends HTMLAttributes<"section"> {
+interface Props extends HTMLAttributes<"div"> {
   images: {
-    alt: string | null;
+    alt?: string;
     src: ImageMetadata;
   }[];
 }
@@ -15,7 +15,7 @@ interface Props extends HTMLAttributes<"section"> {
 const { images, class: className, ...rest }: Props = Astro.props;
 ---
 
-<section class:list={["swiper not-prose mb-4 md:mb-8", className]} {...rest}>
+<div class:list={["swiper not-prose contain mb-4 md:mb-8", className]} {...rest}>
   <div class="swiper-wrapper">
     {
       images.map((item, index) =>
@@ -40,7 +40,7 @@ const { images, class: className, ...rest }: Props = Astro.props;
   <div class="swiper-pagination"></div>
   <div class="swiper-button-next"></div>
   <div class="swiper-button-prev"></div>
-</section>
+</div>
 
 <script>
   import Swiper from "swiper/bundle";
@@ -78,7 +78,7 @@ const { images, class: className, ...rest }: Props = Astro.props;
     --swiper-navigation-disabled-opacity: 0.35;
     --swiper-pagination-bullet-size: 8px;
     --swiper-pagination-bullet-horizontal-gap: 6px;
-    --swiper-pagination-color: var(--color-primary-500);
+    --swiper-pagination-color: var(--color-base-500);
     --swiper-pagination-bullet-inactive-opacity: 0.3;
     --swiper-pagination-bullet-inactive-scale: 0.8;
     --swiper-scrollbar-drag-size: 50px;

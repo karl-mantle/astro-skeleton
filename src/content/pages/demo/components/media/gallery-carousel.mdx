@@ -1,0 +1,117 @@
+---
+title: "Gallery Carousel component"
+description: "Demo page for the Gallery Carousel component. See usage, examples, attributes and additional notes."
+slug: "components/media/gallery-carousel"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+
+<Section class="mt-4 md:mt-12" columns={1}>
+<Markdown>
+
+# Gallery Carousel
+
+Responsive and touch-friendly image carousel using [`swiper.js`](https://swiperjs.com/). Accepts an array of image objects.
+
+</Markdown>
+
+import GalleryCarousel from "~/components/mdx/media/images/GalleryCarousel.astro";
+import Image1 from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+import Image2 from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
+import Image3 from "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg";
+import Image4 from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
+
+<GalleryCarousel
+  images={[
+    { src: Image1, alt: "Low angle photography of grey high rise building" },
+    { src: Image2, alt: "Greyscale photo of a ferris wheel" },
+    { src: Image3, alt: "Person's right hand near newspaper" },
+    { src: Image4, alt: "Greyscale photo of glass window" },
+  ]}
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section columns={1}>
+<Markdown>
+
+# NAME
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import GalleryCarousel from "~/components/mdx/integrations/swiper/GalleryCarousel.astro";
+import Image1 from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+import Image2 from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
+import Image3 from "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg";
+import Image4 from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
+
+<GalleryCarousel
+  images={[
+    { src: Image1, alt: "Low angle photography of grey high rise building" },
+    { src: Image2, alt: "Greyscale photo of a ferris wheel" },
+    { src: Image3, alt: "Person's right hand near newspaper" },
+    { src: Image4, alt: "Greyscale photo of glass window" },
+  ]}
+/>
+
+</Section>
+```
+
+### Props
+
+| Prop        | Type                    | Description                                                  |
+| ----------- | ----------------------- | ------------------------------------------------------------ |
+| `images`    | array of objects        | An array of image objects.                                   |
+| `class`     | string                  | _(optional)_ Additional classes applied to the root `<div>`. |
+| _(extends)_ | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.     |
+
+#### `image` object
+
+- `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+- `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+The `images` prop is an array of `image` objects.
+
+### Useful links
+
+- [Swiper Documentation](https://swiperjs.com/swiper-api)
+- [Unsplash](https://unsplash.com/) for free stock images and art
+
+</Markdown>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>
