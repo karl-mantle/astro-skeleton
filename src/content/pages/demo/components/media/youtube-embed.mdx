@@ -1,0 +1,134 @@
+---
+title: "YouTube Embed component"
+description: "Demo page for the YouTube Embed component. See usage, examples, attributes and additional notes."
+slug: "components/media/youtube-embed"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+
+<Section class="mt-4 md:mt-12" columns={1}>
+<Markdown>
+
+# YouTube Embed
+
+Lightweight YouTube videos using [`lite-youtube-embed`](https://github.com/paulirish/lite-youtube-embed). Supports using a custom preview image and title.
+
+</Markdown>
+
+import YouTube from "~/components/mdx/media/videos/YouTube.astro";
+import PreviewImage from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
+
+<YouTube
+  url="https://www.youtube.com/watch?v=CHSnz0bCaUk"
+  title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua."
+  image={{
+    src: PreviewImage,
+    alt: "Example alt text here",
+  }}
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section columns={1}>
+<Markdown>
+
+# YouTube Embed
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import YouTube from "~/components/mdx/media/videos/YouTube.astro";
+import PreviewImage from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
+
+<YouTube
+  url="https://www.youtube.com/watch?v=CHSnz0bCaUk"
+  title="Example title to display"
+  image={{
+    src: PreviewImage,
+    alt: "Example alt text here",
+  }}
+/>
+
+</Section>
+```
+
+### Props
+
+| Prop           | Type                    | Description                                                                                                                                  |
+| -------------- | ----------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `image`        | object                  | _(optional)_ Image data for the component. [See fields below.](#image-object)                                                                |
+| `imageQuality` | string                  | _(optional)_ YouTube preview image quality. Valid choices are: `"max" \| "high" \| "standard" \| "low"`                                      |
+| `label`        | string                  | _(optional)_ Custom screen reader text for the play button, default is "Play video"                                                          |
+| `params`       | string                  | _(optional)_ URL params to customise player. [See supported params here](https://developers.google.com/youtube/player_parameters#Parameters) |
+| `title`        | string                  | _(optional)_ The title displayed at the top of the video.                                                                                    |
+| `url`          | string                  | Can be either a Vimeo video ID or the URL e.g. `https://www.youtube.com/watch?v=CHSnz0bCaUk`                                                 |
+| `class`        | string                  | _(optional)_ Additional classes applied to the root `<div>`.                                                                                 |
+| _(extends)_    | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                                                                                     |
+
+#### `image` object
+
+- `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+- `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+</Markdown>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## More examples
+
+</Markdown>
+
+import PreviewImage2 from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
+
+<YouTube
+  url="https://www.youtube.com/watch?v=CHSnz0bCaUk"
+  image={{
+    src: PreviewImage2,
+    alt: "Example alt text here",
+  }}
+/>
+
+<YouTube
+  url="https://www.youtube.com/watch?v=CHSnz0bCaUk"
+  title="Alaska in 8K 60p HDR (Dolby Vision)"
+/>
+
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>

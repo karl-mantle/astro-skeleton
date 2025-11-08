@@ -5,7 +5,10 @@ import { Image } from "astro:assets";
 import "lite-youtube-embed/src/lite-yt-embed.css";
 
 interface Props extends HTMLAttributes<"div"> {
-  image?: ImageMetadata;
+  image?: {
+    src: ImageMetadata;
+    alt?: string;
+  };
   imageQuality?: "max" | "high" | "standard" | "low";
   label?: string;
   params?: string;
@@ -49,8 +52,8 @@ const imagePaths = {
         image ? (
           <Image
             class="h-full w-full object-cover"
-            src={image}
-            alt=""
+            src={image.src}
+            alt={image.alt ?? ""}
             height={800}
             width={450}
             format="webp"
