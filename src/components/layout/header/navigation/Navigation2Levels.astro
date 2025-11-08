@@ -29,17 +29,17 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
 >
   <ul class="md:flex md:flex-row md:items-center md:gap-2">
     {
-      menuTree.map((item: MenuItem) => (
+      menuTree.map((first: MenuItem) => (
         <li class="relative flex flex-col" data-menu-item>
+          {/* first level - visible */}
           <div class="border-base-200 dark:border-base-800 flex flex-row items-center justify-between border-b-2 p-4 md:gap-2 md:border-none md:py-0">
-            {/* top links */}
-            {item.url ? (
+            {first.url ? (
               <a
-                class="focus-visible:bg-focus-color flex flex-grow items-center justify-between border-b-2 border-transparent focus-visible:border-black focus-visible:text-black"
-                href={item.url}
+                class="decoration-base-600 dark:decoration-base-50 focus-visible:bg-focus-color flex flex-grow items-center justify-between border-b-2 border-transparent decoration-2 underline-offset-4 hover:underline focus-visible:border-black focus-visible:text-black"
+                href={first.url}
               >
-                <span>{item.label}</span>
-                {item.children.length === 0 && (
+                <span>{first.label}</span>
+                {first.children.length === 0 && (
                   <Icon
                     name="material-symbols:arrow-right-alt"
                     height={26}
@@ -49,14 +49,13 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
                 )}
               </a>
             ) : (
-              <span>{item.label}</span>
+              <span>{first.label}</span>
             )}
-            {/* sub menu toggle */}
-            {item.children.length > 0 && (
+            {first.children.length > 0 && (
               <button
                 class="focus-visible:bg-focus-color flex cursor-pointer items-center justify-center border-b-2 border-transparent focus-visible:border-black focus-visible:text-black md:p-1"
-                aria-label={`Open ${item.label} links`}
-                aria-controls={`links-${item.id}`}
+                aria-label={`Open ${first.label} links`}
+                aria-controls={`links-${first.id}`}
                 aria-expanded="false"
                 data-submenu-toggle
               >
@@ -70,22 +69,21 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
             )}
           </div>
 
-          {/* sub menu */}
-          {item.children.length > 0 && (
+          {/* second level */}
+          {first.children.length > 0 && (
             <ul
-              id={`links-${item.id}`}
+              id={`links-${first.id}`}
               class="bg-base-100 md:bg-base-50 dark:bg-base-800 dark:md:bg-base-900 flex hidden w-full flex-col md:absolute md:top-full md:left-0 md:mt-2 md:shadow-sm"
               data-submenu
-              aria-label={`${item.label} links`}
+              aria-label={`${first.label} links`}
             >
-              {/* sub menu links */}
-              {item.children.map((child: MenuItem) => (
+              {first.children.map((second: MenuItem) => (
                 <li class="border-base-200 dark:border-base-800 flex flex-row items-center justify-between border-b-2 p-4 transition duration-300 hover:backdrop-brightness-95 dark:hover:backdrop-brightness-5">
                   <a
                     class="focus-visible:bg-focus-color flex flex-grow items-center justify-between focus-visible:text-black"
-                    href={child.url}
+                    href={second.url}
                   >
-                    <span>{child.label}</span>
+                    <span>{second.label}</span>
                     <Icon
                       name="material-symbols:arrow-right-alt"
                       height={32}

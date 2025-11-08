@@ -1,17 +1,17 @@
 ---
 import { Image } from "astro:assets";
 import { generalConfig } from "~/site.config";
-import HeaderNavigation from "~/components/layout/header//HeaderNavigation.astro";
-import Navigation from "~/components/layout/header/buttons/Navigation.astro";
-import Search from "~/components/layout/header/buttons/Search.astro";
-import Theme from "~/components/layout/header/buttons/Theme.astro";
+import Navigation2Levels from "~/components/layout/header/navigation/Navigation3Levels.astro";
+import NavigationBtn from "~/components/layout/header/buttons/Navigation.astro";
+import SearchBtn from "~/components/layout/header/buttons/Search.astro";
+import ThemeBtn from "~/components/layout/header/buttons/Theme.astro";
 import SiteLogo from "~/assets/svg/logo-1-1.svg";
 ---
 
 <header class="z-50">
-  <div class="mx-auto flex max-w-5xl justify-between p-4">
+  <div class="contain flex justify-between p-4">
     <a
-      class="group/logo focus-visible:bg-focus-color flex flex-row items-center gap-4 border-b-2 border-transparent px-2 text-xl font-medium focus-visible:border-black focus-visible:text-black"
+      class="group/logo focus-visible:bg-focus-color flex flex-row items-center gap-4 border-b-2 border-transparent text-xl font-medium focus-visible:border-black focus-visible:text-black"
       href={import.meta.env.BASE_URL}
       aria-label="Return to home page"
     >
@@ -22,12 +22,12 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
       >
     </a>
 
-    <HeaderNavigation />
+    <Navigation2Levels />
 
     <ul class="flex gap-2" aria-label="Site controls">
-      <Search />
-      <Theme />
-      <Navigation />
+      <SearchBtn />
+      <ThemeBtn />
+      <NavigationBtn />
     </ul>
   </div>
 </header>
