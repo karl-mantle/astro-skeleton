@@ -7,7 +7,7 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
 ---
 
 <footer class="bg-base-100 dark:bg-base-900">
-  <div class="mx-auto flex max-w-5xl justify-between gap-8 p-4 py-8">
+  <div class="contain flex justify-between gap-8 py-8">
     <div class="flex flex-col items-center gap-8 md:flex-row">
       <a
         href={import.meta.env.BASE_URL}
@@ -32,7 +32,7 @@ import SiteLogo from "~/assets/svg/logo-1-1.svg";
   </div>
 
   <div
-    class="mx-auto flex max-w-5xl flex-col items-center gap-2 border-t-2 border-white p-4 md:flex-row md:justify-between dark:border-black"
+    class="contain flex flex-col items-center gap-2 border-t-2 border-white p-4 md:flex-row md:justify-between dark:border-black"
   >
     <div class="text-sm">
       {generalConfig.footer_copyright}

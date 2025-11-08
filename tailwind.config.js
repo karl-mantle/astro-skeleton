@@ -3,8 +3,10 @@ module.exports = {
   theme: {
     extend: {
       typography: () => ({
-        base: {
+        theme: {
           css: {
+            "code::before": { content: "none" },
+            "code::after": { content: "none" },
             "--tw-prose-body": "var(--color-base-800)",
             "--tw-prose-headings": "var(--color-base-900)",
             "--tw-prose-lead": "var(--color-base-700)",

@@ -13,7 +13,6 @@
   --font-mono:
     "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
     "Courier New", monospace;
-  --color-focus-visible: var(--color-yellow-300);
   --color-focus-color: var(--color-yellow-300);
   /* primary */
   --color-base-50: var(--color-neutral-50);
@@ -73,6 +72,6 @@
     @apply mx-auto max-w-5xl px-4;
   }
   .typography {
-    @apply prose prose-base md:prose-lg dark:prose-invert max-w-[80ch];
+    @apply prose prose-theme md:prose-lg dark:prose-invert prose-a:hover:no-underline max-w-[75ch];
   }
 }
