@@ -1,0 +1,166 @@
+---
+title: "Leaflet Map component"
+description: "Demo page for the Leaflet Map component. See usage, examples, attributes and additional notes."
+slug: "components/interactive/leaflet-map"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+
+<Section class="mt-4 md:mt-12" columns={1}>
+<Markdown>
+
+# Leaflet Map
+
+An interactive map using [`leaflet.js`](https://leafletjs.com/) with the following features:
+
+- **Customisable map options:**
+  Accepts latitude, longitude, zoom, attribution and tile layer URL to customise the maps initial display.
+- **Custom Markers:**
+  Add custom map markers via the `markers` object.
+- **Automatic icon setup:**
+  Uses a helper to set default icons and shadows.
+- **Accessible structure:**
+  Wraps the map in a `<figure>` element with optional `<figcaption>` and relevant ARIA attributes.
+- **Responsive layout:**
+  Square aspect ration on small screens, switches to 16:9 on large screens.
+
+</Markdown>
+
+import LeafletMap from "~/components/mdx/interactive/maps/Leaflet.astro";
+
+<LeafletMap
+  mapOptions={{
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    caption: "An example of a map with a caption and custom map markers.",
+    id: "this-must-be-unique",
+    latitude: 51.509865,
+    longitude: -0.118092,
+    tileLayer: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    zoom: 5,
+    markers: [
+      { latitude: 51.5, longitude: -0.09, popup: "Hello world!" },
+      { latitude: 52.1, longitude: 1.1, popup: "Another custom map marker" },
+    ],
+  }}
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section columns={1}>
+<Markdown>
+
+# Leaflet Map
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import LeafletMap from "~/components/mdx/interactive/maps/Leaflet.astro";
+
+<LeafletMap
+  mapOptions={{
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    caption: "An example of a map with a caption and custom map markers.",
+    id: "this-must-be-unique",
+    latitude: 51.509865,
+    longitude: -0.118092,
+    tileLayer: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    zoom: 5,
+    markers: [
+      { latitude: 51.5, longitude: -0.09, popup: "Hello world!" },
+      { latitude: 52.1, longitude: 1.1, popup: "Another custom map marker" },
+    ],
+  }}
+/>
+
+</Section>
+```
+
+### Props
+
+| Prop          | Type                       | Description                                                                           |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------------- |
+| `attribution` | string                     | Text and links used to credit the tile source.                                        |
+| `caption`     | string                     | _(optional)_ Text displayed below the map inside a `<figcaption>`.                    |
+| `id`          | string                     | **Must be unique**.                                                                   |
+| `latitude`    | number                     | Initial north-south centre position of the map.                                       |
+| `longitude`   | number                     | Initial east-west centre position of the map.                                         |
+| `markers`     | array of objects           | _(optional)_ Array of marker objects. [See fields below.](#marker-object)             |
+| `tileLayer`   | string                     | URL template for the map tile layer. **Note**: Most tile servers require attribution. |
+| `zoom`        | number                     | Initial map zoom level.                                                               |
+| `class`       | string                     | _(optional)_ Additional classes applied to the root `<figure>`.                       |
+| _(extends)_   | `HTMLAttributes<"figure">` | _(optional)_ All standard HTML attributes for a `<figure>`.                           |
+
+#### `marker` object
+
+- `latitude` — number  
+  Map marker position north-south.
+- `longitude` — number  
+  Map marker position east-west.
+- `popup` — string  
+  _(optional)_ The visible text on the pop up.
+
+The `markers` prop is an array of `btn` objects.
+
+### Useful links
+
+- [Leaflet Tile providers](https://github.com/leaflet-extras/leaflet-providers)
+- [Leaflet providers preview](https://leaflet-extras.github.io/leaflet-providers/preview/)
+
+</Markdown>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## More examples
+
+</Markdown>
+
+<LeafletMap
+  mapOptions={{
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    id: "map-test-new-york",
+    latitude: 40.659865,
+    longitude: -74.118092,
+    tileLayer: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+    zoom: 10,
+  }}
+/>
+
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>
