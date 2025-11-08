@@ -25,3 +25,5 @@ pnpm-debug.log*
 
 # pagefind on dev server
 /public/pagefind
+
+_*.*

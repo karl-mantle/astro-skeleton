@@ -141,6 +141,12 @@ export const headerNavigation = [
     label: "Leaflet Map",
   },
   {
+    id: "web3-form",
+    parentId: "interactive",
+    url: "/astro-skeleton/components/interactive/web3-form",
+    label: "Web3 Form",
+  },
+  {
     id: "media",
     parentId: "components",
     url: "/astro-skeleton/components/media",
