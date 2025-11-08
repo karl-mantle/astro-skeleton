@@ -1,10 +1,26 @@
 ---
+import type { HTMLAttributes } from "astro/types";
 import { Icon } from "astro-icon/components";
+
+interface Props extends HTMLAttributes<"form"> {
+  accessKey: string;
+  siteKey: string;
+}
+
+const { accessKey, siteKey, class: className, ...rest }: Props = Astro.props;
 ---
 
-<form id="form" method="POST" data-form class="grid w-full grid-cols-1 gap-2 md:grid-cols-2">
-  <input type="hidden" name="access_key" value="d46263ac-da24-498f-b856-bfeaf078a85c" />
-  <input type="hidden" name="captcha" value="turnstile" />
+<form
+  id="form"
+  method="POST"
+  data-form
+  class:list={["grid w-full grid-cols-1 gap-2 md:grid-cols-2", className]}
+  {...rest}
+>
+  <input type="hidden" name="access_key" value={accessKey} />
+
+  {siteKey && <input type="hidden" name="captcha" value="turnstile" />}
+
   <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" />
 
   <div class="flex flex-col gap-2">
@@ -27,13 +43,12 @@ import { Icon } from "astro-icon/components";
     <textarea id="message" name="message" required class="min-h-40"></textarea>
   </div>
 
-  <div class="cf-turnstile mt-4 min-h-18 md:col-span-2" data-sitekey="0x4AAAAAABhqUtSMp27iLYrQ">
-  </div>
+  {siteKey && <div class="cf-turnstile mt-4 min-h-18 md:col-span-2" data-sitekey={siteKey} />}
 
   <div class="flex md:col-span-2">
     <button
       type="submit"
-      class="group/btn hover:border-primary-950 focus-visible:bg-focus-visible hover:text-primary-950 flex w-fit cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent p-1 font-medium transition-colors duration-300 focus-visible:border-black focus-visible:text-black dark:hover:border-white dark:hover:text-white"
+      class="group/btn hover:border-base-950 focus-visible:bg-focus-visible hover:text-base-950 flex w-fit cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent p-1 font-medium transition-colors duration-300 focus-visible:border-black focus-visible:text-black dark:hover:border-white dark:hover:text-white"
     >
       <span class="font-medium">Submit</span>
       <Icon name="material-symbols:arrow-right-alt" height={26} width={26} class="w-8" />
@@ -42,6 +57,8 @@ import { Icon } from "astro-icon/components";
 
   <div id="feedback" class="col-span-2" role="alert" aria-live="polite" aria-atomic="true"></div>
 </form>
+
+{siteKey && <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />}
 
 <script>
   function initContactForm() {

@@ -1,0 +1,87 @@
+---
+title: "Web3 Form component"
+description: "Demo page for the Web3 Form component. See usage, examples, attributes and additional notes."
+slug: "components/interactive/web3-form"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+
+<Section class="mt-4 md:mt-12" columns={1}>
+<Markdown>
+
+# Web3 Form
+
+An example contact form that sends submissions to an e-mail inbox via the [Web3 Forms](https://web3forms.com/) API. The form uses basic styling from the [TailwindCSS Forms](https://github.com/tailwindlabs/tailwindcss-forms) plugin. Adding the `siteKey` prop enables Cloudflare Turnstile verificaton for spam protection. Note: Turnstile isn't supported on Web3's non-paid plans.
+
+</Markdown>
+
+import Web3Form from "~/components/mdx/interactive/forms/Web3.astro";
+
+<Web3Form accessKey="d46263ac-da24-498f-b856-bfeaf078a85c" siteKey="0x4AAAAAABhqUtSMp27iLYrQ" />
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section columns={1}>
+<Markdown>
+
+# Web3 Form
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import Web3Form from "~/components/mdx/interactive/forms/Web3.astro";
+
+<Web3Form accessKey="d46263ac-da24-498f-b856-bfeaf078a85c" siteKey="0x4AAAAAABhqUtSMp27iLYrQ" />
+
+</Section>
+```
+
+### Props
+
+| Prop        | Type                     | Description                                                   |
+| ----------- | ------------------------ | ------------------------------------------------------------- |
+| `accessKey` | string                   | Web3 Access key                                               |
+| `siteKey`   | string                   | _(optional)_ Enables Cloudflare Turnstile if added            |
+| `class`     | string                   | _(optional)_ Additional classes applied to the root `<form>`. |
+| _(extends)_ | `HTMLAttributes<"form">` | _(optional)_ All standard HTML attributes for a `<form>`.     |
+
+### Useful links
+
+- [Web3 Forms](https://web3forms.com/)
+- [Cloudflare Docs for Turnstile - Get started](https://developers.cloudflare.com/turnstile/get-started/)
+
+</Markdown>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>

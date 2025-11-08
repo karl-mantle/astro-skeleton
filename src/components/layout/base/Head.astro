@@ -61,10 +61,4 @@ const opengraphImage = await getImage({ src: imageMeta });
 
   {/* slot for extras */}
   <slot />
-
-  {
-    entry.data.loadingOptions?.turnstile === true && (
-      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer />
-    )
-  }
 </head>
