@@ -4,14 +4,25 @@ import type { HTMLAttributes } from "astro/types";
 import { Image } from "astro:assets";
 
 interface Props extends HTMLAttributes<"div"> {
-  image?: ImageMetadata;
+  image?: {
+    src: ImageMetadata;
+    alt?: string;
+  };
   label?: string;
   params?: string;
   title?: string;
   url: string;
 }
 
-const { image, label = "Play", params, title, url, class: className, ...rest }: Props = Astro.props;
+const {
+  image,
+  label = "Play video",
+  params,
+  title,
+  url,
+  class: className,
+  ...rest
+}: Props = Astro.props;
 
 const extractVideoId = (url: string): string | undefined => {
   if (!url) return undefined;
@@ -41,8 +52,8 @@ if (!image && videoId) {
         image ? (
           <Image
             class="h-full w-full object-cover"
-            src={image}
-            alt=""
+            src={image.src}
+            alt={image.alt ?? ""}
             height={800}
             width={450}
             format="webp"
@@ -68,9 +79,14 @@ if (!image && videoId) {
   </lite-vimeo>
 </div>
 
-<script src="lite-vimeo-embed"></script>
+<script>
+  const loadLiteVimeo = async () => {
+    await import("lite-vimeo-embed");
+  };
+  document.addEventListener("astro:page-load", loadLiteVimeo);
+</script>
 
-<style is:global>
+<style>
   @reference "~/styles/global.css";
 
   lite-vimeo > iframe {
@@ -88,6 +104,6 @@ if (!image && videoId) {
   }
 
   lite-vimeo::before {
-    z-index: 5;
+    @apply text-base-50 text-shadow-base-950 absolute top-0 z-5 block w-full overflow-hidden bg-gradient-to-b from-black/70 via-black/30 to-transparent p-4 overflow-ellipsis whitespace-nowrap content-[attr(data-title)];
   }
 </style>

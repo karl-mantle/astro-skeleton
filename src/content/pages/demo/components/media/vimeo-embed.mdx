@@ -1,0 +1,122 @@
+---
+title: "Vimeo Embed component"
+description: "Demo page for the Vimeo Embed component. See usage, examples, attributes and additional notes."
+slug: "components/media/vimeo-embed"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+
+<Section class="mt-4 md:mt-12" columns={1}>
+<Markdown>
+
+# Vimeo Embed
+
+Lightweight Vimeo videos using a [fork](https://github.com/karl-mantle/lite-vimeo-embed) of [`lite-vimeo-embed`](https://github.com/luwes/lite-vimeo-embed). Supports using a custom preview image and title.
+
+</Markdown>
+
+import Vimeo from "~/components/mdx/media/videos/Vimeo.astro";
+import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+
+<Vimeo
+  url="https://vimeo.com/170585872"
+  title="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua."
+  image={{
+    src: PreviewImage,
+    alt: "Example alt text here",
+  }}
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section columns={1}>
+<Markdown>
+
+# Vimeo Embed
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import Vimeo from "~/components/mdx/media/videos/Vimeo.astro";
+import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+
+<Vimeo url="https://vimeo.com/170585872" title="Example title to display" image={PreviewImage} />
+
+</Section>
+```
+
+### Props
+
+| Prop        | Type                    | Description                                                                                                                                               |
+| ----------- | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `image`     | object                  | _(optional)_ Image data for the component. [See fields below.](#image-object)                                                                             |
+| `label`     | string                  | _(optional)_ Custom screen reader text for the play button, default is "Play video"                                                                       |
+| `params`    | string                  | _(optional)_ URL params to customise player. [See supported params here](https://help.vimeo.com/hc/en-us/articles/12426260232977-About-Player-Parameters) |
+| `title`     | string                  | _(optional)_ The title displayed at the top of the video.                                                                                                 |
+| `url`       | string                  | Can be either a Vimeo video ID or the URL e.g. `https://vimeo.com/170585872`                                                                              |
+| `class`     | string                  | _(optional)_ Additional classes applied to the root `<div>`.                                                                                              |
+| _(extends)_ | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                                                                                                  |
+
+#### `image` object
+
+- `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+- `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+</Markdown>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## More examples
+
+</Markdown>
+
+import PreviewImage2 from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
+
+<Vimeo
+  url="https://vimeo.com/170585872"
+  image={{
+    src: PreviewImage2,
+  }}
+/>
+
+<Vimeo url="https://vimeo.com/108018156" title="An example video without a custom preview image" />
+
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>
