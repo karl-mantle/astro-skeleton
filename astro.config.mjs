@@ -64,6 +64,9 @@ export default defineConfig({
     icon({
       iconDir: "src/assets/icons",
       // add used icons here https://www.astroicon.dev/reference/configuration
+      include: {
+        "material-symbols": ["*"],
+      },
     }),
     mdx(),
     partytown(),

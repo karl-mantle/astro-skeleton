@@ -54,16 +54,16 @@
 
 @layer base {
   h1 {
-    @apply text-2xl leading-snug font-semibold md:text-5xl;
+    @apply text-4xl leading-snug font-extrabold md:text-5xl;
   }
   h2 {
-    @apply text-xl leading-snug font-semibold md:text-3xl;
+    @apply text-2xl leading-snug font-bold md:text-3xl;
   }
   h3 {
-    @apply text-lg leading-snug font-medium md:text-xl;
+    @apply text-xl leading-snug font-semibold md:text-2xl;
   }
   h4 {
-    @apply leading-snug font-medium;
+    @apply text-base leading-snug font-semibold md:text-lg;
   }
 }
 
@@ -72,6 +72,10 @@
     @apply mx-auto max-w-5xl px-4;
   }
   .typography {
-    @apply prose prose-theme md:prose-lg dark:prose-invert prose-a:hover:no-underline max-w-[75ch];
+    @apply prose prose-theme md:prose-lg dark:prose-invert prose-a:hover:no-underline max-w-none;
+
+    & > *:where(p, h1, h2, h3, h4, a, li, dt, dd, blockquote) {
+      @apply max-w-[75ch];
+    }
   }
 }

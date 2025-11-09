@@ -1,7 +1,7 @@
 ---
-title: "Simple card component"
-description: "Demo page for the Simple card component. See usage, examples, attributes and additional notes."
-slug: "components/cards/simple"
+title: "Simple Icon card component"
+description: "Demo page for the Simple Icon card component. See usage, examples, attributes and additional notes."
+slug: "components/cards/simple-icon"
 ---
 
 import Section from "~/components/mdx/layout/Section.astro";
@@ -11,27 +11,30 @@ import Carousel from "~/components/mdx/layout/Carousel.astro";
 <Section class="mt-4 md:mt-12" columns={3}>
 <Markdown class="md:col-span-3">
 
-# Simple card
+# Simple Icon card
 
-A simple content card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+A simple content card with an icon, heading and optional description. It has two layout options, row or column, and can be centered with a prop. Intended for use in columns or with a carousel wrapper.
 
 </Markdown>
 
-import SimpleCard from "~/components/mdx/cards/Simple.astro";
+import SimpleIconCard from "~/components/mdx/cards/SimpleIcon.astro";
 
-<SimpleCard
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -49,27 +52,30 @@ laboris nisi ut aliquip ex ea commodo consequat."
 <Section class="mt-4 md:mt-12" columns={3}>
 <Markdown class="md:col-span-3">
 
-# Simple card
+# SimpleIcon card
 
 A simple content card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
 
 </Markdown>
 
-import SimpleCard from "~/components/mdx/cards/Simple.astro";
+import SimpleIconCard from "~/components/mdx/cards/SimpleIcon.astro";
 
-<SimpleCard
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -81,23 +87,20 @@ laboris nisi ut aliquip ex ea commodo consequat."
 
 ### Props
 
-| Prop          | Type                    | Description                                                                         |
-| ------------- | ----------------------- | ----------------------------------------------------------------------------------- |
-| `btn`         | object                  | _(optional)_ Button data for the component. [See fields below.](#btn-object)        |
-| `center`      | boolean                 | _(optional)_ Aligns card text center, default is `false`.                           |
-| `description` | string                  | _(optional)_ The component description or supporting text.                          |
-| `heading`     | string                  | The heading or title displayed by the component, usually a heading element `<h1-4>` |
-| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.                        |
-| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                            |
+| Prop          | Type                    | Description                                                                                      |
+| ------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
+| `center`      | boolean                 | _(optional)_ Aligns card text center, default is `false`.                                        |
+| `description` | string                  | _(optional)_ The component description or supporting text.                                       |
+| `heading`     | string                  | The heading or title displayed by the component, usually a heading element `<h1-4>`              |
+| `href`        | string                  | _(optional)_ The URL or path the card links to.                                                  |
+| `icon`        | string                  | Icon name including the Iconify set prefix if not local (e.g. `material-symbols:sunny-outline`). |
+| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.                                     |
+| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                                         |
 
-#### `btn` object
+### Useful links
 
-- `href` — string  
-  The URL or path the button links to.
-- `label` — string  
-  The visible text on the button.
-- `type` — `"primary"` \| `"secondary"` \| `"text"`  
-  Determines which button style component is rendered.
+- [Iconify documentation](https://iconify.design/docs/)
+- [Material Symbols icons reference](https://icon-sets.iconify.design/material-symbols/)
 
 </Markdown>
 </Section>
@@ -110,13 +113,17 @@ laboris nisi ut aliquip ex ea commodo consequat."
 ### 2 Columns
 
 </Markdown>
-<SimpleCard 
+<SimpleIconCard
+  layout="row"
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  layout="row"
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -130,19 +137,22 @@ laboris nisi ut aliquip ex ea commodo consequat."
 ### 3 Columns
 
 </Markdown>
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -156,25 +166,29 @@ laboris nisi ut aliquip ex ea commodo consequat."
 ### 4 Columns
 
 </Markdown>
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -189,31 +203,36 @@ laboris nisi ut aliquip ex ea commodo consequat."
 
 </Markdown>
 <Carousel columns={3}>
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -229,31 +248,36 @@ laboris nisi ut aliquip ex ea commodo consequat."
 
 </Markdown>
 <Carousel columns={4}>
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
 />
-<SimpleCard 
+<SimpleIconCard
+  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
