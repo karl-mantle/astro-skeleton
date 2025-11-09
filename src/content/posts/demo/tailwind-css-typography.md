@@ -1,16 +1,19 @@
 ---
-title: "Typography style examples"
-description: "A bunch of nonsense written in markdown to dogfood the Tailwind typography plugin."
+title: "Tailwind CSS Typography"
+description: "What follows from here is just a bunch of absolute nonsense I've written to dogfood the plugin itself."
 pubDate: "2025-09-10T12:40:00.000Z"
 updatedDate: "2025-09-14T12:42:00.000Z"
 image:
-  src: "./images/claudio-schwarz-pQ_SEJg8rII-unsplash.jpg"
-  alt: "a close up of a wall with many different designs on it"
-imageAttribution:
-  name: "Claudio Schwarz"
-  url: "https://unsplash.com/photos/a-close-up-of-a-wall-with-many-different-designs-on-it-pQ_SEJg8rII"
-tags: ["design", "tailwind", "plugin", "typography", "css", "example"]
+  src: "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg"
+  alt: "Greyscale photo of glass window"
+category: "Markdown"
+tags: ["tailwind", "plugin", "typography", "markdown", "style guide"]
 ---
+
+<p className="lead">
+  Until now, trying to style an article, document, or blog post with Tailwind has been a tedious
+  task that required a keen eye for typography and a lot of complex custom CSS.
+</p>
 
 By default, Tailwind removes all of the default browser styling from paragraphs, headings, lists and more. This ends up being really useful for building application UIs because you spend less time undoing user-agent styles, but when you _really are_ just trying to style some content that came from a rich-text editor in a CMS or a markdown file, it can be surprising and unintuitive.
 

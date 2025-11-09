@@ -1,17 +1,12 @@
 ---
-draft: true
-title: "Draft post"
+title: "Markdown post example 1"
 description: "Lorem ipsum dolor sit amet, integer quis auctor elit sed vulputate mi."
-slug: "draft-example-post"
-pubDate: "2024-12-29T11:35:03.000Z"
-updatedDate: "2024-12-29T17:23:25.000Z"
+pubDate: "2024-12-20T11:35:03.000Z"
 image:
-  src: "./images/fons-heijnsbroek-U8EuOr-hG_0-unsplash.jpg"
-  alt: "a painting of a red, white, and blue object"
-imageAttribution:
-  name: "Fons Heijnsbroek"
-  url: "https://unsplash.com/photos/a-painting-of-a-red-white-and-blue-object-U8EuOr-hG_0"
-tags: ["example", "draft", "post"]
+  src: "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg"
+  alt: "Low angle photography of grey high rise building"
+category: "Markdown"
+tags: ["example", "markdown", "image", "first"]
 ---
 
 ## Introduction
@@ -29,6 +24,17 @@ Despite its random appearance, lorem ipsum is steeped in tradition. Originally d
 Adipiscing enim eu _turpis_ egestas pretium. Euismod elementum nisi quis eleifend quam adipiscing. In hac habitasse platea dictumst vestibulum.
 
 The use of placeholder text dates back centuries. Before digital design, typesetters used nonsensical text to check for formatting irregularities. Lorem ipsum provided a balance of letters, words, and sentence structures that resembled natural language while avoiding unnecessary distraction. Over time, this practice became a standard in industries reliant on visual composition.
+
+<figure>
+  <img
+    src="https://images.unsplash.com/photo-1759234183701-efad4f40a207?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170"
+    alt=""
+  />
+  <figcaption>
+    Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of
+    classical Latin literature from 45 BC, making it over 2000 years old.
+  </figcaption>
+</figure>
 
 #### Why It Matters
 

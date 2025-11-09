@@ -1,14 +1,11 @@
 ---
-title: "Markdown Sample Content"
-description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content."
+title: "Markdown syntax examples"
+description: "Examples of basic Markdown syntax that can be used when writing content."
 pubDate: "2025-08-30T06:21:02.000Z"
 image:
-  src: "./images/volodymyr-dobrovolskyy-KrYbarbAx5s-unsplash.jpg"
-  alt: "cat sitting in front of a computer monitor"
-imageAttribution:
-  name: "Volodymyr Dobrovolskyy"
-  url: "https://unsplash.com/photos/a-cat-sitting-in-front-of-a-computer-monitor-KrYbarbAx5s"
-category: "Development"
+  src: "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg"
+  alt: "Person's right hand near newspaper"
+category: "Markdown"
 tags: ["markdown", "style guide"]
 ---
 
@@ -18,17 +15,15 @@ Here is a sample of some basic Markdown syntax that can be used when writing Mar
 
 The following HTML `<h1>`—`<h6>` elements represent six levels of section headings. `<h1>` is the highest section level while `<h6>` is the lowest.
 
-# H1
+# H1 - 48px desktop (5xl), 36px mobile (4xl)
 
-## H2
+## H2 - 30px desktop (3xl), 24px mobile (2xl)
 
-### H3
+### H3 - 24px desktop (2xl), 20px mobile (xl)
 
-#### H4
+#### H4 - 18px desktop (lg), 16px mobile (base)
 
-##### H5
-
-###### H6
+There isn't any point rendering `<h5>` and `<h6>` _smaller_ than the body copy.
 
 ## Paragraph
 
@@ -38,13 +33,9 @@ Itatur? Quiatae cullecum rem ent aut odis in re eossequodi nonsequ idebis ne sap
 
 ## Images
 
-### Syntax
-
 ```markdown
 ![Alt text](./full/or/relative/path/of/image)
 ```
-
-### Output
 
 ![blog placeholder](/opengraph.webp)
 
@@ -54,28 +45,22 @@ The blockquote element represents content that is quoted from another source, op
 
 ### Blockquote without attribution
 
-#### Syntax
-
 ```markdown
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
 > **Note** that you can use _Markdown syntax_ within a blockquote.
 ```
-
-#### Output
 
 > Tiam, ad mint andaepu dandae nostion secatur sequo quae.  
 > **Note** that you can use _Markdown syntax_ within a blockquote.
 
 ### Blockquote with attribution
 
-#### Syntax
+#
 
 ```markdown
 > Don't communicate by sharing memory, share memory by communicating.<br>
 > — <cite>Rob Pike[^1]</cite>
 ```
-
-#### Output
 
 > Don't communicate by sharing memory, share memory by communicating.<br>
 > — <cite>Rob Pike[^1]</cite>
@@ -84,23 +69,17 @@ The blockquote element represents content that is quoted from another source, op
 
 ## Tables
 
-### Syntax
-
 ```markdown
 | Italics   | Bold     | Code   |
 | --------- | -------- | ------ |
 | _italics_ | **bold** | `code` |
 ```
 
-### Output
-
 | Italics   | Bold     | Code   |
 | --------- | -------- | ------ |
 | _italics_ | **bold** | `code` |
 
 ## Code Blocks
-
-### Syntax
 
 we can use 3 backticks ``` in new line and write snippet and close with 3 backticks on new line and to highlight language specific syntax, write one word of language name after first 3 backticks, for eg. html, javascript, css, markdown, typescript, txt, bash
 
@@ -119,8 +98,6 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 ```
 ````
 
-### Output
-
 ```html
 <!doctype html>
 <html lang="en">
@@ -138,15 +115,11 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 ### Ordered List
 
-#### Syntax
-
 ```markdown
 1. First item
 2. Second item
 3. Third item
 ```
-
-#### Output
 
 1. First item
 2. Second item
@@ -154,23 +127,17 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
 
 ### Unordered List
 
-#### Syntax
-
 ```markdown
 - List item
 - Another item
 - And another item
 ```
 
-#### Output
-
 - List item
 - Another item
 - And another item
 
 ### Nested list
-
-#### Syntax
 
 ```markdown
 - Fruit
@@ -181,8 +148,6 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
   - Milk
   - Cheese
 ```
-
-#### Output
 
 - Fruit
   - Apple
@@ -193,8 +158,6 @@ we can use 3 backticks ``` in new line and write snippet and close with 3 backti
   - Cheese
 
 ## Other Elements — abbr, sub, sup, kbd, mark
-
-### Syntax
 
 ```markdown
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
@@ -207,8 +170,6 @@ Press <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>Delete</kbd> to end the session.
 
 Most <mark>salamanders</mark> are nocturnal, and hunt for insects, worms, and other small creatures.
 ```
-
-### Output
 
 <abbr title="Graphics Interchange Format">GIF</abbr> is a bitmap image format.
 

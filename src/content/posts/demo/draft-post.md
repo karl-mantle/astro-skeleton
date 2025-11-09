@@ -1,15 +1,14 @@
 ---
-title: "Fourth post"
-description: "Eget magna fermentum iaculis eu non diam phasellus vestibulum lorem."
-slug: "fourth-post-custom-slug"
-pubDate: "2025-04-27T12:02:33.000Z"
+draft: true
+title: "Draft post"
+description: "Lorem ipsum dolor sit amet, integer quis auctor elit sed vulputate mi."
+slug: "draft-example-post"
+pubDate: "2024-12-29T11:35:03.000Z"
+updatedDate: "2024-12-29T17:23:25.000Z"
 image:
-  src: "./images/geronimo-giqueaux-H26GZk6nro8-unsplash.jpg"
-  alt: "brown shade illustration"
-imageAttribution:
-  name: "Geronimo Giqueaux"
-  url: "https://unsplash.com/photos/brown-shade-illustration-H26GZk6nro8"
-tags: ["example", "fourth", "post", "astro"]
+  src: "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg"
+  alt: "Person's right hand near newspaper"
+tags: ["example", "draft", "post"]
 ---
 
 ## Introduction
