@@ -1,0 +1,286 @@
+---
+title: "Simple card component"
+description: "Demo page for the Simple card component. See usage, examples, attributes and additional notes."
+slug: "components/cards/simple"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Carousel from "~/components/mdx/layout/Carousel.astro";
+
+<Section class="mt-4 md:mt-12" columns={3}>
+<Markdown class="col-span-3">
+
+# Simple card
+
+A simple content card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import SimpleCard from "~/components/mdx/cards/Simple.astro";
+
+<SimpleCard
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section class="mt-4 md:mt-12" columns={3}>
+<Markdown class="col-span-3">
+
+# Simple card
+
+A simple content card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import SimpleCard from "~/components/mdx/cards/Simple.astro";
+
+<SimpleCard
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+
+</Section>
+```
+
+### Props
+
+| Prop          | Type                    | Description                                                                         |
+| ------------- | ----------------------- | ----------------------------------------------------------------------------------- |
+| `btn`         | object                  | _(optional)_ Button data for the component. [See fields below.](#btn-object)        |
+| `center`      | boolean                 | _(optional)_ Aligns card text center, default is `false`.                           |
+| `description` | string                  | _(optional)_ The component description or supporting text.                          |
+| `heading`     | string                  | The heading or title displayed by the component, usually a heading element `<h1-4>` |
+| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.                        |
+| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                            |
+
+#### `btn` object
+
+- `href` — string  
+  The URL or path the button links to.
+- `label` — string  
+  The visible text on the button.
+- `type` — `"primary"` \| `"secondary"` \| `"text"`  
+  Determines which button style component is rendered.
+
+</Markdown>
+</Section>
+
+<Section columns={2}>
+<Markdown class="col-span-2">
+
+## Examples
+
+### 2 Columns
+
+</Markdown>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+</Section>
+
+<Section columns={3}>
+<Markdown class="col-span-3">
+
+### 3 Columns
+
+</Markdown>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+</Section>
+
+<Section columns={4}>
+<Markdown class="col-span-4">
+
+### 4 Columns
+
+</Markdown>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 3 Column Carousel
+
+</Markdown>
+<Carousel columns={3}>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+</Carousel>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 4 Column Carousel
+
+</Markdown>
+<Carousel columns={4}>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<SimpleCard 
+  heading="Sed do eiusmod tempor incididunt ut
+labore"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+</Carousel>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>

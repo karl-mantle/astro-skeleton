@@ -1,0 +1,180 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+import "swiper/css";
+import "swiper/css/bundle";
+
+interface Props extends HTMLAttributes<"div"> {
+  columns: number;
+}
+
+const { columns, class: className, ...rest }: Props = Astro.props;
+
+const iconSize = 24;
+
+let columnsMap;
+switch (columns) {
+  case 2:
+    columnsMap = {
+      mobile: 1,
+      tablet: 1,
+      desktop: 2,
+    };
+    break;
+  // 3 columns is default
+  case 4:
+    columnsMap = {
+      mobile: 1,
+      tablet: 2,
+      desktop: 4,
+    };
+    break;
+  case 5:
+    columnsMap = {
+      mobile: 1,
+      tablet: 2,
+      desktop: 5,
+    };
+    break;
+  default:
+    columnsMap = {
+      mobile: 1,
+      tablet: 2,
+      desktop: 3,
+    };
+    break;
+}
+---
+
+<div class:list={["carousel not-prose contain !-ml-4", className]} {...rest}>
+  <div class="swiper" data-columns={JSON.stringify(columnsMap)}>
+    <nav class="carousel-nav">
+      <button class="carousel-btn-prev" aria-label="Previous slide">
+        <Icon
+          class="self-center transition-all duration-300"
+          name="material-symbols:keyboard-arrow-left"
+          height={iconSize}
+          width={iconSize}
+        />
+      </button>
+
+      <div class="carousel-pagination"></div>
+
+      <button class="carousel-btn-next" aria-label="Next slide">
+        <Icon
+          class="self-center transition-all duration-300"
+          name="material-symbols:keyboard-arrow-right"
+          height={iconSize}
+          width={iconSize}
+        />
+      </button>
+    </nav>
+
+    <div class="carousel-wrapper">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import "swiper/css/bundle";
+
+  function initCarousels() {
+    const swipers = document.querySelectorAll<HTMLElement>(".carousel .swiper");
+    if (!swipers.length) return;
+
+    swipers.forEach((swiperEl) => {
+      const columnsJSON = swiperEl.getAttribute("data-columns")!;
+      const columns = JSON.parse(columnsJSON);
+
+      const parent = swiperEl.closest(".carousel");
+      if (!parent) return;
+
+      const nextBtn = parent.querySelector<HTMLElement>(".carousel-btn-next");
+      const prevBtn = parent.querySelector<HTMLElement>(".carousel-btn-prev");
+      const paginationEl = parent.querySelector<HTMLElement>(".carousel-pagination");
+      if (!nextBtn || !prevBtn || !paginationEl) return;
+
+      new Swiper(swiperEl, {
+        wrapperClass: "carousel-wrapper",
+        slideClass: "card",
+        slidesPerView: columns.mobile,
+        spaceBetween: 24,
+        loop: true,
+        grabCursor: true,
+        /* autoplay: {
+        delay: 2500,
+        disableOnInteraction: false,
+        }, */
+        initialSlide: 2,
+        navigation: {
+          nextEl: nextBtn,
+          prevEl: prevBtn,
+        },
+        pagination: {
+          el: paginationEl,
+          clickable: true,
+          dynamicBullets: true,
+        },
+        breakpoints: {
+          640: { slidesPerView: columns.tablet },
+          1024: { slidesPerView: columns.desktop },
+        },
+      });
+    });
+  }
+
+  document.addEventListener("astro:page-load", initCarousels);
+</script>
+
+<style is:global>
+  @reference "~/styles/global.css";
+
+  @layer components {
+    .carousel {
+      --swiper-theme-color: var(--color-base-400);
+      --swiper-navigation-size: 32px;
+      --swiper-pagination-color: var(--color-accent-400);
+      --swiper-navigation-disabled-opacity: 0.35;
+      --swiper-pagination-bullet-size: 8px;
+      --swiper-pagination-bullet-horizontal-gap: 6px;
+      --swiper-pagination-bullet-inactive-opacity: 0.3;
+      --swiper-pagination-bullet-inactive-scale: 0.8;
+      --swiper-scrollbar-drag-size: 50px;
+    }
+
+    .carousel .swiper {
+      @apply !flex flex-col gap-2 sm:flex-col-reverse;
+    }
+
+    .carousel-wrapper {
+      @apply flex;
+    }
+
+    .carousel-wrapper .card {
+      @apply w-full shrink-0;
+    }
+
+    .carousel-nav {
+      @apply flex items-center justify-around gap-4 p-4 sm:justify-center;
+    }
+
+    .carousel-pagination {
+      @apply flex translate-x-1/2;
+    }
+
+    .swiper-pagination-bullet {
+      @apply dark:!bg-white;
+    }
+
+    .swiper-pagination-bullet-active {
+      @apply dark:!bg-accent-400;
+    }
+
+    .carousel-btn-prev,
+    .carousel-btn-next {
+      @apply hover:bg-base-200 dark:hover:bg-base-800 focus-visible:bg-focus-color cursor-pointer border-b-2 border-transparent p-2 transition-colors duration-300 focus-visible:border-black focus-visible:text-black;
+    }
+  }
+</style>

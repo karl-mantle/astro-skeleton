@@ -77,7 +77,7 @@ export const headerNavigation = [
   {
     id: "components",
     parentId: null,
-    url: "/astro-skeleton/components",
+    url: null,
     label: "Components",
   },
   {
@@ -89,7 +89,7 @@ export const headerNavigation = [
   {
     id: "cards",
     parentId: "components",
-    url: "/astro-skeleton/components/cards",
+    url: null,
     label: "Cards",
   },
   {
@@ -131,7 +131,7 @@ export const headerNavigation = [
   {
     id: "interactive",
     parentId: "components",
-    url: "/astro-skeleton/components/interactive",
+    url: null,
     label: "Interactive",
   },
   {
@@ -149,7 +149,7 @@ export const headerNavigation = [
   {
     id: "media",
     parentId: "components",
-    url: "/astro-skeleton/components/media",
+    url: null,
     label: "Media",
   },
   {
