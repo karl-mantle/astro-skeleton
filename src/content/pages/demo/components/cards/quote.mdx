@@ -1,0 +1,336 @@
+---
+title: "Quote card component"
+description: "Demo page for the Quote card component. See usage, examples, attributes and additional notes."
+slug: "components/cards/quote"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Carousel from "~/components/mdx/layout/Carousel.astro";
+
+<Section class="mt-4 md:mt-12" columns={3}>
+<Markdown class="md:col-span-3">
+
+# Quote card
+
+A simple quote card with an optional attribution section. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import QuoteCard from "~/components/mdx/cards/Quote.astro";
+
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+    alt: "Example alt text",
+  }}
+/>
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+    alt: "Example alt text",
+  }}
+/>
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+    alt: "Example alt text",
+  }}
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section columns={1}>
+<Markdown>
+
+# Quote card
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import QuoteCard from "~/components/mdx/cards/Quote.astro";
+
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+    alt: "Example alt text",
+  }}
+/>
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+    alt: "Example alt text",
+  }}
+/>
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+    alt: "Example alt text",
+  }}
+/>
+
+</Section>
+```
+
+### Props
+
+| Prop          | Type                       | Description                                                                           |
+| ------------- | -------------------------- | ------------------------------------------------------------------------------------- |
+| `center`      | boolean                    | _(optional)_ Aligns card text center, default is `false`.                             |
+| `description` | string                     | _(optional)_ The second line of profile text under name.                              |
+| `name`        | string                     | _(optional)_ The name displayed on the profile section.                               |
+| `quote`       | string                     | The quote to be displayed in the card.                                                |
+| `image`       | object                     | _(optional)_ Image data for the profile component. [See fields below.](#image-object) |
+| `class`       | string                     | _(optional)_ Additional classes applied to the root `<figure>`.                       |
+| _(extends)_   | `HTMLAttributes<"figure">` | _(optional)_ All standard HTML attributes for a `<figure>`.                           |
+
+#### `image` object
+
+- `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+- `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+</Markdown>
+</Section>
+
+<Section columns={2}>
+<Markdown class="md:col-span-2">
+
+## Examples
+
+### 2 Columns
+
+</Markdown>
+
+import Avatar from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
+
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+  }}
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+  image={{
+    src: Avatar,
+  }}
+/>
+</Section>
+
+<Section columns={3}>
+<Markdown class="md:col-span-3">
+
+### 3 Columns
+
+</Markdown>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+</Section>
+
+<Section columns={4}>
+<Markdown class="md:col-span-4">
+
+### 4 Columns
+
+</Markdown>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 3 Column Carousel
+
+</Markdown>
+<Carousel columns={3}>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+</Carousel>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 4 Column Carousel
+
+</Markdown>
+<Carousel columns={4}>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+<QuoteCard 
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  name="Seddo Eiusmod"
+  description="Tempor incididunt ut
+labore"
+/>
+</Carousel>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>

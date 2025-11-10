@@ -5,31 +5,34 @@ import { Image } from "astro:assets";
 
 interface Props extends HTMLAttributes<"div"> {
   description?: string;
-  image?: ImageMetadata;
-  title: string;
+  image?: {
+    src: ImageMetadata;
+    alt?: string;
+  };
+  name: string;
 }
 
-const { description, image, title }: Props = Astro.props;
+const { description, image, name }: Props = Astro.props;
 ---
 
-<div class="flex flex-row justify-between gap-4">
+<div class="flex flex-row gap-4">
   {
     image && (
-      <div class="h-16 w-16">
+      <div class="h-12 w-12">
         <Image
-          src={image}
-          alt={`Avatar image for ${title}`}
-          class="rounded-full object-cover"
+          src={image.src}
+          alt={image.alt ?? ""}
+          class="aspect-square rounded-full object-cover"
           format="webp"
           loading="eager"
-          height={64}
-          width={64}
+          height={48}
+          width={48}
         />
       </div>
     )
   }
   <div class:list={["flex flex-col text-sm", description && "gap-1"]}>
-    <span class="font-medium">{title}</span>
+    <span class="font-medium">{name}</span>
     {description && <span>{description}</span>}
   </div>
 </div>

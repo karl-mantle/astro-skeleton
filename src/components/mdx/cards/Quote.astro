@@ -1,0 +1,53 @@
+---
+import type { ImageMetadata } from "astro";
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+import MiniProfile from "~/components/ui/MiniProfile.astro";
+
+interface Props extends HTMLAttributes<"figure"> {
+  center?: boolean;
+  description?: string;
+  image?: {
+    src: ImageMetadata;
+    alt?: string;
+  };
+  name?: string;
+  quote: string;
+}
+
+const { center, description, image, name, quote, class: className }: Props = Astro.props;
+---
+
+<figure
+  class:list={[
+    "card not-prose bg-base-200 dark:bg-base-800 relative flex flex-col gap-2 p-4 md:gap-4",
+    center === true && "items-center text-center",
+    className,
+  ]}
+>
+  <Icon
+    class="absolute top-0 left-0 rotate-180 opacity-25"
+    name="material-symbols:format-quote"
+    height={48}
+    width={48}
+    aria-hidden="true"
+  />
+  <blockquote class="z-5 font-medium md:text-xl">
+    <p>{quote}</p>
+  </blockquote>
+  <Icon
+    class="absolute right-0 bottom-0 opacity-25"
+    name="material-symbols:format-quote"
+    height={48}
+    width={48}
+    aria-hidden="true"
+  />
+
+  {
+    name && (
+      <figcaption class="z-5">
+        <MiniProfile description={description} image={image} name={name} />
+      </figcaption>
+    )
+  }
+</figure>

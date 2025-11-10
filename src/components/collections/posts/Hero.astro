@@ -5,7 +5,7 @@ import { Picture } from "astro:assets";
 import { collectionsConfig } from "~/site.config";
 import slugify from "slugify";
 import Date from "~/components/ui/Date.astro";
-import ProfileBadge from "~/components/collections/profiles/ProfileBadge.astro";
+import MiniProfile from "~/components/collections/profiles/MiniProfile.astro";
 import TextBtn from "~/components/ui/buttons/TextBtn.astro";
 
 interface Props extends HTMLAttributes<"header"> {
@@ -42,7 +42,7 @@ const { authorId, category, date, heading, image }: Props = Astro.props;
   <h1 class="font-serif">{heading}</h1>
 
   <div class="flex flex-col justify-between gap-2 md:flex-row">
-    <ProfileBadge id={authorId} />
+    <MiniProfile id={authorId} />
 
     <div class="flex h-fit items-baseline gap-1 text-sm font-medium">
       <Date class="self-center" date={date} />
