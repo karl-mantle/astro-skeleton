@@ -1,0 +1,238 @@
+---
+title: "Statistic card component"
+description: "Demo page for the Statistic card component. See usage, examples, attributes and additional notes."
+slug: "components/cards/statistic"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Carousel from "~/components/mdx/layout/Carousel.astro";
+
+<Section class="mt-4 md:mt-12" columns={3}>
+<Markdown class="md:col-span-3">
+
+# Statistic card
+
+A simple statistic card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import StatisticCard from "~/components/mdx/cards/Statistic.astro";
+
+<StatisticCard
+  heading="10,000"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  heading="1st"
+  description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<StatisticCard
+  heading="98.7%"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section class="mt-4 md:mt-12" columns={3}>
+<Markdown class="md:col-span-3">
+
+# Statistic card
+
+A simple statistic card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import StatisticCard from "~/components/mdx/cards/Statistic.astro";
+
+<StatisticCard
+  heading="10,000"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  heading="1st"
+  description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<StatisticCard
+  heading="98.7%"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+/>
+
+</Section>
+```
+
+### Props
+
+| Prop          | Type                    | Description                                                  |
+| ------------- | ----------------------- | ------------------------------------------------------------ |
+| `center`      | boolean                 | _(optional)_ Aligns card text center, default is `false`.    |
+| `description` | string                  | _(optional)_ The card description or supporting text.        |
+| `heading`     | string                  | The statistic (heading) displayed by the card, `<h3>`        |
+| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`. |
+| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.     |
+
+</Markdown>
+</Section>
+
+<Section columns={2}>
+<Markdown class="md:col-span-2">
+
+## Examples
+
+### 2 Columns
+
+</Markdown>
+<StatisticCard
+  heading="1st"
+  description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<StatisticCard
+  heading="98.7%"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+/>
+</Section>
+
+<Section columns={3}>
+<Markdown class="md:col-span-3">
+
+### 3 Columns
+
+</Markdown>
+<StatisticCard
+  heading="10,000"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  heading="1st"
+  description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<StatisticCard
+  heading="98.7%"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+/>
+</Section>
+
+<Section columns={4}>
+<Markdown class="md:col-span-4">
+
+### 4 Columns
+
+</Markdown>
+<StatisticCard
+  center={true}
+  heading="10,000"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  center={true}
+  heading="1st"
+  description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<StatisticCard
+  center={true}
+  heading="98.7%"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+/>
+<StatisticCard
+  center={true}
+  heading="Winner"
+  description="Ullamco exercitation ex laboris aliqua aliquip veniam sed ipsum adipiscing."
+/>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 3 Column Carousel
+
+</Markdown>
+<Carousel columns={3}>
+<StatisticCard
+  heading="10,000"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  heading="1st"
+  description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<StatisticCard
+  heading="98.7%"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+/>
+<StatisticCard
+  heading="Winner"
+  description="Ullamco exercitation ex laboris aliqua aliquip veniam sed ipsum adipiscing."
+/>
+<StatisticCard
+  heading="A++"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  heading="Millions"
+  description="Ullamco exercitation ex laboris aliqua aliquip veniam sed ipsum adipiscing."
+/>
+</Carousel>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 4 Column Carousel
+
+</Markdown>
+<Carousel columns={4}>
+<StatisticCard
+  heading="10,000"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  heading="1st"
+  description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<StatisticCard
+  heading="98.7%"
+  description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+/>
+<StatisticCard
+  heading="Winner"
+  description="Ullamco exercitation ex laboris aliqua aliquip veniam sed ipsum adipiscing."
+/>
+<StatisticCard
+  heading="A++"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+/>
+<StatisticCard
+  heading="Millions"
+  description="Ullamco exercitation ex laboris aliqua aliquip veniam sed ipsum adipiscing."
+/>
+</Carousel>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>
