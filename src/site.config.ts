@@ -83,8 +83,14 @@ export const headerNavigation = [
   {
     id: "banners",
     parentId: "components",
-    url: "/astro-skeleton/components/banners",
+    url: null,
     label: "Banners",
+  },
+  {
+    id: "cta-banner",
+    parentId: "banners",
+    url: "/astro-skeleton/components/banners/cta",
+    label: "CTA banner",
   },
   {
     id: "cards",
@@ -96,13 +102,13 @@ export const headerNavigation = [
     id: "feature-cards",
     parentId: "cards",
     url: "/astro-skeleton/components/cards/feature",
-    label: "Features",
+    label: "Feature",
   },
   {
     id: "quote-cards",
     parentId: "cards",
     url: "/astro-skeleton/components/cards/quote",
-    label: "Quotes",
+    label: "Quote",
   },
   {
     id: "simple-cards",
@@ -114,13 +120,13 @@ export const headerNavigation = [
     id: "simple-icon-cards",
     parentId: "cards",
     url: "/astro-skeleton/components/cards/simple-icon",
-    label: "Simple Icons",
+    label: "Simple Icon",
   },
   {
     id: "statistic-cards",
     parentId: "cards",
     url: "/astro-skeleton/components/cards/statistic",
-    label: "Statistics",
+    label: "Statistic",
   },
   {
     id: "heroes",
