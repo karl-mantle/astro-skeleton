@@ -1,3 +1,4 @@
+import type { Page } from "astro";
 import type { CollectionEntry, DataEntryMap } from "astro:content";
 import { createWebpage } from "~/lib/schema/webpage";
 import { createCollectionPage } from "~/lib/schema/collectionPage";
@@ -8,6 +9,7 @@ export function createSchema(
   type: string,
   url: URL,
   entry: DataEntryMap[keyof DataEntryMap][string],
+  page?: Page,
 ) {
   let schema;
   switch (type) {
@@ -15,10 +17,10 @@ export function createSchema(
       schema = createWebpage(url, entry as CollectionEntry<"pages">);
       break;
     case "collectionPage":
-      schema = createCollectionPage(url, entry as CollectionEntry<"pages">);
+      schema = createCollectionPage(url, entry as CollectionEntry<"pages">, page);
       break;
     case "searchResultsPage":
-      schema = createSearchResultPage(url, entry as CollectionEntry<"pages">);
+      schema = createSearchResultPage(url);
       break;
     case "article":
       schema = createArticle(url, entry as CollectionEntry<"posts">);

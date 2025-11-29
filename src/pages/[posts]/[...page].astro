@@ -28,6 +28,11 @@ if (!entry) {
 const { Content } = await render(entry);
 ---
 
-<HTML entry={entry} type="collectionPage">
+<HTML
+  entry={entry}
+  page={page}
+  title=`${entry.data.title} page ${page.currentPage}`
+  type="collectionPage"
+>
   <Content page={page} />
 </HTML>

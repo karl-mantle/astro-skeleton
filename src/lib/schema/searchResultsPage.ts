@@ -1,14 +1,29 @@
-import type { DataEntryMap } from "astro:content";
+import { generalConfig } from "~/site.config";
+import { cleanUrl, getCommonStructuredData } from "~/lib/schema/common";
 
-export function createSearchResultPage(url: URL, entry: DataEntryMap[keyof DataEntryMap][string]) {
-  const schema = {
+export function createSearchResultPage(url: URL) {
+  const { ids: commonIds, nodes: commonNodes } = getCommonStructuredData();
+  const canonicalUrl = cleanUrl(url);
+
+  const webpageId = `${canonicalUrl}#webpage`;
+
+  return {
     "@context": "https://schema.org",
-    "@type": "SearchResultsPage",
-    name: entry.data.title,
-    url: url,
-  };
+    "@graph": [
+      ...commonNodes,
 
-  return schema;
+      {
+        "@type": "SearchResultsPage",
+        "@id": webpageId,
+        inLanguage: generalConfig.language,
+        url: canonicalUrl,
+        name: "Search results",
+        isPartOf: { "@id": commonIds.website },
+        primaryImageOfPage: { "@id": commonIds.ogImage },
+        about: { "@id": commonIds.website },
+      },
+    ],
+  };
 }
 
 export default { createSearchResultPage };

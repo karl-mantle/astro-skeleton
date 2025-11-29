@@ -1,14 +1,29 @@
 export const generalConfig = {
+  // site identity
+  url: new URL(`${import.meta.env.SITE}${import.meta.env.BASE_URL}`),
   name: "astro-skeleton",
   short_name: "astro-skeleton",
   title_separator: "-",
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquam.",
-  footer_description:
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquam.",
-  footer_copyright: "2025 (c) - Lorem ipsum dolor sit amet, consectetur adipiscing.",
+  logo: {
+    src: "/logo.webp",
+    height: 512,
+    width: 512,
+  },
+  ogImage: {
+    src: "/opengraph.webp",
+    height: 630,
+    width: 1200,
+  },
+  // datetime
   language: "en-GB",
   date_format: "j F Y",
+  copyrightYear: new Date().getFullYear(),
+  // footer options
+  footer_description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliquam.",
+  footer_copyright: `${new Date().getFullYear()} (c) - Lorem ipsum dolor sit amet, consectetur adipiscing.`,
 };
 
 export const measurementConfig = {

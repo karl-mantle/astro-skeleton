@@ -1,5 +1,5 @@
 ---
-import type { MarkdownHeading } from "astro";
+import type { MarkdownHeading, Page } from "astro";
 import type { DataEntryMap } from "astro:content";
 import { generalConfig } from "~/site.config";
 import { createSchema } from "~/lib/schema";
@@ -18,16 +18,17 @@ interface Props {
   collection?: keyof DataEntryMap;
   description?: string;
   entry: DataEntryMap[keyof DataEntryMap][string];
+  page?: Page;
   tableOfContents?: MarkdownHeading[];
   title?: string;
   type: string;
 }
 
-const { collection, description, entry, tableOfContents, title, type } = Astro.props;
+const { collection, description, entry, page, tableOfContents, title, type } = Astro.props;
 
 const url = new URL(Astro.url.pathname, Astro.site);
 
-const schema = createSchema(type, url, entry);
+const schema = createSchema(type, url, entry, page);
 
 const pagefindAttr = collection ? { "data-pagefind-filter": `collection:${collection}` } : {};
 ---

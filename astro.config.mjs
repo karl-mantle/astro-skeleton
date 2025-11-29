@@ -11,8 +11,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  // site: "http://127.0.0.1:4321/",
-  site: "https://karl-mantle.github.io/",
+  // site: "http://127.0.0.1:4321",
+  site: "https://karl-mantle.github.io",
   base: "/astro-skeleton/",
   integrations: [
     favicons({

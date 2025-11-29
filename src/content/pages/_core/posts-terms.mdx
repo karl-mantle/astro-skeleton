@@ -1,6 +1,6 @@
 ---
-title: "All posts catergorised as"
-description: "Now displaying posts with the following term"
+title: "TERM_LABEL TERM_TYPE archive page PAGE_CURRENTPAGE"
+description: "View all posts in the TERM_TYPE TERM_LABEL"
 slug: "posts-terms"
 ---
 
@@ -19,7 +19,7 @@ import Archive from "~/components/collections/posts/Archive.astro";
 
 <h1>All posts tagged with “{props.term.label}”</h1>}
 
-Now displaying {props.entryCount} of {props.page.total} posts.
+Now displaying {props.page.start + 1} to {props.page.end + 1} posts out of {props.page.total} posts.
 
 </Markdown>
 
