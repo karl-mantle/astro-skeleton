@@ -12,10 +12,10 @@ interface Props extends HTMLAttributes<"ol"> {
   category: string;
   columns?: number;
   max?: number;
-  variant: "default" | "list" | "small" | "preview" | "wide";
+  variant: "default" | "list" | "image" | "preview" | "row";
 }
 
-const { category, columns = 3, max = 3, variant = "small", class: className }: Props = Astro.props;
+const { category, columns = 3, max = 3, variant = "image", class: className }: Props = Astro.props;
 
 const entries = await getPostsByCategory(category, max);
 ---
@@ -42,7 +42,7 @@ const entries = await getPostsByCategory(category, max);
       ))
   }
   {
-    variant === "small" &&
+    variant === "image" &&
       entries.map((entry) => (
         <CardImage
           description={entry.data.description}
@@ -53,7 +53,7 @@ const entries = await getPostsByCategory(category, max);
       ))
   }
   {
-    variant === "wide" &&
+    variant === "row" &&
       entries.map((entry) => (
         <CardRow
           date={entry.data.pubDate}

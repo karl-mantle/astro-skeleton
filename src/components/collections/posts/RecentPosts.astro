@@ -11,7 +11,7 @@ import PostPreview from "~/components/collections/posts/PostPreview.astro";
 interface Props extends HTMLAttributes<"ol"> {
   columns?: number;
   max?: number;
-  variant: "default" | "list" | "small" | "preview" | "wide";
+  variant: "default" | "list" | "image" | "preview" | "row";
 }
 
 const { columns = 3, max = 3, variant = "default" }: Props = Astro.props;
@@ -40,7 +40,7 @@ const entries = await getPosts(max);
       ))
   }
   {
-    variant === "small" &&
+    variant === "image" &&
       entries.map((entry) => (
         <CardImage
           description={entry.data.description}
@@ -51,7 +51,7 @@ const entries = await getPosts(max);
       ))
   }
   {
-    variant === "wide" &&
+    variant === "row" &&
       entries.map((entry) => (
         <CardRow
           date={entry.data.pubDate}
