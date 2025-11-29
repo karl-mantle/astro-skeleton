@@ -1,6 +1,6 @@
 export const generalConfig = {
   // site identity
-  url: new URL(`${import.meta.env.SITE}${import.meta.env.BASE_URL}`),
+  url: new URL("https://karl-mantle.github.io/astro-skeleton/"),
   name: "astro-skeleton",
   short_name: "astro-skeleton",
   title_separator: "-",
