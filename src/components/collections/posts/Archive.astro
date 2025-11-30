@@ -24,8 +24,9 @@ const { page, class: className }: Props = Astro.props;
           date={post.data.pubDate}
           description={post.data.description}
           heading={post.data.title}
-          image={post.data.image}
           href={`${import.meta.env.BASE_URL}${collectionsConfig.permalink_posts_entry}${post.data.slug}`}
+          image={post.data.image}
+          loading="eager"
         />
       ))
     }

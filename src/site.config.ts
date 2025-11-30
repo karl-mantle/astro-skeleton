@@ -55,6 +55,25 @@ export const collectionsConfig = {
   permalink_profiles_tag: "collections/profiles/tag/",
 };
 
+export const imagesConfig = {
+  full: {
+    sizes: "(max-width: 640px) 480px, (max-width: 1024px) 1024px, 1920px",
+    widths: [480, 1024, 1920],
+  },
+  half: {
+    sizes: "(max-width: 640px) 480px, 960px",
+    widths: [480, 960],
+  },
+  third: {
+    sizes: "(max-width: 640px) 480px, 640px",
+    widths: [480, 640],
+  },
+  thumbnail: {
+    height: 64,
+    width: 64,
+  },
+};
+
 export const socialLinks = [
   {
     href: "https://www.karlmantle.com",

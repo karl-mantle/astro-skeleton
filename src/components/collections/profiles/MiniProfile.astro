@@ -2,6 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 import { Image } from "astro:assets";
 import { getEntry } from "astro:content";
+import { imagesConfig } from "~/site.config";
 
 interface Props extends HTMLAttributes<"div"> {
   id: string;
@@ -17,13 +18,13 @@ const profile = await getEntry("profiles", id);
     profile?.data.image && (
       <div class="h-16 w-16">
         <Image
-          src={profile.data.image.src}
           alt={`Profile picture for ${profile.data.title}`}
-          class="rounded-full object-cover"
+          class="aspect-square rounded-full object-cover"
           format="webp"
           loading="eager"
-          height={64}
-          width={64}
+          src={profile.data.image.src}
+          height={imagesConfig.thumbnail.height}
+          width={imagesConfig.thumbnail.width}
         />
       </div>
     )
