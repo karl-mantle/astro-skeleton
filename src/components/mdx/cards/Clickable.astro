@@ -3,14 +3,12 @@ import type { ImageMetadata } from "astro";
 import type { HTMLAttributes } from "astro/types";
 import { Picture } from "astro:assets";
 import { imagesConfig } from "~/site.config";
-import BtnGroup from "~/components/ui/buttons/Group.astro";
 
-interface Props extends HTMLAttributes<"div"> {
-  btns?: {
+interface Props extends HTMLAttributes<"a"> {
+  btn: {
     href: string;
-    label: string;
-    type: "primary" | "secondary" | "text" | "icon";
-  }[];
+    label?: string;
+  };
   description?: string;
   heading: string;
   image?: {
@@ -23,16 +21,17 @@ interface Props extends HTMLAttributes<"div"> {
   };
 }
 
-const { btns, description, heading, image, layout = {}, class: className }: Props = Astro.props;
+const { btn, description, heading, image, layout = {}, class: className }: Props = Astro.props;
 ---
 
-<div
+<a
   class:list={[
-    "card not-prose bg-base-200 dark:bg-base-800 gap-2",
+    "card group/card not-prose bg-base-200 dark:bg-base-800",
     layout.center === true && "items-center text-center",
     layout.direction === "row" ? "grid grid-cols-1 md:grid-cols-2" : "flex flex-col",
     className,
   ]}
+  href={btn.href}
 >
   {
     image && (
@@ -49,9 +48,9 @@ const { btns, description, heading, image, layout = {}, class: className }: Prop
   }
 
   <div class="flex flex-col gap-2 p-4 md:gap-4">
-    <h3>{heading}</h3>
-    {description && <p>{description}</p>}
-
-    {btns && btns.length > 0 && <BtnGroup btns={btns} />}
+    <h3 class="decoration-2 underline-offset-4 group-hover/card:underline">
+      {heading}
+    </h3>
+    {description && <p class="text-base">{description}</p>}
   </div>
-</div>
+</a>

@@ -1,69 +1,57 @@
 ---
-title: "Default card component"
-description: "Demo page for the Default card component. See usage, examples, attributes and additional notes."
-slug: "components/cards/default"
+title: "Clickable card component"
+description: "Demo page for the Clickable card component. See usage, examples, attributes and additional notes."
+slug: "components/cards/clickable"
 ---
 
 import Section from "~/components/mdx/layout/Section.astro";
 import Markdown from "~/components/mdx/layout/Markdown.astro";
 import Carousel from "~/components/mdx/layout/Carousel.astro";
-import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+import PreviewImage from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
 
 <Section class="mt-4 md:mt-12" columns={3}>
 <Markdown class="md:col-span-3">
 
-# Default card
+# Clickable card
 
-A default content card with a heading and optional description, image and buttons. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+A clickable content card with a heading and optional description or image. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
 
 </Markdown>
 
-import DefaultCard from "~/components/mdx/cards/Default.astro";
+import ClickableCard from "~/components/mdx/cards/Clickable.astro";
 
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-    {
-      href: "#more-examples",
-      label: "Learn more",
-      type: "secondary",
-      icon: "material-symbols:arrow-right-alt",
-    },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-    {
-      href: "#more-examples",
-      label: "Learn more",
-      type: "secondary",
-      icon: "material-symbols:arrow-right-alt",
-    },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-    {
-      href: "#more-examples",
-      label: "Learn more",
-      type: "secondary",
-      icon: "material-symbols:arrow-right-alt",
-    },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
 
 </Section>
@@ -77,58 +65,46 @@ laboris nisi ut aliquip ex ea commodo consequat."
 <Section class="mt-4 md:mt-12" columns={3}>
 <Markdown class="md:col-span-3">
 
-# Default card
+# Clickable card
 
 A default content card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
 
 </Markdown>
 
-import DefaultCard from "~/components/mdx/cards/Default.astro";
+import ClickableCard from "~/components/mdx/cards/Default.astro";
 
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-    {
-      href: "#more-examples",
-      label: "Learn more",
-      type: "secondary",
-      icon: "material-symbols:arrow-right-alt",
-    },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-    {
-      href: "#more-examples",
-      label: "Learn more",
-      type: "secondary",
-      icon: "material-symbols:arrow-right-alt",
-    },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-    {
-      href: "#more-examples",
-      label: "Learn more",
-      type: "secondary",
-      icon: "material-symbols:arrow-right-alt",
-    },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
 
 </Section>
@@ -136,24 +112,22 @@ laboris nisi ut aliquip ex ea commodo consequat."
 
 ### Props
 
-| Prop          | Type                    | Description                                                                         |
-| ------------- | ----------------------- | ----------------------------------------------------------------------------------- |
-| `btns`        | array of objects        | _(optional)_ An array of button objects to render. [See below.](#btn-object)        |
-| `description` | string                  | _(optional)_ The component description or supporting text.                          |
-| `heading`     | string                  | The heading or title displayed by the component, usually a heading element `<h1-4>` |
-| `image`       | object                  | _(optional)_ Image data for the component. [See below.](#image-object)              |
-| `layout`      | object                  | _(optional)_ Layout data for the component. [See below.](#layout-object)            |
-| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.                        |
-| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                            |
+| Prop          | Type                  | Description                                                                          |
+| ------------- | --------------------- | ------------------------------------------------------------------------------------ |
+| `btn`         | object                | _(optional)_ Btn data for the card, as it behaves similar. [See below.](#btn-object) |
+| `description` | string                | _(optional)_ The component description or supporting text.                           |
+| `heading`     | string                | The heading or title displayed by the component, usually a heading element `<h1-4>`  |
+| `image`       | object                | _(optional)_ Image data for the component. [See below.](#image-object)               |
+| `layout`      | object                | _(optional)_ Layout data for the component. [See below.](#layout-object)             |
+| `class`       | string                | _(optional)_ Additional classes applied to the root `<a>`.                           |
+| _(extends)_   | `HTMLAttributes<"a">` | _(optional)_ All standard HTML attributes for a `<a>`.                               |
 
 #### `btn` object
 
 - `href` — string  
-  The URL or path the button links to.
+  The URL or path the component links to.
 - `label` — string  
-  The visible text on the button.
-- `type` — `"primary"` \| `"secondary"` \| `"text"`  
-  Determines which button style component is rendered.
+  _(optional)_ The aria label on the card.
 
 #### `image` object
 
@@ -180,43 +154,25 @@ laboris nisi ut aliquip ex ea commodo consequat."
 ### 2 Columns
 
 </Markdown>
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-      {
-        href: "#visit-example",
-        label: "Visit example",
-        type: "primary",
-      },
-      {
-        href: "#more-examples",
-        label: "Learn more",
-        type: "secondary",
-        icon: "material-symbols:arrow-right-alt",
-      },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  btns={[
-    {
-      href: "#visit-example",
-      label: "Visit example",
-      type: "primary",
-    },
-    {
-      href: "#more-examples",
-      label: "Learn more",
-      type: "secondary",
-      icon: "material-symbols:arrow-right-alt",
-    },
-  ]}
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
 </Section>
 
@@ -226,26 +182,38 @@ laboris nisi ut aliquip ex ea commodo consequat."
 ### 3 Columns
 
 </Markdown>
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
 </Section>
 
@@ -255,29 +223,45 @@ laboris nisi ut aliquip ex ea commodo consequat."
 ### 4 Columns
 
 </Markdown>
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
 </Section>
 
@@ -288,52 +272,72 @@ laboris nisi ut aliquip ex ea commodo consequat."
 
 </Markdown>
 <Carousel columns={2}>
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
   layout={{
     direction: "row",
   }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
   layout={{
     direction: "row",
   }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
   layout={{
     direction: "row",
   }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
   layout={{
     direction: "row",
   }}
 />
-<DefaultCard
+<ClickableCard
   image={{ src: PreviewImage, alt: "" }}
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
   layout={{
     direction: "row",
   }}
@@ -348,35 +352,55 @@ laboris nisi ut aliquip ex ea commodo consequat."
 
 </Markdown>
 <Carousel columns={3}>
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
-<DefaultCard 
+<ClickableCard 
   heading="Sed do eiusmod tempor incididunt ut
 labore"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
+  btn={{
+    href: "#more-examples",
+    label: "Optional aria label",
+  }}
 />
 </Carousel>
 </Section>
