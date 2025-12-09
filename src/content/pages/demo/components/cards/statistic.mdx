@@ -69,13 +69,13 @@ import StatisticCard from "~/components/mdx/cards/Statistic.astro";
 
 ### Props
 
-| Prop          | Type                    | Description                                                  |
-| ------------- | ----------------------- | ------------------------------------------------------------ |
-| `center`      | boolean                 | _(optional)_ Aligns card text center, default is `false`.    |
-| `description` | string                  | _(optional)_ The card description or supporting text.        |
-| `heading`     | string                  | The statistic (heading) displayed by the card, `<h3>`        |
-| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`. |
-| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.     |
+| Prop          | Type                    | Description                                                              |
+| ------------- | ----------------------- | ------------------------------------------------------------------------ |
+| `description` | string                  | _(optional)_ The card description or supporting text.                    |
+| `heading`     | string                  | The statistic (heading) displayed by the card, `<h3>`                    |
+| `layout`      | object                  | _(optional)_ Layout data for the component. [See below.](#layout-object) |
+| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.             |
+| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                 |
 
 </Markdown>
 </Section>
@@ -125,24 +125,32 @@ import StatisticCard from "~/components/mdx/cards/Statistic.astro";
 
 </Markdown>
 <StatisticCard
-  center={true}
   heading="10,000"
   description="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  layout={{
+    center: true,
+  }}
 />
 <StatisticCard
-  center={true}
   heading="1st"
   description="Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  layout={{
+    center: true,
+  }}
 />
 <StatisticCard
-  center={true}
   heading="98.7%"
   description="Et dolore magna aliqua. Ut enim ad minim veniam laboris nisi."
+  layout={{
+    center: true,
+  }}
 />
 <StatisticCard
-  center={true}
   heading="Winner"
   description="Ullamco exercitation ex laboris aliqua aliquip veniam sed ipsum adipiscing."
+  layout={{
+    center: true,
+  }}
 />
 </Section>
 

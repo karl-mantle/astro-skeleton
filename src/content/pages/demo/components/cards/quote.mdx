@@ -22,34 +22,37 @@ import QuoteCard from "~/components/mdx/cards/Quote.astro";
 <QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-    alt: "Example alt text",
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
   }}
 />
 <QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-    alt: "Example alt text",
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
   }}
 />
 <QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-    alt: "Example alt text",
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
   }}
 />
 
@@ -77,34 +80,37 @@ import QuoteCard from "~/components/mdx/cards/Quote.astro";
 <QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-    alt: "Example alt text",
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
   }}
 />
 <QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-    alt: "Example alt text",
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
   }}
 />
 <QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-    alt: "Example alt text",
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
   }}
 />
 
@@ -113,15 +119,24 @@ labore"
 
 ### Props
 
-| Prop          | Type                       | Description                                                                           |
-| ------------- | -------------------------- | ------------------------------------------------------------------------------------- |
-| `center`      | boolean                    | _(optional)_ Aligns card text center, default is `false`.                             |
-| `description` | string                     | _(optional)_ The second line of profile text under name.                              |
-| `name`        | string                     | _(optional)_ The name displayed on the profile section.                               |
-| `quote`       | string                     | The quote to be displayed in the card.                                                |
-| `image`       | object                     | _(optional)_ Image data for the profile component. [See fields below.](#image-object) |
-| `class`       | string                     | _(optional)_ Additional classes applied to the root `<figure>`.                       |
-| _(extends)_   | `HTMLAttributes<"figure">` | _(optional)_ All standard HTML attributes for a `<figure>`.                           |
+| Prop          | Type                       | Description                                                                                   |
+| ------------- | -------------------------- | --------------------------------------------------------------------------------------------- |
+| `attribution` | object                     | _(optional)_ Data for the attribution section of the quote. [See below.](#attribution-object) |
+| `layout`      | object                     | _(optional)_ Layout data for the component. [See below.](#layout-object)                      |
+| `quote`       | string                     | The quote to be displayed in the card.                                                        |
+| `class`       | string                     | _(optional)_ Additional classes applied to the root `<figure>`.                               |
+| _(extends)_   | `HTMLAttributes<"figure">` | _(optional)_ All standard HTML attributes for a `<figure>`.                                   |
+
+#### `attribution` object
+
+- `name` — string  
+  The name displayed underneath the quote.
+- `description` — string  
+  _(optional)_ The second line of text under the name.
+- `date` — Date  
+  _(optional)_ Date displayed underneath the name and description.
+- `image` — object  
+  _(optional)_ Image data for the profile component. [See below.](#image-object)
 
 #### `image` object
 
@@ -129,6 +144,11 @@ labore"
   The imported image metadata (output from Astro's image import).
 - `alt` — string  
   _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+#### `layout` object
+
+- `center` — boolean
+  _(optional)_ Aligns card text center, default is `false`.
 
 </Markdown>
 </Section>
@@ -144,25 +164,27 @@ labore"
 
 import Avatar from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
 
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-  }}
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    }}}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
-  image={{
-    src: Avatar,
-  }}
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    }}}
 />
 </Section>
 
@@ -192,33 +214,37 @@ laboris nisi ut aliquip ex ea commodo consequat."
 ### 4 Columns
 
 </Markdown>
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
 </Section>
 
@@ -229,40 +255,45 @@ labore"
 
 </Markdown>
 <Carousel columns={3}>
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
 </Carousel>
 </Section>
@@ -274,40 +305,61 @@ labore"
 
 </Markdown>
 <Carousel columns={4}>
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
-<QuoteCard 
+<QuoteCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris nisi ut aliquip ex ea commodo consequat."
-  name="Seddo Eiusmod"
-  description="Tempor incididunt ut
-labore"
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<QuoteCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
 />
 </Carousel>
 </Section>
