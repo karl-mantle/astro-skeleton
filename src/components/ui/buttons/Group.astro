@@ -17,7 +17,10 @@ interface Props extends HTMLAttributes<"div"> {
 const { btns, class: className, ...rest }: Partial<Props> = Astro.props;
 ---
 
-<div class:list={["flex w-full flex-col gap-2 md:w-fit md:flex-row md:gap-4", className]} {...rest}>
+<div
+  class:list={["flex w-full flex-col gap-2 md:flex-row md:flex-wrap md:gap-4", className]}
+  {...rest}
+>
   {
     btns.map((btn) => (
       <>
