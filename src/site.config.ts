@@ -133,10 +133,28 @@ export const headerNavigation = [
     label: "Cards",
   },
   {
+    id: "default-cards",
+    parentId: "cards",
+    url: "/astro-skeleton/components/cards/default",
+    label: "Default",
+  },
+  {
+    id: "clickable-cards",
+    parentId: "cards",
+    url: "/astro-skeleton/components/cards/clickable",
+    label: "Clickable",
+  },
+  {
     id: "feature-cards",
     parentId: "cards",
     url: "/astro-skeleton/components/cards/feature",
     label: "Feature",
+  },
+  {
+    id: "image-cards",
+    parentId: "cards",
+    url: "/astro-skeleton/components/cards/image",
+    label: "Image",
   },
   {
     id: "quote-cards",
@@ -145,16 +163,10 @@ export const headerNavigation = [
     label: "Quote",
   },
   {
-    id: "simple-cards",
+    id: "review-cards",
     parentId: "cards",
-    url: "/astro-skeleton/components/cards/simple",
-    label: "Simple",
-  },
-  {
-    id: "simple-icon-cards",
-    parentId: "cards",
-    url: "/astro-skeleton/components/cards/simple-icon",
-    label: "Simple Icon",
+    url: "/astro-skeleton/components/cards/review",
+    label: "Review",
   },
   {
     id: "statistic-cards",

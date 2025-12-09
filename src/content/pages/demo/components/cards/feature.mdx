@@ -20,22 +20,40 @@ A simple feature card with an icon, heading and optional description. It can be 
 import FeatureCard from "~/components/mdx/cards/Feature.astro";
 
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 64,
+  }}
+  layout={{
+    center: true,
+  }}
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 64,
+  }}
+  layout={{
+    center: true,
+  }}
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 64,
+  }}
+  layout={{
+    center: true,
+  }}
 />
 
 </Section>
@@ -58,22 +76,40 @@ A simple feature card with a heading and optional description. It can be centere
 import FeatureCard from "~/components/mdx/cards/Feature.astro";
 
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 64,
+  }}
+  layout={{
+    center: true,
+  }}
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 64,
+  }}
+  layout={{
+    center: true,
+  }}
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 64,
+  }}
+  layout={{
+    center: true,
+  }}
 />
 
 </Section>
@@ -81,17 +117,32 @@ laboris."
 
 ### Props
 
-| Prop          | Type                    | Description                                                                                      |
-| ------------- | ----------------------- | ------------------------------------------------------------------------------------------------ |
-| `center`      | boolean                 | _(optional)_ Aligns card text center, default is `true`.                                         |
-| `description` | string                  | _(optional)_ The card description or supporting text.                                            |
-| `heading`     | string                  | The heading displayed by the card, `<h3>`                                                        |
-| `icon`        | string                  | Icon name including the Iconify set prefix if not local (e.g. `material-symbols:sunny-outline`). |
-| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.                                     |
-| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                                         |
+| Prop          | Type                    | Description                                                              |
+| ------------- | ----------------------- | ------------------------------------------------------------------------ |
+| `description` | string                  | _(optional)_ The card description or supporting text.                    |
+| `heading`     | string                  | The heading displayed by the card, `<h3>`                                |
+| `icon`        | object                  | Icon data for the component. [See below.](#icon-object)                  |
+| `layout`      | object                  | _(optional)_ Layout data for the component. [See below.](#layout-object) |
+| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.             |
+| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                 |
+
+#### `icon` object
+
+- `name` — string  
+  The icon name, either an iconify package (e.g. `material-symbols:sunny-outline`) or local name. [See below.](#useful-links)
+- `size` — number  
+  The same value is used for both height and width, number is in pixels.
+
+#### `layout` object
+
+- `center` — boolean
+  _(optional)_ Aligns card text center, default is `false`.
+- `direction` — "row" \| "column"  
+  _(optional)_ Displays component's elements in a row or column, default is `column`.
 
 ### Useful links
 
+- [Astro Icon](https://www.astroicon.dev/)
 - [Iconify documentation](https://iconify.design/docs/)
 - [Material Symbols icons reference](https://icon-sets.iconify.design/material-symbols/)
 
@@ -107,15 +158,25 @@ laboris."
 
 </Markdown>
 <FeatureCard
-  layout="row"
-  icon="material-symbols:rocket-launch-outline"
+  layout={{
+    direction: "row"
+  }}
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  layout="row"
-  icon="material-symbols:rocket-launch-outline"
+  layout={{
+    direction: "row"
+  }}
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
@@ -129,19 +190,28 @@ laboris."
 
 </Markdown>
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
@@ -155,25 +225,37 @@ laboris."
 
 </Markdown>
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
@@ -188,31 +270,46 @@ laboris."
 </Markdown>
 <Carousel columns={3}>
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
@@ -228,31 +325,46 @@ laboris."
 </Markdown>
 <Carousel columns={4}>
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
 />
 <FeatureCard
-  icon="material-symbols:rocket-launch-outline"
+  icon={{
+    name: "material-symbols:rocket-launch-outline",
+    size: 32
+  }}
   heading="Sed do eiusmod tempo"
   description="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
 laboris."
