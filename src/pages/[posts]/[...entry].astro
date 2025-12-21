@@ -36,7 +36,7 @@ const { Content, headings } = await render(entry);
 <HTML collection="posts" entry={entry} tableOfContents={headings} type="article">
   <TableOfContents headings={headings} />
 
-  <article class="mb-4 grid grid-cols-1 gap-4">
+  <article class="mt-20 mb-4 grid grid-cols-1 gap-4">
     <Hero
       authorId={entry.data.author ?? "default"}
       category={entry.data.category}
