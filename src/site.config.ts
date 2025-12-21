@@ -181,6 +181,24 @@ export const headerNavigation = [
     label: "Heroes",
   },
   {
+    id: "default-hero",
+    parentId: "heroes",
+    url: "/astro-skeleton/components/heroes/default",
+    label: "Default",
+  },
+  {
+    id: "split-background-hero",
+    parentId: "heroes",
+    url: "/astro-skeleton/components/heroes/split-background",
+    label: "Split Background",
+  },
+  {
+    id: "full-background-hero",
+    parentId: "heroes",
+    url: "/astro-skeleton/components/heroes/full-background",
+    label: "Full Background",
+  },
+  {
     id: "interactive",
     parentId: "components",
     url: null,

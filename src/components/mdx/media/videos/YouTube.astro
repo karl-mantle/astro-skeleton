@@ -11,6 +11,7 @@ interface Props extends HTMLAttributes<"div"> {
   };
   imageQuality?: "max" | "high" | "standard" | "low";
   label?: string;
+  loop?: boolean;
   params?: string;
   title?: string;
   url: string;
@@ -20,9 +21,11 @@ const {
   image,
   imageQuality = "high",
   label = "Play",
+  loop,
   params,
   title,
   url,
+  class: className,
   ...rest
 }: Props = Astro.props;
 
@@ -45,8 +48,14 @@ const imagePaths = {
 }[imageQuality];
 ---
 
-<div class="not-prose relative mb-4 w-full md:mb-8">
-  <lite-youtube videoid={videoId} title={title} data-title={title} params={params} {...rest}>
+<div class:list={["not-prose relative mb-4 w-full md:mb-8", className]}>
+  <lite-youtube
+    videoid={videoId}
+    title={title}
+    data-title={title}
+    params={loop === true ? `${params}&loop=1&playlist=${videoId}` : params}
+    {...rest}
+  >
     <div class="absolute inset-0">
       {
         image ? (

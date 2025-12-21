@@ -1,0 +1,152 @@
+---
+title: "Split Background hero component"
+description: "Demo page for the Split Background hero component. See usage, examples, attributes and additional notes."
+slug: "components/heroes/split-background"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+import SplitBackgroundHero from "~/components/mdx/heroes/SplitBackground.astro";
+import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+
+<SplitBackgroundHero
+  heading="Netus et malesuada fames ac turpis egestas"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium.
+"
+  image={{ src: PreviewImage, alt: "" }}
+  layout={{
+    aspect: "video",
+  }}
+  video={{ player: "vimeo", src: "https://vimeo.com/907827754" }}
+/>
+
+<Section class="mt-20">
+<Markdown>
+
+# Split Background hero
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+## How to use
+
+```mdx
+import SplitBackgroundHero from "~/components/mdx/heroes/FullBackground.astro";
+import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+
+<SplitBackgroundHero
+  heading="Netus et malesuada fames ac turpis egestas"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium.
+"
+  image={{ src: PreviewImage, alt: "" }}
+  video={{ player: "vimeo", src: "https://vimeo.com/907827754" }}
+/>
+```
+
+### Props
+
+| Prop          | Type                       | Description                                                                  |
+| ------------- | -------------------------- | ---------------------------------------------------------------------------- |
+| `btns`        | array of objects           | _(optional)_ An array of button objects to render. [See below.](#btn-object) |
+| `description` | string                     | _(optional)_ The card description or supporting text.                        |
+| `heading`     | string                     | The heading displayed by the card, `<h1-4>`                                  |
+| `image`       | object                     | _(optional)_ Image data for the component. [See below.](#image-object)       |
+| `layout`      | object                     | _(optional)_ Layout data for the component. [See below.](#layout-object)     |
+| `video`       | object                     | _(optional)_ Video data for the component. [See below.](#video-object)       |
+| `class`       | string                     | _(optional)_ Additional classes applied to the root `<header>`.              |
+| _(extends)_   | `HTMLAttributes<"header">` | _(optional)_ All standard HTML attributes for a `<header>`.                  |
+
+#### `btn` object
+
+- `href` — string  
+  The URL or path the button links to.
+- `label` — string  
+  The visible text on the button.
+- `type` — `"primary"` \| `"secondary"` \| `"text"`  
+  Determines which button style component is rendered.
+
+The `btns` prop is an array of `btn` objects.
+
+#### `image` object
+
+- `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+- `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+#### `layout` object
+
+- `aspect` — "video" \| "square" \| "default"
+  _(optional)_ Sets the aspect ratio of the image or video.
+- `mirror` — boolean
+_(optional)_ Mirrors the desktop layout so the media is on the left side.
+
+#### `video` object
+
+- `player` — "youtube" \| "vimeo"  
+  Which video provider to use.
+- `src` — string  
+  The video source URL as a string.
+
+## More examples
+
+</Markdown>
+</Section>
+
+<SplitBackgroundHero
+  heading="Netus et malesuada fames ac turpis egestas"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium.
+"
+  layout={{
+    aspect: "default",
+  }}
+  image={{ src: PreviewImage, alt: "" }}
+/>
+
+<SplitBackgroundHero
+  heading="Netus et malesuada fames ac turpis egestas"
+  description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo viverra. Adipiscing enim eu turpis egestas pretium.
+"
+  video={{ player: "youtube", src: "https://www.youtube.com/watch?v=CHSnz0bCaUk" }}
+  layout={{
+    aspect: "video",
+    mirror: true,
+  }}
+  btns={[
+    {
+      href: "#main",
+      label: "Go to top",
+      type: "primary",
+    },
+    {
+      href: "#more-examples",
+      label: "More examples",
+      type: "secondary",
+      icon: "material-symbols:arrow-right-alt",
+    },
+  ]}
+/>
+
+<Section class="mb-4 md:mb-12">
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>
