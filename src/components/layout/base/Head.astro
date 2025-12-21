@@ -2,7 +2,6 @@
 import "~/styles/global.css";
 import type { DataEntryMap } from "astro:content";
 import { getImage } from "astro:assets";
-import { ClientRouter } from "astro:transitions";
 import { generalConfig } from "~/site.config";
 import defaultOpengraphImage from "public/opengraph.webp";
 
@@ -47,9 +46,6 @@ const opengraphImage = await getImage({ src: imageMeta });
     title=`${generalConfig.name}`
     href={new URL("rss.xml", Astro.site)}
   />
-
-  {/* view transitions */}
-  <ClientRouter />
 
   {/* google fonts - default noto */}
   <link rel="preconnect" href="https://fonts.googleapis.com" />

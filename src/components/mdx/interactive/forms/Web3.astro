@@ -106,5 +106,5 @@ const { accessKey, siteKey, class: className, ...rest }: Props = Astro.props;
     });
   }
 
-  document.addEventListener("astro:page-load", initContactForm);
+  document.addEventListener("DOMContentLoaded", initContactForm);
 </script>

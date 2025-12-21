@@ -83,7 +83,7 @@ if (!image && videoId) {
   const loadLiteVimeo = async () => {
     await import("lite-vimeo-embed");
   };
-  document.addEventListener("astro:page-load", loadLiteVimeo);
+  document.addEventListener("DOMContentLoaded", loadLiteVimeo);
 </script>
 
 <style>

@@ -256,5 +256,5 @@ const menuTree = createMenuTree(headerNavigation as MenuItem[]);
     });
   }
 
-  document.addEventListener("astro:page-load", initNavigation);
+  document.addEventListener("DOMContentLoaded", initNavigation);
 </script>
