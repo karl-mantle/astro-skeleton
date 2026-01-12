@@ -1,0 +1,413 @@
+---
+title: "Review card component"
+description: "Demo page for the Review card component. See usage, examples, attributes and additional notes."
+slug: "components/cards/review"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Carousel from "~/components/mdx/layout/Carousel.astro";
+
+<Section class="mt-20" columns={3}>
+<Markdown class="md:col-span-3">
+
+# Review card
+
+A simple review card with an optional attribution section and star rating. It is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import ReviewCard from "~/components/mdx/cards/Review.astro";
+
+<ReviewCard
+  rating={5}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
+  }}
+/>
+<ReviewCard
+  rating={4}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
+  }}
+/>
+<ReviewCard
+  rating={2}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
+  }}
+/>
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section columns={1}>
+<Markdown>
+
+# Review card
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import ReviewCard from "~/components/mdx/cards/Review.astro";
+
+<ReviewCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
+  }}
+/>
+<ReviewCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
+  }}
+/>
+<ReviewCard
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    },
+  }}
+/>
+
+</Section>
+```
+
+### Props
+
+| Prop          | Type                       | Description                                                                                    |
+| ------------- | -------------------------- | ---------------------------------------------------------------------------------------------- |
+| `attribution` | object                     | _(optional)_ Data for the attribution section of the review. [See below.](#attribution-object) |
+| `layout`      | object                     | _(optional)_ Layout data for the component. [See below.](#layout-object)                       |
+| `quote`       | string                     | The review to be displayed in the card.                                                        |
+| `rating`      | number                     | Rating out of 5 stars.                                                                         |
+| `class`       | string                     | _(optional)_ Additional classes applied to the root `<figure>`.                                |
+| _(extends)_   | `HTMLAttributes<"figure">` | _(optional)_ All standard HTML attributes for a `<figure>`.                                    |
+
+#### `attribution` object
+
+- `name` — string  
+  The name displayed underneath the review.
+- `description` — string  
+  _(optional)_ The second line of text under the name.
+- `date` — Date  
+  _(optional)_ Date displayed underneath the name and description.
+- `image` — object  
+  _(optional)_ Image data for the profile component. [See below.](#image-object)
+
+#### `image` object
+
+- `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+- `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+#### `layout` object
+
+- `center` — boolean
+  _(optional)_ Aligns card text center, default is `false`.
+
+</Markdown>
+</Section>
+
+<Section columns={2}>
+<Markdown class="md:col-span-2">
+
+## Examples
+
+### 2 Columns
+
+</Markdown>
+
+import Avatar from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
+
+<ReviewCard
+  rating={5}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    }}}
+/>
+<ReviewCard
+  rating={4}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore",
+    image: {
+      src: Avatar,
+      alt: "Example alt text",
+    }}}
+/>
+</Section>
+
+<Section columns={3}>
+<Markdown class="md:col-span-3">
+
+### 3 Columns
+
+</Markdown>
+<ReviewCard 
+  rating={5}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<ReviewCard 
+  rating={4}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+<ReviewCard 
+  rating={3}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+/>
+</Section>
+
+<Section columns={4}>
+<Markdown class="md:col-span-4">
+
+### 4 Columns
+
+</Markdown>
+<ReviewCard
+  rating={5}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={4}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={3}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={2}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 3 Column Carousel
+
+</Markdown>
+<Carousel columns={3}>
+<ReviewCard
+  rating={5}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={4}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={3}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={2}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={1}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+</Carousel>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 4 Column Carousel
+
+</Markdown>
+<Carousel columns={4}>
+<ReviewCard
+  rating={5}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={4}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={3}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={2}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={1}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={5}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+<ReviewCard
+  rating={4}
+  quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  attribution={{
+    name: "Seddo Eiusmod",
+    description: "Tempor incididunt ut labore"
+  }}
+/>
+</Carousel>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>
