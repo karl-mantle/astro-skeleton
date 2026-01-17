@@ -47,6 +47,7 @@
     "jest-environment-puppeteer": "^11.0.0",
     "jest-puppeteer": "^11.0.0",
     "pa11y": "^9.0.1",
+    "pa11y-ci": "^4.0.1",
     "prettier": "^3.6.2",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.14",

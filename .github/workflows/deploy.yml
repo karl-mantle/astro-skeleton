@@ -59,7 +59,7 @@ jobs:
         run: |
           npx astro preview --port 4321 &
           npx wait-on http://localhost:4321
-          npx pa11y http://localhost:4321 --config pa11y.config.cjs
+          npx pa11y-ci --sitemap http://localhost:4321/astro-skeleton/sitemap-0.xml --config pa11yci.json
 
       - name: Run Puppeteer E2E tests
         run: npm run test:e2e
