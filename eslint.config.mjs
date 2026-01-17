@@ -4,6 +4,7 @@ import js from "@eslint/js";
 import tseslint from "typescript-eslint";
 import astro from "eslint-plugin-astro";
 import prettier from "eslint-plugin-prettier";
+import jest from "eslint-plugin-jest";
 
 const tsParser = tseslint.parser;
 const astroParser = astro.parser;
@@ -45,9 +46,19 @@ export default defineConfig([
         project: "./tsconfig.json",
       },
     },
-    rules: {
-      // ? add rules
+  },
+
+  {
+    files: ["tests/e2e/**/*.js"],
+    languageOptions: {
+      globals: {
+        "jest/globals": true,
+      },
     },
+    plugins: {
+      jest: jest,
+    },
+    extends: ["plugin:jest/recommended"],
   },
 
   {
