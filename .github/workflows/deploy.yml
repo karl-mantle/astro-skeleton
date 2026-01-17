@@ -55,9 +55,9 @@ jobs:
           name: site
           path: dist
 
-      - name: Run pa11y (Astro preview)
+      - name: Run pa11y
         run: |
-          npx astro preview --port 4321 &
+          npx http-server dist -p 4321 &
           npx wait-on http://localhost:4321
           npx pa11y-ci --sitemap http://localhost:4321/astro-skeleton/sitemap-0.xml --config pa11yci.json
 
