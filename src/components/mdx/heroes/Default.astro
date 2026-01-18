@@ -48,6 +48,7 @@ const { btns, description, heading, image, layout, video, class: className }: Pr
       class:list={[
         "flex h-full flex-col justify-center gap-4 md:py-16",
         layout?.mirror && "md:order-2",
+        !image && !video && "md:col-span-2",
       ]}
     >
       <div class="flex max-w-[75ch] flex-col gap-4">

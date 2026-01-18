@@ -127,6 +127,36 @@ export const headerNavigation = [
     label: "CTA banner",
   },
   {
+    id: "default-banner",
+    parentId: "banners",
+    url: "/astro-skeleton/components/banners/default",
+    label: "Default banner",
+  },
+  {
+    id: "features-banner",
+    parentId: "banners",
+    url: "/astro-skeleton/components/banners/features",
+    label: "Features banner",
+  },
+  {
+    id: "floating-banner",
+    parentId: "banners",
+    url: "/astro-skeleton/components/banners/floating",
+    label: "Floating banner",
+  },
+  {
+    id: "signposting-banner",
+    parentId: "banners",
+    url: "/astro-skeleton/components/banners/signposting",
+    label: "Signposting banner",
+  },
+  {
+    id: "sticky-banner",
+    parentId: "banners",
+    url: "/astro-skeleton/components/banners/sticky",
+    label: "Sticky banner",
+  },
+  {
     id: "cards",
     parentId: "components",
     url: null,
