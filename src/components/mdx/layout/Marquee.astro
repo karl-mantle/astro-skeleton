@@ -1,0 +1,116 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import "swiper/css";
+import "swiper/css/bundle";
+
+interface Props extends HTMLAttributes<"div"> {
+  columns: number;
+}
+
+const { columns, class: className, ...rest }: Props = Astro.props;
+
+let columnsMap;
+switch (columns) {
+  case 4:
+    columnsMap = {
+      mobile: 3,
+      tablet: 3,
+      desktop: 4,
+    };
+    break;
+  // 5 columns is default
+  case 6:
+    columnsMap = {
+      mobile: 3,
+      tablet: 5,
+      desktop: 6,
+    };
+    break;
+  case 7:
+    columnsMap = {
+      mobile: 3,
+      tablet: 5,
+      desktop: 7,
+    };
+    break;
+  default:
+    columnsMap = {
+      mobile: 3,
+      tablet: 4,
+      desktop: 5,
+    };
+    break;
+}
+---
+
+<div class:list={["marquee not-prose mx-auto w-full", className]} {...rest}>
+  <div class="swiper" data-columns={JSON.stringify(columnsMap)}>
+    <div class="marquee-wrapper">
+      <slot />
+    </div>
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper/bundle";
+  import "swiper/css/bundle";
+
+  function initMarquees() {
+    const swipers = document.querySelectorAll<HTMLElement>(".marquee .swiper");
+    if (!swipers.length) return;
+
+    swipers.forEach((swiperEl) => {
+      const columnsJSON = swiperEl.getAttribute("data-columns")!;
+      const columns = JSON.parse(columnsJSON);
+
+      const parent = swiperEl.closest(".marquee");
+      if (!parent) return;
+
+      new Swiper(swiperEl, {
+        wrapperClass: "marquee-wrapper",
+        slideClass: "card",
+        slidesPerView: columns.mobile,
+        spaceBetween: 24,
+        loop: true,
+        speed: 4000,
+        grabCursor: false,
+        freeMode: {
+          enabled: true,
+          momentum: false,
+        },
+        autoplay: {
+          delay: 0,
+          disableOnInteraction: false,
+        },
+        breakpoints: {
+          640: { slidesPerView: columns.tablet },
+          1024: { slidesPerView: columns.desktop },
+        },
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initMarquees);
+</script>
+
+<style is:global>
+  @reference "~/styles/global.css";
+
+  @layer components {
+    .marquee {
+      --swiper-theme-color: var(--color-base-400);
+    }
+
+    .marquee .swiper {
+      @apply !flex flex-col gap-2 sm:flex-col-reverse;
+    }
+
+    .marquee-wrapper {
+      @apply flex transition-transform ease-linear;
+    }
+
+    .marquee-wrapper .card {
+      @apply w-full shrink-0;
+    }
+  }
+</style>

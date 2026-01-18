@@ -1,0 +1,194 @@
+---
+title: "Image card component"
+description: "Demo page for the Image card component. See usage, examples, attributes and additional notes."
+slug: "components/cards/image"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Carousel from "~/components/mdx/layout/Carousel.astro";
+import Marquee from "~/components/mdx/layout/Marquee.astro";
+
+import Image1 from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
+import Image2 from "~/assets/jpg/dylann-hendricks-67c1geZr1eE-unsplash.jpg";
+import Image3 from "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg";
+import Image4 from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
+
+<Section class="mt-20" columns={3}>
+<Markdown class="md:col-span-3">
+
+# Image card
+
+A default content card with a heading and optional description, image and buttons. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import ImageCard from "~/components/mdx/cards/Image.astro";
+
+<ImageCard image={{ src: Image2, alt: "" }} />
+<ImageCard image={{ src: Image3, alt: "" }} />
+<ImageCard image={{ src: Image4, alt: "" }} />
+
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section class="mt-4 md:mt-12" columns={3}>
+<Markdown class="md:col-span-3">
+
+# Default card
+
+A default content card with a heading and optional description. It can be centered with a prop and is intended for use in columns or with a carousel wrapper.
+
+</Markdown>
+
+import ImageCard from "~/components/mdx/cards/Image.astro";
+
+<ImageCard image={{ src: Image2, alt: "" }} />
+<ImageCard image={{ src: Image3, alt: "" }} />
+<ImageCard image={{ src: Image4, alt: "" }} />
+
+</Section>
+```
+
+### Props
+
+| Prop          | Type                    | Description                                                                         |
+| ------------- | ----------------------- | ----------------------------------------------------------------------------------- |
+| `image`       | object                  | _(optional)_ Image data for the component. [See below.](#image-object)              |
+| `layout`      | object                  | _(optional)_ Layout data for the component. [See below.](#layout-object)            |
+| `class`       | string                  | _(optional)_ Additional classes applied to the root `<figure>`.                        |
+| _(extends)_   | `HTMLAttributes<"figure">` | _(optional)_ All standard HTML attributes for a `<figure>`.                            |
+
+
+#### `image` object
+
+- `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+- `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+#### `layout` object
+
+- `aspect` — "auto" | "landscape" | "portrait" | "square" | "video".
+  _(optional)_ Sets the aspect ratio of the image.
+- `objectFit` — "cover" \| "contain"  
+  _(optional)_ Set the object-fit CSS property for the image. Default is `cover`.
+
+</Markdown>
+</Section>
+
+<Section columns={2}>
+<Markdown class="md:col-span-2">
+
+## More examples
+
+### 2 Columns
+
+</Markdown>
+<ImageCard image={{ src: Image1, alt: "" }} />
+<ImageCard image={{ src: Image4, alt: "" }} />
+</Section>
+
+<Section columns={3}>
+<Markdown class="md:col-span-3">
+
+### 3 Columns
+
+</Markdown>
+<ImageCard image={{ src: Image1, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }} />
+<ImageCard image={{ src: Image2, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image3, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+</Section>
+
+<Section columns={4}>
+<Markdown class="md:col-span-4">
+
+### 4 Columns
+
+</Markdown>
+<ImageCard image={{ src: Image1, alt: "" }} />
+<ImageCard image={{ src: Image2, alt: "" }} />
+<ImageCard image={{ src: Image3, alt: "" }} />
+<ImageCard image={{ src: Image4, alt: "" }} />
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 3 Column Carousel
+
+</Markdown>
+<Carousel columns={3}>
+<ImageCard image={{ src: Image1, alt: "" }} />
+<ImageCard image={{ src: Image2, alt: "" }} />
+<ImageCard image={{ src: Image3, alt: "" }} />
+<ImageCard image={{ src: Image4, alt: "" }} />
+</Carousel>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+### 4 Column Carousel
+
+</Markdown>
+<Carousel columns={4}>
+<ImageCard image={{ src: Image1, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image2, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image3, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image4, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image1, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image2, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image3, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+<ImageCard image={{ src: Image4, alt: "" }} layout={{ aspect: "square", objectFit: "cover" }}/>
+</Carousel>
+</Section>
+
+import Logo1 from "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg";
+import logo2 from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
+
+<Section columns={1}>
+<Markdown>
+
+### 5 Column Marquee
+
+</Markdown>
+<Marquee columns={5} speed={30}>
+<ImageCard image={{ src: Image1, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+<ImageCard image={{ src: Image2, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+<ImageCard image={{ src: Image3, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+<ImageCard image={{ src: Image4, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+<ImageCard image={{ src: Image1, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+<ImageCard image={{ src: Image2, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+<ImageCard image={{ src: Image3, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+<ImageCard image={{ src: Image4, alt: "" }} layout={{ aspect: "video", objectFit: "contain" }}/>
+</Marquee>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>

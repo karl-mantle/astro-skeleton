@@ -1,0 +1,48 @@
+---
+import type { ImageMetadata } from "astro";
+import type { HTMLAttributes } from "astro/types";
+import { Picture } from "astro:assets";
+import { imagesConfig } from "~/site.config";
+
+interface Props extends HTMLAttributes<"figure"> {
+  image: {
+    src: ImageMetadata;
+    alt?: string;
+  };
+  layout?: {
+    aspect?: "auto" | "landscape" | "portrait" | "square" | "video";
+    objectFit?: "contain" | "cover";
+  };
+}
+
+const aspectMap = {
+  auto: "aspect-auto",
+  landscape: "aspect-[4/3]",
+  portrait: "aspect-[3/4]",
+  square: "aspect-square",
+  video: "aspect-video",
+};
+
+const objectMap = {
+  contain: "object-contain",
+  cover: "object-cover",
+};
+
+const { image, layout, class: className }: Props = Astro.props;
+---
+
+<figure class:list={["card not-prose", className]}>
+  <Picture
+    alt={image.alt ?? ""}
+    class:list={[
+      "h-full w-full",
+      aspectMap[layout?.aspect ?? "video"],
+      objectMap[layout?.objectFit ?? "cover"],
+    ]}
+    format="webp"
+    loading="eager"
+    sizes={imagesConfig.third.sizes}
+    src={image.src}
+    widths={imagesConfig.third.widths}
+  />
+</figure>

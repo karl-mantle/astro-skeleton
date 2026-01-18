@@ -82,7 +82,7 @@ export const socialLinks = [
     show: true,
   },
   {
-    href: "https://github.com/karl-mantle/astro-cf-blog/",
+    href: "https://github.com/karl-mantle/astro-skeleton",
     icon: "simple-icons:github",
     label: "Visit the GitHub repo",
     show: true,
@@ -207,7 +207,7 @@ export const headerNavigation = [
   {
     id: "heroes",
     parentId: "components",
-    url: "/astro-skeleton/components/heroes",
+    url: null,
     label: "Heroes",
   },
   {
