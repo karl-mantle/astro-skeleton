@@ -9,10 +9,24 @@ import robotsTxt from "astro-robots-txt";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 
+const env = process.env.ASTRO_ENV ?? "dev";
+
+const mapEnvDomain = {
+  dev: {
+    site: "http://localhost:4321",
+  },
+  ci: {
+    site: "http://localhost:4321",
+  },
+  prod: {
+    site: "https://karl-mantle.github.io",
+  },
+};
+
 // https://astro.build/config
 export default defineConfig({
-  // site: "http://127.0.0.1:4321",
-  site: "https://karl-mantle.github.io",
+  // @ts-ignore
+  site: mapEnvDomain[env].site,
   base: "/astro-skeleton/",
   integrations: [
     favicons({
