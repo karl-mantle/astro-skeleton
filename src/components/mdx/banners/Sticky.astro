@@ -1,0 +1,42 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+import BtnGroup from "~/components/ui/buttons/Group.astro";
+
+interface Props extends HTMLAttributes<"section"> {
+  btns?: {
+    href: string;
+    label: string;
+    type: "primary" | "secondary" | "text" | "icon";
+  }[];
+  description?: string;
+  heading: string;
+  icon?: string;
+}
+
+const { btns = [], description, heading, icon, class: className }: Props = Astro.props;
+---
+
+<section
+  class:list={[
+    "bg-base-200 dark:bg-base-800 sticky top-0 right-0 left-0 z-50 py-4 md:py-8",
+    className,
+  ]}
+>
+  <div class="contain flex flex-col items-center justify-between gap-4 md:flex-row">
+    <div class="flex gap-4 md:gap-8">
+      <Icon
+        name={icon ?? "material-symbols:notifications-active-outline"}
+        height={32}
+        width={32}
+        class="shrink-0 self-center"
+      />
+      <div class="flex max-w-[75ch] flex-col gap-2">
+        <h2 class="text-base md:text-lg">{heading}</h2>
+        {description && <p class="text-sm">{description}</p>}
+      </div>
+    </div>
+
+    {btns.length > 0 && <BtnGroup btns={btns} />}
+  </div>
+</section>

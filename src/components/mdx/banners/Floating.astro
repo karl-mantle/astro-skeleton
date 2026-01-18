@@ -1,0 +1,68 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+import BtnGroup from "~/components/ui/buttons/Group.astro";
+import slugify from "slugify";
+
+interface Props extends HTMLAttributes<"aside"> {
+  btns?: {
+    href: string;
+    label: string;
+    type: "primary" | "secondary" | "text" | "icon";
+  }[];
+  description?: string;
+  heading: string;
+  icon?: string;
+  position: "top" | "bottom";
+}
+
+const { btns = [], description, heading, icon, position, class: className }: Props = Astro.props;
+---
+
+<aside
+  id={slugify(heading, { lower: true })}
+  class:list={[
+    "bg-base-200 dark:bg-base-800 fixed z-100 py-4 md:py-8",
+    position === "top" ? "top-0 right-0 left-0" : "right-0 bottom-0 left-0",
+    className,
+  ]}
+>
+  <div class="contain flex flex-col items-center justify-between gap-4 md:flex-row">
+    <div class="flex gap-4 md:gap-8">
+      <Icon
+        name={icon ?? "material-symbols:notifications-active-outline"}
+        height={32}
+        width={32}
+        class="shrink-0"
+      />
+      <div class="flex max-w-[75ch] flex-col gap-2">
+        <h2 class="text-base md:text-lg">{heading}</h2>
+        {description && <p class="text-sm">{description}</p>}
+      </div>
+
+      <button
+        id={`close-${slugify(heading, { lower: true })}`}
+        type="button"
+        class="absolute top-4 right-4 md:top-6 md:right-6"
+        aria-label="Dismiss notification"
+      >
+        <Icon name="material-symbols:close" width={24} height={24} />
+      </button>
+    </div>
+
+    {btns.length > 0 && <BtnGroup btns={btns} />}
+  </div>
+</aside>
+
+<script
+  define:vars={{
+    id: slugify(heading, { lower: true }),
+  }}
+>
+  const banner = document.getElementById(`${id}`);
+  const closeBtn = document.getElementById(`close-${id}`);
+
+  closeBtn?.addEventListener("click", () => {
+    banner.style.display = "none";
+  });
+</script>

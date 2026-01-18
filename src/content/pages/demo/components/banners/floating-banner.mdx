@@ -1,0 +1,153 @@
+---
+title: "Floating banner component"
+description: "Demo page for the Floating banner component. See usage, examples, attributes and additional notes."
+slug: "components/banners/floating"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+
+<Section class="mt-20">
+<Markdown>
+
+# Floating banner
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+</Section>
+
+import FloatingBanner from "~/components/mdx/banners/Floating.astro";
+
+<FloatingBanner
+  position="top"
+  icon="material-symbols:rocket-launch-outline"
+  heading="Lorem ipsum dolor sit amet, consectetur!"
+  btns={[
+    {
+      href: "#more-examples",
+      label: "Learn more",
+      type: "secondary",
+      icon: "material-symbols:arrow-right-alt",
+    },
+  ]}
+/>
+
+<Section>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section>
+<Markdown>
+
+# Floating banner
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+</Section>
+
+import FloatingBanner from "~/components/mdx/banners/Floating.astro";
+
+<FloatingBanner
+  position="top"
+  icon="material-symbols:notifications-active-outline"
+  heading="Lorem ipsum dolor sit amet, consectetur!"
+  btns={[
+    {
+      href: "#more-examples",
+      label: "Learn more",
+      type: "secondary",
+      icon: "material-symbols:arrow-right-alt",
+    },
+  ]}
+/>
+```
+
+### Props
+
+| Prop          | Type                      | Description                                                                                                   |
+| ------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `btns`        | array of objects          | _(optional)_ An array of button objects to render. [See fields below.](#btn-object)                           |
+| `description` | string                    | _(optional)_ The component description or supporting text.                                                    |
+| `heading`     | string                    | The heading or title displayed by the component, usually a heading element `<h1-4>`                           |
+| `icon`        | string                    | _(optional)_ Icon name including the Iconify set prefix if not local (e.g. `material-symbols:sunny-outline`). |
+| `class`       | string                    | _(optional)_ Additional classes applied to the root `<aside>`.                                                |
+| _(extends)_   | `HTMLAttributes<"aside">` | _(optional)_ All standard HTML attributes for a `<aside>`.                                                    |
+
+#### `btn` object
+
+- `href` — string  
+  The URL or path the button links to.
+- `label` — string  
+  The visible text on the button.
+- `type` — `"primary"` \| `"secondary"` \| `"text"` \| `"icon"`  
+  Determines which button style component is rendered.
+- `icon` — string  
+  _(optional)_ Icon name including the Iconify set prefix if not local (e.g. `material-symbols:sunny-outline`).
+
+The `btns` prop is an array of `btn` objects.
+
+### Useful links
+
+- [Material Symbols icons reference](https://icon-sets.iconify.design/material-symbols/)
+
+</Markdown>
+</Section>
+
+<Section>
+<Markdown>
+
+## More examples
+
+</Markdown>
+</Section>
+
+<FloatingBanner
+  position="bottom"
+  icon="material-symbols:notifications-active-outline"
+  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  description="Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat."
+  btns={[
+    {
+      href: "#how-to-use",
+      label: "Primary",
+      type: "primary",
+    },
+    {
+      href: "#more-examples",
+      label: "Secondary",
+      type: "secondary",
+    },
+  ]}
+/>
+
+<Section class="mb-4 md:mb-12">
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>
