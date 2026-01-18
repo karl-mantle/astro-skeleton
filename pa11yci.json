@@ -1,6 +1,6 @@
 {
   "defaults": {
-    "concurrency": 5,
+    "concurrency": 1,
     "standard": "WCAG2AA",
     "timeout": 30000,
     "level": "error",

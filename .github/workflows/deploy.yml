@@ -15,7 +15,7 @@ permissions:
   id-token: write
 
 jobs:
-  build:
+  build_prod:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -83,7 +83,7 @@ jobs:
           npx pa11y-ci --sitemap http://localhost:4321/sitemap-0.xml --config pa11yci.json
 
   deploy:
-    needs: test
+    needs: [build_prod, test]
     runs-on: ubuntu-latest
     environment:
       name: github-pages
