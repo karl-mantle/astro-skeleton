@@ -55,11 +55,7 @@ jobs:
           name: site
           path: dist
 
-      - name: Run pa11y
-        env:
-          PUPPETEER_EXECUTABLE_PATH: ""
-          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: false
-          PUPPETEER_ARGS: "--no-sandbox --disable-setuid-sandbox"
+      - name: Run pa11y-ci accessibility tests
         run: |
           npx http-server dist -p 4321 &
           npx wait-on http://localhost:4321
