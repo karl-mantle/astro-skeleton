@@ -80,7 +80,7 @@ jobs:
         run: |
           npx http-server dist -p 4321 &
           npx wait-on http://localhost:4321
-          npx pa11y-ci --sitemap http://localhost:4321/astro-skeleton/sitemap-0.xml --config pa11yci.json
+          npx pa11y-ci --sitemap http://localhost:4321/sitemap-0.xml --config pa11yci.json
 
   deploy:
     needs: test
