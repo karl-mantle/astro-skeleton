@@ -1,0 +1,267 @@
+---
+title: "Features banner component"
+description: "Demo page for the Features banner component. See usage, examples, attributes and additional notes."
+slug: "components/banners/features"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+import FeaturesBanner from "~/components/mdx/banners/Features.astro";
+
+<Section class="mt-20">
+<Markdown>
+
+# Features banner
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+</Section>
+
+<FeaturesBanner
+  heading="Lorem ipsum dolor sit amet, consectetur!"
+  features={[
+    {
+      icon: "material-symbols:arrow-right-alt",
+      label: "Discover in-depth information about our platform.",
+    },
+    {
+      icon: "material-symbols:star-outline",
+      label: "Features designed to enhance your workflow.",
+    },
+    {
+      icon: "material-symbols:rocket-launch-outline",
+      label: "Easy-to-follow setup guide and quick start tutorials.",
+    },
+    {
+      icon: "material-symbols:headset-mic-outline",
+      label: "Personalized assistance and answers to your questions.",
+    },
+    {
+      icon: "material-symbols:menu-book-outline",
+      label: "Detailed guides, API references, and best practices.",
+    },
+  ]}
+/>
+
+<Section>
+<Markdown>
+
+## How to use
+
+```mdx
+<Section>
+<Markdown>
+
+# Features banner
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+</Section>
+
+import FeaturesBanner from "~/components/mdx/banners/Features.astro";
+
+<FeaturesBanner
+  heading="Lorem ipsum dolor sit amet, consectetur!"
+  features={[
+    {
+      icon: "material-symbols:arrow-right-alt",
+      label:
+        "Discover in-depth information about our platform and how it can benefit your projects.",
+    },
+    {
+      icon: "material-symbols:star-outline",
+      label: "Browse through our comprehensive list of features designed to enhance your workflow.",
+    },
+    {
+      icon: "material-symbols:rocket-launch-outline",
+      label: "Begin your journey with our easy-to-follow setup guide and quick start tutorials.",
+    },
+    {
+      icon: "material-symbols:headset-mic-outline",
+      label:
+        "Reach out to our support team for personalized assistance and answers to your questions.",
+    },
+    {
+      icon: "material-symbols:menu-book-outline",
+      label: "Access detailed guides, API references, and best practices in our documentation.",
+    },
+  ]}
+/>
+```
+
+### Props
+
+| Prop        | Type                        | Description                                                                              |
+| ----------- | --------------------------- | ---------------------------------------------------------------------------------------- |
+| `columns`   | number                      | _(optional)_ Number of columns to display the features on desktop. Default is `3`.       |
+| `features`  | array of objects            | _(optional)_ An array of feature objects to render. [See fields below.](#feature-object) |
+| `heading`   | string                      | The heading or title displayed by the component, usually a heading element `<h1-4>`      |
+| `class`     | string                      | _(optional)_ Additional classes applied to the root `<section>`.                         |
+| _(extends)_ | `HTMLAttributes<"section">` | _(optional)_ All standard HTML attributes for a `<section>`.                             |
+
+#### `feature` object
+
+- `label` — string  
+  The visible text on the button.
+- `icon` — string  
+  _(optional)_ Icon name including the Iconify set prefix if not local (e.g. `material-symbols:sunny-outline`).
+
+The `features` prop is an array of `feature` objects.
+
+### Useful links
+
+- [Material Symbols icons reference](https://icon-sets.iconify.design/material-symbols/)
+
+</Markdown>
+</Section>
+
+<Section>
+<Markdown>
+
+## More examples
+
+</Markdown>
+</Section>
+
+<FeaturesBanner
+  columns={2}
+  class="bg-base-200 dark:bg-base-800 mb-4 md:mb-8"
+  heading="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+  features={[
+    {
+      icon: "material-symbols:arrow-right-alt",
+      label:
+        "Discover in-depth information about our platform and how it can benefit your projects.",
+    },
+    {
+      icon: "material-symbols:star-outline",
+      label: "Browse through our comprehensive list of features designed to enhance your workflow.",
+    },
+    {
+      icon: "material-symbols:rocket-launch-outline",
+      label: "Begin your journey with our easy-to-follow setup guide and quick start tutorials.",
+    },
+    {
+      icon: "material-symbols:headset-mic-outline",
+      label:
+        "Reach out to our support team for personalized assistance and answers to your questions.",
+    },
+    {
+      icon: "material-symbols:star-outline",
+      label: "Browse through our comprehensive list of features designed to enhance your workflow.",
+    },
+    {
+      icon: "material-symbols:rocket-launch-outline",
+      label: "Begin your journey with our easy-to-follow setup guide and quick start tutorials.",
+    },
+    {
+      icon: "material-symbols:headset-mic-outline",
+      label:
+        "Reach out to our support team for personalized assistance and answers to your questions.",
+    },
+    {
+      icon: "material-symbols:menu-book-outline",
+      label: "Access detailed guides, API references, and best practices in our documentation.",
+    },
+  ]}
+/>
+
+<FeaturesBanner
+  columns={4}
+  class="mb-4 md:mb-8"
+  heading="Ut enim ad minim veniam"
+  features={[
+    {
+      icon: "material-symbols:arrow-right-alt",
+      label: "Discover in-depth information.",
+    },
+    {
+      icon: "material-symbols:star-outline",
+      label: "Designed to enhance your workflow.",
+    },
+    {
+      icon: "material-symbols:rocket-launch-outline",
+      label: "Quick start tutorials.",
+    },
+    {
+      icon: "material-symbols:headset-mic-outline",
+      label: "Personalized assistance and answers to your questions.",
+    },
+    {
+      icon: "material-symbols:menu-book-outline",
+      label: "Detailed guides, API references, and best practices",
+    },
+    {
+      icon: "material-symbols:arrow-right-alt",
+      label: "Discover in-depth information.",
+    },
+    {
+      icon: "material-symbols:star-outline",
+      label: "Designed to enhance your workflow.",
+    },
+    {
+      icon: "material-symbols:rocket-launch-outline",
+      label: "Quick start tutorials.",
+    },
+  ]}
+/>
+
+<FeaturesBanner
+  class="mb-4 md:mb-8"
+  heading="Our latest quarterly report is available now"
+  features={[
+    {
+      icon: "material-symbols:arrow-right-alt",
+      label: "Free shipping on all orders over $50.",
+    },
+    {
+      icon: "material-symbols:star-outline",
+      label: "Designed to enhance your workflow.",
+    },
+    {
+      icon: "material-symbols:rocket-launch-outline",
+      label: "Begin your journey.",
+    },
+    {
+      icon: "material-symbols:headset-mic-outline",
+      label: "Answers to your questions.",
+    },
+    {
+      icon: "material-symbols:menu-book-outline",
+      label: "Best practices in our documentation.",
+    },
+    {
+      icon: "material-symbols:headset-mic-outline",
+      label: "Reach out to our support team.",
+    },
+  ]}
+/>
+
+<Section class="mb-4 md:mb-12">
+<Markdown>
+
+---
+
+## About MDX
+
+`astro-skeleton` uses the [@astrojs/mdx](https://docs.astro.build/en/guides/integrations-guide/mdx/) integration installed and configured in the `astro.config.mjs` config file.
+
+### Why MDX?
+
+MDX is a special flavor of Markdown that supports embedded JavaScript & JSX syntax. This unlocks the ability to [mix JavaScript and UI Components into Markdown content](https://docs.astro.build/en/guides/markdown-content/#mdx-features) for things like interactive charts or alerts.
+
+If you have existing content authored in MDX, this integration will hopefully make migrating a breeze.
+
+### Documentation
+
+- [MDX Syntax Documentation](https://mdxjs.com/docs/what-is-mdx)
+- [Astro Usage Documentation](https://docs.astro.build/en/guides/markdown-content/#markdown-and-mdx-pages)
+
+</Markdown>
+</Section>

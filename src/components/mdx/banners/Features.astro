@@ -1,0 +1,40 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+interface Props extends HTMLAttributes<"section"> {
+  columns?: number;
+  features: {
+    icon: string;
+    label: string;
+  }[];
+  heading?: string;
+  iconSize?: number;
+}
+
+const { columns = 3, features, heading, iconSize = 24, class: className }: Props = Astro.props;
+---
+
+<section class:list={["py-4 md:py-8", className]}>
+  <div class="contain flex flex-col gap-4 md:gap-8">
+    <h2 class="max-w-[75ch]">{heading}</h2>
+
+    <ul
+      class:list={[
+        "grid grid-cols-1 gap-4 md:gap-8",
+        columns === 2 && "md:grid-cols-2",
+        columns === 3 && "md:grid-cols-3",
+        columns === 4 && "md:grid-cols-4",
+      ]}
+    >
+      {
+        features.map((feature) => (
+          <li class="flex gap-2">
+            <Icon name={feature.icon} height={iconSize} width={iconSize} class="shrink-0" />
+            <span class="font-medium md:text-xl">{feature.label}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

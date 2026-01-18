@@ -16,7 +16,7 @@ const { btns = [], description, heading, class: className }: Props = Astro.props
 ---
 
 <section class:list={["bg-base-200 dark:bg-base-800 py-4 md:py-8", className]}>
-  <div class="contain flex items-center justify-between gap-4">
+  <div class="contain flex flex-col items-center justify-between gap-4 md:flex-row">
     <div class="flex max-w-[75ch] flex-col gap-2">
       <h2>{heading}</h2>
       {description && <p>{description}</p>}

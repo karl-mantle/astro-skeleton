@@ -7,7 +7,7 @@ slug: "components/banners/cta"
 import Section from "~/components/mdx/layout/Section.astro";
 import Markdown from "~/components/mdx/layout/Markdown.astro";
 
-<Section class="mt-20 md:mt-12" columns={1}>
+<Section class="mt-20">
 <Markdown>
 
 # CTA banner
@@ -33,13 +33,13 @@ import CtaBanner from "~/components/mdx/banners/Cta.astro";
   ]}
 />
 
-<Section columns={1}>
+<Section>
 <Markdown>
 
 ## How to use
 
 ```mdx
-<Section columns={1}>
+<Section>
 <Markdown>
 
 # CTA banner
@@ -68,13 +68,13 @@ import CtaBanner from "~/components/mdx/banners/Cta.astro";
 
 ### Props
 
-| Prop          | Type                    | Description                                                                           |
-| ------------- | ----------------------- | ------------------------------------------------------------------------------------- |
-| `btns`        | array of objects        | _(optional)_ An array of button objects to render. [See fields below.](#btns-objects) |
-| `description` | string                  | _(optional)_ The component description or supporting text.                            |
-| `heading`     | string                  | The heading or title displayed by the component, usually a heading element `<h1-4>`   |
-| `class`       | string                  | _(optional)_ Additional classes applied to the root `<div>`.                          |
-| _(extends)_   | `HTMLAttributes<"div">` | _(optional)_ All standard HTML attributes for a `<div>`.                              |
+| Prop          | Type                        | Description                                                                         |
+| ------------- | --------------------------- | ----------------------------------------------------------------------------------- |
+| `btns`        | array of objects            | _(optional)_ An array of button objects to render. [See fields below.](#btn-object) |
+| `description` | string                      | _(optional)_ The component description or supporting text.                          |
+| `heading`     | string                      | The heading or title displayed by the component, usually a heading element `<h1-4>` |
+| `class`       | string                      | _(optional)_ Additional classes applied to the root `<section>`.                    |
+| _(extends)_   | `HTMLAttributes<"section">` | _(optional)_ All standard HTML attributes for a `<section>`.                        |
 
 #### `btn` object
 
@@ -150,7 +150,7 @@ laboris nisi ut aliquip ex ea commodo consequat."
   ]}
 />
 
-<Section class="mb-4 md:mb-12" columns={1}>
+<Section class="mb-4 md:mb-12">
 <Markdown>
 
 ---

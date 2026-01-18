@@ -1,0 +1,47 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import TextBtn from "~/components/ui/buttons/TextBtn.astro";
+
+interface Props extends HTMLAttributes<"section"> {
+  columns?: number;
+  btns: {
+    href: string;
+    icon?: string;
+    label: string;
+  }[];
+  heading?: string;
+}
+
+const { btns, columns = 5, heading, class: className }: Props = Astro.props;
+---
+
+<section class:list={["bg-base-200 dark:bg-base-800 py-4 md:py-8", className]}>
+  <div class="contain flex flex-col gap-4">
+    <h2 class="max-w-[75ch]">{heading}</h2>
+
+    <ul
+      class:list={[
+        "grid grid-cols-1 gap-4",
+        columns === 2 && "md:grid-cols-2",
+        columns === 3 && "md:grid-cols-3",
+        columns === 4 && "md:grid-cols-4",
+        columns === 5 && "md:grid-cols-5",
+        columns === 6 && "md:grid-cols-6",
+        columns === 7 && "md:grid-cols-7",
+      ]}
+    >
+      {
+        btns.map((btn) => (
+          <li class="place-self-start">
+            <TextBtn
+              href={btn.href}
+              label={btn.label}
+              icon={btn.icon}
+              iconSize={24}
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
