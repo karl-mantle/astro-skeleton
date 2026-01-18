@@ -11,6 +11,7 @@ interface Props extends HTMLAttributes<"div"> {
     label: string;
     type: "primary" | "secondary" | "text" | "icon";
     icon?: string;
+    iconReverse?: boolean;
   }[];
 }
 
@@ -22,12 +23,29 @@ const { btns, class: className, ...rest }: Partial<Props> = Astro.props;
     btns.map((btn) => (
       <>
         {btn.type === "primary" && (
-          <PrimaryBtn href={btn.href} label={btn.label} icon={btn.icon ?? ""} />
+          <PrimaryBtn
+            href={btn.href}
+            label={btn.label}
+            icon={btn.icon ?? ""}
+            iconReverse={btn.iconReverse}
+          />
         )}
         {btn.type === "secondary" && (
-          <SecondaryBtn href={btn.href} label={btn.label} icon={btn.icon ?? ""} />
+          <SecondaryBtn
+            href={btn.href}
+            label={btn.label}
+            icon={btn.icon ?? ""}
+            iconReverse={btn.iconReverse}
+          />
         )}
-        {btn.type === "text" && <TextBtn href={btn.href} label={btn.label} icon={btn.icon ?? ""} />}
+        {btn.type === "text" && (
+          <TextBtn
+            href={btn.href}
+            label={btn.label}
+            icon={btn.icon ?? ""}
+            iconReverse={btn.iconReverse}
+          />
+        )}
         {btn.type === "icon" && (
           <IconBtn
             href={btn.href}

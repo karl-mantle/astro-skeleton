@@ -1,0 +1,288 @@
+---
+title: "UI components"
+description: "Demo page for miscellaneous UI components. See usage, examples, attributes and additional notes."
+slug: "components/ui"
+---
+
+import Section from "~/components/mdx/layout/Section.astro";
+import Markdown from "~/components/mdx/layout/Markdown.astro";
+
+<Section class="mt-20" columns={1}>
+
+<Markdown>
+
+# UI Components
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## Button Group Component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Button Group example
+
+</Markdown>
+
+import BtnGroup from "~/components/ui/buttons/Group.astro";
+
+<BtnGroup
+  btns={[
+    {
+      href: "#primary-btn",
+      label: "Primary button",
+      type: "primary",
+      icon: "material-symbols:arrow-left-alt",
+      iconReverse: true,
+    },
+    {
+      href: "#secondary-btn",
+      label: "Secondary button",
+      type: "secondary",
+    },
+    {
+      href: "#text-btn",
+      label: "Text button",
+      type: "text",
+      icon: "material-symbols:menu-book-outline",
+    },
+    {
+      href: "#icon-btn",
+      type: "icon",
+      icon: "material-symbols:menu-book-outline",
+    },
+  ]}
+/>
+
+<Markdown>
+```mdx
+
+<Markdown>
+
+## Button Group component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Button Group example
+
+</Markdown>
+
+import BtnGroup from "~/components/ui/buttons/Group.astro";
+
+<BtnGroup
+  btns={[
+    {
+      href: "#primary-btn",
+      label: "Primary button",
+      type: "primary",
+      icon: "material-symbols:arrow-left-alt",
+      iconReverse: true,
+    },
+    {
+      href: "#secondary-btn",
+      label: "Secondary button",
+      type: "secondary",
+    },
+    {
+      href: "#text-btn",
+      label: "Text button",
+      type: "text",
+      icon: "material-symbols:menu-book-outline",
+    },
+    {
+      href: "#icon-btn",
+      type: "icon",
+      icon: "material-symbols:menu-book-outline",
+    },
+  ]}
+/>
+```
+
+### `btns` object array props
+
+- `href` — string  
+  The URL or path the button links to.
+- `label` — string  
+  The visible text on the button.
+- `type` — `"primary"` \| `"secondary"` \| `"text"` \| `"icon"`  
+  Determines which button style component is rendered.
+- `icon` — string  
+  _(optional)_ Icon name including the Iconify set prefix if not local (e.g. `material-symbols:sunny-outline`).
+- `iconReverse` — boolean  
+  _(optional)_ If `true`, places the icon after the label instead of before. Default is `false`.
+
+</Markdown>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## Mini Profile Component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Mini Profile example
+
+</Markdown>
+
+import MiniProfile from "~/components/ui/MiniProfile.astro";
+import ProfilePicture from "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg";
+
+<MiniProfile
+  name="John Johnson"
+  description="Software Engineer"
+  image={{
+    src: ProfilePicture,
+    alt: "John Johnson's profile picture",
+  }}
+/>
+
+<Markdown>
+```mdx
+<Markdown>
+
+## Mini Profile Component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Mini Profile example
+
+</Markdown>
+
+import MiniProfile from "~/components/ui/MiniProfile.astro";
+import ProfilePicture from "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg";
+
+<MiniProfile
+  name="John Johnson"
+  description="Software Engineer"
+  image={{
+    src: ProfilePicture,
+    alt: "John Johnson's profile picture",
+  }}
+/>
+```
+
+### Mini Profile props
+
+- `name` — string  
+  The name of the person.
+- `description` — string  
+  A short description or title for the person.
+- `image` — object  
+  - `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
+  The imported image metadata (output from Astro's image import).
+  - `alt` — string  
+  _(optional)_ Alt text for the image, defaults to empty string `""`.
+
+
+</Markdown>
+</Section>
+
+<Section columns={1}>
+<Markdown>
+
+## Share Links component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Share Links example
+
+</Markdown>
+
+import ShareLinks from "~/components/ui/ShareLinks.astro";
+
+<ShareLinks url="https://example.com" title="Example Page" description="Share this page:" />
+
+<Markdown>
+```mdx
+<Markdown>
+
+## Share Links Component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Share Links example
+
+</Markdown>
+
+import ShareLinks from "~/components/ui/ShareLinks.astro";
+
+<ShareLinks url="https://example.com" title="Example Page" description="Share this page:" />
+```
+
+### Share Links props
+
+- `url` — string  
+  The URL to be shared.
+- `title` — string  
+  The title of the page to be shared.
+- `description` — string  
+  _(optional)_ A short description to display above the share links.
+- `display` -  array of strings  
+  _(optional)_ An array of social platforms to display. Defaults are: `["email", "facebook", "linkedin", "whatsapp"]`.
+
+</Markdown>
+</Section>
+
+<Section class="mb-4 md:mb-12" columns={1}>
+<Markdown>
+
+## Tag Cloud component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Tag Cloud example
+
+</Markdown>
+
+import TagCloud from "~/components/collections/generic/TagCloud.astro";
+
+<TagCloud class="max-w-72" contentCollection="posts" />
+
+<Markdown>
+```mdx
+<Markdown>
+
+## Tag Cloud Component
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+</Markdown>
+
+import TagCloud from "~/components/collections/generic/TagCloud.astro";
+
+<TagCloud class="max-w-72" contentCollection="posts" />
+```
+
+### Tag Cloud props
+
+- `contentCollection` — string  
+  The content collection from which to pull tags (e.g. `posts`, `profles`).
+- `class` — string  
+  _(optional)_ Additional classes to apply to the Tag Cloud container.
+
+</Markdown>
+</Section>
