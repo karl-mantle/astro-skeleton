@@ -30,10 +30,8 @@ jobs:
       - name: Build Astro site
         run: ASTRO_ENV=prod npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - uses: actions/upload-pages-artifact@v3
         with:
-          name: site
           path: dist
 
   build_ci:
@@ -57,7 +55,7 @@ jobs:
           path: dist
 
   test:
-    needs: build
+    needs: build_ci
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -74,6 +72,9 @@ jobs:
         with:
           name: site-ci
           path: dist
+
+      - name: Debug sitemap
+        run: cat dist/sitemap-0.xml
 
       - name: Run pa11y-ci accessibility tests
         run: |
