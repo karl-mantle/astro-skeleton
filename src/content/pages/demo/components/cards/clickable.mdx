@@ -4,9 +4,9 @@ description: "Demo page for the Clickable card component. See usage, examples, a
 slug: "components/cards/clickable"
 ---
 
-import Section from "~/components/mdx/layout/Section.astro";
-import Markdown from "~/components/mdx/layout/Markdown.astro";
-import Carousel from "~/components/mdx/layout/Carousel.astro";
+import Section from "~/components/layout/wrappers/Section.astro";
+import Markdown from "~/components/layout/wrappers/Markdown.astro";
+import Carousel from "~/components/layout/wrappers/Carousel.astro";
 import PreviewImage from "~/assets/jpg/mick-nsenga-50XwniKxiXI-unsplash.jpg";
 
 <Section class="mt-20" columns={3}>
@@ -18,7 +18,7 @@ A clickable content card with a heading and optional description or image. It ca
 
 </Markdown>
 
-import ClickableCard from "~/components/mdx/cards/Clickable.astro";
+import ClickableCard from "~/components/cards/Clickable.astro";
 
 <ClickableCard
   image={{ src: PreviewImage, alt: "" }}
@@ -71,7 +71,7 @@ A default content card with a heading and optional description. It can be center
 
 </Markdown>
 
-import ClickableCard from "~/components/mdx/cards/Default.astro";
+import ClickableCard from "~/components/cards/Default.astro";
 
 <ClickableCard
   image={{ src: PreviewImage, alt: "" }}

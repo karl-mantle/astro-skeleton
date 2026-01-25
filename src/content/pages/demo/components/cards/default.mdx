@@ -4,9 +4,9 @@ description: "Demo page for the Default card component. See usage, examples, att
 slug: "components/cards/default"
 ---
 
-import Section from "~/components/mdx/layout/Section.astro";
-import Markdown from "~/components/mdx/layout/Markdown.astro";
-import Carousel from "~/components/mdx/layout/Carousel.astro";
+import Section from "~/components/layout/wrappers/Section.astro";
+import Markdown from "~/components/layout/wrappers/Markdown.astro";
+import Carousel from "~/components/layout/wrappers/Carousel.astro";
 import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
 
 <Section class="mt-20" columns={3}>
@@ -18,7 +18,7 @@ A default content card with a heading and optional description, image and button
 
 </Markdown>
 
-import DefaultCard from "~/components/mdx/cards/Default.astro";
+import DefaultCard from "~/components/cards/Default.astro";
 
 <DefaultCard
   image={{ src: PreviewImage, alt: "" }}
@@ -83,7 +83,7 @@ A default content card with a heading and optional description. It can be center
 
 </Markdown>
 
-import DefaultCard from "~/components/mdx/cards/Default.astro";
+import DefaultCard from "~/components/cards/Default.astro";
 
 <DefaultCard
   image={{ src: PreviewImage, alt: "" }}

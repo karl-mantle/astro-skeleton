@@ -4,10 +4,10 @@ import type { HTMLAttributes } from "astro/types";
 import { Picture } from "astro:assets";
 import { imagesConfig } from "~/site.config";
 import BtnGroup from "~/components/ui/buttons/Group.astro";
-import Vimeo from "~/components/mdx/media/videos/Vimeo.astro";
-import YouTube from "~/components/mdx/media/videos/YouTube.astro";
+import Vimeo from "~/components/media/videos/Vimeo.astro";
+import YouTube from "~/components/media/videos/YouTube.astro";
 
-interface Props extends HTMLAttributes<"section"> {
+interface Props extends HTMLAttributes<"header"> {
   btns?: {
     href: string;
     label: string;
@@ -40,7 +40,7 @@ const aspectMap = {
 const { btns, description, heading, image, layout, video, class: className }: Props = Astro.props;
 ---
 
-<section class:list={["mt-20 overflow-hidden md:mt-12", className]}>
+<header class:list={["mt-20 overflow-hidden md:mt-12", className]}>
   <div
     class="contain relative flex h-full w-full flex-col-reverse items-center gap-4 py-4 md:grid md:grid-cols-2 md:gap-8 md:p-0"
   >
@@ -52,7 +52,7 @@ const { btns, description, heading, image, layout, video, class: className }: Pr
       ]}
     >
       <div class="flex max-w-[75ch] flex-col gap-4">
-        <h2>{heading}</h2>
+        <h1>{heading}</h1>
         {description && <p>{description}</p>}
       </div>
 
@@ -88,4 +88,4 @@ const { btns, description, heading, image, layout, video, class: className }: Pr
       )
     }
   </div>
-</section>
+</header>

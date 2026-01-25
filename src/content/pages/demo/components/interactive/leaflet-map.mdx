@@ -4,8 +4,8 @@ description: "Demo page for the Leaflet Map component. See usage, examples, attr
 slug: "components/interactive/leaflet-map"
 ---
 
-import Section from "~/components/mdx/layout/Section.astro";
-import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Section from "~/components/layout/wrappers/Section.astro";
+import Markdown from "~/components/layout/wrappers/Markdown.astro";
 
 <Section class="mt-20" columns={1}>
 <Markdown>
@@ -27,7 +27,7 @@ An interactive map using [`leaflet.js`](https://leafletjs.com/) with the followi
 
 </Markdown>
 
-import LeafletMap from "~/components/mdx/interactive/maps/Leaflet.astro";
+import LeafletMap from "~/components/interactive/maps/Leaflet.astro";
 
 <LeafletMap
   mapOptions={{
@@ -65,7 +65,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 </Markdown>
 
-import LeafletMap from "~/components/mdx/interactive/maps/Leaflet.astro";
+import LeafletMap from "~/components/interactive/maps/Leaflet.astro";
 
 <LeafletMap
   mapOptions={{

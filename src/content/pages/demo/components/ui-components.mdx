@@ -4,8 +4,8 @@ description: "Demo page for miscellaneous UI components. See usage, examples, at
 slug: "components/ui"
 ---
 
-import Section from "~/components/mdx/layout/Section.astro";
-import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Section from "~/components/layout/wrappers/Section.astro";
+import Markdown from "~/components/layout/wrappers/Markdown.astro";
 
 <Section class="mt-20" columns={1}>
 
@@ -183,12 +183,11 @@ import ProfilePicture from "~/assets/jpg/hayden-walker-ihiEd-_4TNY-unsplash.jpg"
   The name of the person.
 - `description` — string  
   A short description or title for the person.
-- `image` — object  
+- `image` — object
   - `src` — [ImageMetadata](https://github.com/withastro/astro/blob/dacebaf8df6293558091a18123aed966e4e57415/packages/astro/src/assets/types.ts#L38)  
-  The imported image metadata (output from Astro's image import).
+    The imported image metadata (output from Astro's image import).
   - `alt` — string  
-  _(optional)_ Alt text for the image, defaults to empty string `""`.
-
+    _(optional)_ Alt text for the image, defaults to empty string `""`.
 
 </Markdown>
 </Section>
@@ -237,7 +236,7 @@ import ShareLinks from "~/components/ui/ShareLinks.astro";
   The title of the page to be shared.
 - `description` — string  
   _(optional)_ A short description to display above the share links.
-- `display` -  array of strings  
+- `display` - array of strings  
   _(optional)_ An array of social platforms to display. Defaults are: `["email", "facebook", "linkedin", "whatsapp"]`.
 
 </Markdown>

@@ -4,7 +4,7 @@ description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do ei
 slug: "index"
 ---
 
-import FullBackgroundHero from "~/components/mdx/heroes/FullBackground.astro";
+import FullBackgroundHero from "~/components/heroes/FullBackground.astro";
 import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
 
 <FullBackgroundHero
@@ -18,8 +18,8 @@ import PreviewImage from "~/assets/jpg/arthur-mazi-6148mnVnY-s-unsplash.jpg";
   }}
 />
 
-import Section from "~/components/mdx/layout/Section.astro";
-import Markdown from "~/components/mdx/layout/Markdown.astro";
+import Section from "~/components/layout/wrappers/Section.astro";
+import Markdown from "~/components/layout/wrappers/Markdown.astro";
 import RecentPosts from "~/components/collections/posts/RecentPosts.astro";
 
 <Section columns={1} class="mt-4 md:mt-12 mb-4 md:mb-12">

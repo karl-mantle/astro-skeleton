@@ -4,9 +4,9 @@ description: "Demo page for the Review card component. See usage, examples, attr
 slug: "components/cards/review"
 ---
 
-import Section from "~/components/mdx/layout/Section.astro";
-import Markdown from "~/components/mdx/layout/Markdown.astro";
-import Carousel from "~/components/mdx/layout/Carousel.astro";
+import Section from "~/components/layout/wrappers/Section.astro";
+import Markdown from "~/components/layout/wrappers/Markdown.astro";
+import Carousel from "~/components/layout/wrappers/Carousel.astro";
 
 <Section class="mt-20" columns={3}>
 <Markdown class="md:col-span-3">
@@ -17,7 +17,7 @@ A simple review card with an optional attribution section and star rating. It is
 
 </Markdown>
 
-import ReviewCard from "~/components/mdx/cards/Review.astro";
+import ReviewCard from "~/components/cards/Review.astro";
 
 <ReviewCard
   rating={5}
@@ -78,7 +78,7 @@ laboris nisi ut aliquip ex ea commodo consequat.
 
 </Markdown>
 
-import ReviewCard from "~/components/mdx/cards/Review.astro";
+import ReviewCard from "~/components/cards/Review.astro";
 
 <ReviewCard
   quote="Et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
