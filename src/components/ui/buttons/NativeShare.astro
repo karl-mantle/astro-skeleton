@@ -1,0 +1,62 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { Icon } from "astro-icon/components";
+
+interface Props extends HTMLAttributes<"button"> {
+  description: string;
+  label?: string;
+  title: string;
+}
+
+const { description, label, title, class: className, ...rest }: Partial<Props> = Astro.props;
+---
+
+<button
+  class:list={[
+    "not-prose group/btn hover:border-base-950 focus-visible:bg-focus-color hover:text-base-950 flex w-fit cursor-pointer items-center justify-center gap-2 border-b-2 border-transparent p-1 font-medium transition-colors duration-300 focus-visible:border-b-2 focus-visible:border-black focus-visible:text-black dark:hover:border-white dark:hover:text-white",
+    !label ? "hover:bg-base-200 dark:hover:bg-base-800 !gap-0 border-none p-2" : "",
+    className,
+  ]}
+  type="button"
+  aria-label={`Share this page: ${title}`}
+  data-native-share-btn
+  data-title={title}
+  data-description={description}
+  {...rest}
+>
+  {label && <span>{label}</span>}
+
+  <Icon class="self-center" name="material-symbols:share" height={21} width={21} />
+</button>
+
+<script>
+  function initShareBtn() {
+    const btns = document.querySelectorAll<HTMLButtonElement>("[data-native-share-btn]");
+
+    btns.forEach((btn) => {
+      if (!navigator.share) {
+        btn.disabled = true;
+        btn.setAttribute("aria-disabled", "true");
+        return;
+      }
+
+      const url = window.location.href;
+      const title = btn.dataset.title;
+      const description = btn.dataset.description;
+
+      btn.addEventListener("click", async () => {
+        try {
+          await navigator.share({
+            url,
+            title,
+            text: description,
+          });
+        } catch {
+          // ignore cancel
+        }
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initShareBtn);
+</script>

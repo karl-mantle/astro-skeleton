@@ -285,3 +285,54 @@ import TagCloud from "~/components/collections/generic/TagCloud.astro";
 
 </Markdown>
 </Section>
+
+<Section class="mt-20" columns={1}>
+
+<Markdown>
+
+## JS Buttons
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+laboris nisi ut aliquip ex ea commodo consequat.
+
+### Native Share button
+
+Opens the native share dialog on supported browsers. You can set the title and description.
+Use `{frontmatter.title}` and `{frontmatter.description}` to pull in the current page's title and description if using MDX.
+
+import NativeShare from "~/components/ui/buttons/NativeShare.astro";
+
+<NativeShare title={frontmatter.title} description={frontmatter.description} />
+
+<NativeShare title={frontmatter.title} description={frontmatter.description} label="Share" />
+
+```
+
+import NativeShare from "~/components/ui/buttons/NativeShare.astro";
+
+<NativeShare title={frontmatter.title} description={frontmatter.description} label="Share" />
+```
+
+### Click to Copy button
+
+You can use the Click to Copy button to allow users to easily copy text (e.g. a URL) to their clipboard with a single click.
+
+Leave the text prop blank to use the current page URL by default, or pass in any custom text you'd like to be copied.
+You can also set the button label and success label that appears after clicking.
+Leave them blank to use as an icon only.
+
+import ClickToCopy from "~/components/ui/buttons/ClickToCopy.astro";
+
+<ClickToCopy text="https://example.com" label="Copy URL" labelSuccess="URL copied to clipboard!" />
+
+<ClickToCopy />
+
+```
+import ClickToCopy from "~/components/ui/buttons/ClickToCopy.astro";
+
+<ClickToCopy text="https://example.com" label="Copy URL" labelSuccess="URL copied to clipboard!" />
+```
+
+</Markdown>
+</Section>
