@@ -25,7 +25,7 @@ const mapEnvDomain = {
 
 // https://astro.build/config
 export default defineConfig({
-  // @ts-ignore
+  // @ts-expect-error - site is dynamically set based on environment
   site: mapEnvDomain[env].site,
   base: "/astro-skeleton/",
   integrations: [

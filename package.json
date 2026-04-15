@@ -6,8 +6,7 @@
     "dev": "npx pagefind && npx shx cp -r dist/pagefind public/ && astro dev",
     "build": "astro build && npx pagefind",
     "preview": "astro preview",
-    "astro": "astro",
-    "test:e2e": "jest"
+    "astro": "astro"
   },
   "dependencies": {
     "@astrojs/mdx": "4.3.5",
